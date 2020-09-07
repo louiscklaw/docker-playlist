@@ -16,4 +16,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       run: |
-        echo 'helloworld'
+        docker build -t logickee/helloworld -f dockerfile .
