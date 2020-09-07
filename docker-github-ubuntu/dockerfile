@@ -1,0 +1,32 @@
+FROM ubuntu:18.04
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN sed -i 's/http:\/\/archive\.ubuntu\.com/http:\/\/ftp\.cuhk\.edu\.hk\/pub\/Linux/g' /etc/apt/sources.list && \
+  sed -i 's/http:\/\/security\.ubuntu\.com/http:\/\/ftp\.cuhk\.edu\.hk\/pub\/Linux/g' /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y sudo
+
+# Set default user and workdir
+
+# RUN chown -R 1001:116 /home/runner
+RUN sudo addgroup --gid 116 docker
+# RUN sudo addgroup --gid 4 admin
+RUN sudo addgroup --gid 101 systemd-journal
+
+RUN sudo adduser -q --home /home/runner --uid 1001 --gid 116 runner
+RUN sudo adduser runner docker
+RUN sudo adduser runner adm
+RUN sudo adduser runner systemd-journal
+
+RUN sudo chown 1001:116 -R /home/runner
+RUN ls -l /home
+
+COPY ./overlay/etc/sudoers/runner /etc/sudoers.d/runner
+
+USER runner
+WORKDIR /home/runner
+
+RUN sudo cat /etc/sudoers
+
+CMD ["/bin/bash"]

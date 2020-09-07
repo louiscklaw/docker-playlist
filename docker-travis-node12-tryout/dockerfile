@@ -1,0 +1,16 @@
+# FROM travisci/ci-garnet:packer-1512502276-986baf0
+FROM travisci/ci-sardonyx:packer-1599029247-b31bfaec
+
+# Set default user and workdir
+USER root
+WORKDIR /root
+
+# Set DEBIAN_FRONTEND to noninteractive
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+# sudo apt-get install -qqy npm
+
+COPY ./entry.sh /entry.sh
+
+CMD ["/bin/bash /entry.sh"]
