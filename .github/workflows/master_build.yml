@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: github-actions-helloworld-tryout
         uses: actions/checkout@v2
+  
+      - name: try build image
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
