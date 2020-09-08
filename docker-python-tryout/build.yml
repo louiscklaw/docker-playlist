@@ -1,0 +1,18 @@
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
+# https://github.com/sdras/awesome-actions
+
+docker_python_tryout:
+  runs-on: ubuntu-latest
+  steps:
+    - name: docker-python-tryout
+      uses: actions/checkout@v2
+
+    - name: try build image
+      env: # Or as an environment variable
+        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      run: |
+        cd docker-python-tryout
+          docker build -t logickee/docker_python -f dockerfile .
+        cd ..
