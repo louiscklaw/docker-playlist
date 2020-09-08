@@ -33,4 +33,6 @@ WORKDIR /home/runner/work_dir
 
 RUN sudo cat /etc/sudoers
 
+RUN sudo apt install -y entr
+
 CMD ["/bin/bash"]
