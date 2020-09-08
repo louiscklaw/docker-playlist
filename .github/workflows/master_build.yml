@@ -32,8 +32,10 @@ jobs:
   test_merger:
     runs-on: ubuntu-latest
     steps:
-      - name: test merger
+      - name: checkout
         uses: actions/checkout@v2
+  
+      - name: run test
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -58,8 +60,10 @@ jobs:
     needs: [test_merger, github_actions_helloworld_tryout]
     runs-on: ubuntu-latest
     steps:
-      - name: merge branch
+      - name: checkout
         uses: actions/checkout@v2
+  
+      - name: run merge
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
