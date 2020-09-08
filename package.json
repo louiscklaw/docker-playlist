@@ -1,0 +1,32 @@
+{
+  "name": "docker-playlist",
+  "version": "1.0.0",
+  "description": "### repo https://github.com/louiscklaw/docker-playlist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louiscklaw/docker-playlist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/louiscklaw/docker-playlist/issues"
+  },
+  "homepage": "https://github.com/louiscklaw/docker-playlist#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "husky": "^4.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "scripts/pre-commit.sh",
+      "pre-push": "scripts/pre-push.sh"
+    }
+  }
+
+}
