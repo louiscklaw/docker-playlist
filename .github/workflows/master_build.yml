@@ -21,11 +21,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
         run: |
-          echo 'helloworld'
-          node --version
-          npm -v
-          yarn -v
-  
+          cd docker-helloworld-tryout
+            docker build -t logickee/helloworld -f dockerfile .
+          cd ..
   
 
   # 
