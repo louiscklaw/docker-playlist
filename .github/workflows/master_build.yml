@@ -9,10 +9,10 @@ jobs:
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
   
-  github_actions_helloworld_tryout:
+  docker_helloworld_tryout:
     runs-on: ubuntu-latest
     steps:
-      - name: github-actions-helloworld-tryout
+      - name: docker-helloworld-tryout
         uses: actions/checkout@v2
   
       - name: try build image
@@ -57,7 +57,7 @@ jobs:
           github-build-merger-tryout/test.sh
   
   merge:
-    needs: [test_merger, github_actions_helloworld_tryout]
+    needs: [test_merger, docker_helloworld_tryout]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
