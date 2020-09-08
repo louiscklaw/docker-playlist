@@ -12,16 +12,17 @@ jobs:
   github_actions_helloworld_tryout:
     runs-on: ubuntu-latest
     steps:
-    - name: github-actions-helloworld-tryout
-      uses: actions/checkout@v2
-      env: # Or as an environment variable
-        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: github-actions-helloworld-tryout
+        uses: actions/checkout@v2
+        env: # Or as an environment variable
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
-      run: |
-        cd docker-helloworld-tryout
-          docker build -t logickee/helloworld -f dockerfile .
-        cd ..
+        run: |
+          echo 'helloworld'
+          node --version
+          npm -v
+          yarn -v
   
   
 
