@@ -2,6 +2,8 @@
 
 set -ex
 
-# docker-github-ubuntu/build.sh
+docker-github-ubuntu/build.sh &
 
-docker-github-python-tryout/build.sh
+docker-github-python-tryout/build.sh &
+
+wait
