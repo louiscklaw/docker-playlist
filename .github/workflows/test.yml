@@ -1,0 +1,25 @@
+name: Test
+on: [push]
+
+jobs:
+
+  #
+  # /home/logic/_workspace/docker-playlist/docker-helloworld-tryout/build.yml
+  #
+  # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
+  # https://github.com/sdras/awesome-actions
+
+  github_actions_helloworld_tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: github-actions-helloworld-tryout
+        uses: actions/checkout@v2
+        env: # Or as an environment variable
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        run: |
+          echo 'helloworld'
+          node --version
+          npm -v
+          yarn -v
