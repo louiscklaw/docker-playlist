@@ -4,6 +4,28 @@ on: [push]
 jobs:
 
   # 
+  # /home/logic/_workspace/docker-playlist/docker-gnome-tryout/build.yml
+  # 
+  # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
+  # https://github.com/sdras/awesome-actions
+  
+  docker_gnome_tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: docker-gnome-tryout
+        uses: actions/checkout@v2
+  
+      - name: try build image
+        env: # Or as an environment variable
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+        run: |
+          cd docker-gnome-tryout
+            docker build -t logickee/ubuntu_gnome -f dockerfile .
+          cd ..
+  
+  # 
   # /home/logic/_workspace/docker-playlist/docker-helloworld-tryout/build.yml
   # 
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
@@ -24,6 +46,7 @@ jobs:
           cd docker-helloworld-tryout
             docker build -t logickee/helloworld -f dockerfile .
           cd ..
+  
   
 
   # 
@@ -57,7 +80,7 @@ jobs:
           github-build-merger-tryout/test.sh
   
   merge:
-    needs: [test_merger, docker_helloworld_tryout]
+    needs: [test_merger, docker_helloworld_tryout, docker_gnome_tryout]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
