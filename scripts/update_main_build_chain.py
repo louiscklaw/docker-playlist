@@ -10,7 +10,11 @@ import shutil
 SCRIPT_DIR=os.path.dirname(__file__)
 PROJ_HOME=os.path.abspath(os.path.join(SCRIPT_DIR,'..'))
 
-GITHUB_BUILD_MERGER_TRYOUT_FILEPATH='{}/github-build-merger-tryout/subjob.yml'.format(PROJ_HOME)
+GITHUB_BUILD_MERGER_TRYOUT_FILEPATH=''
+if (PROJ_HOME.find('github-playlist')):
+  GITHUB_BUILD_MERGER_TRYOUT_FILEPATH='{}/github-build-merger-tryout/subjob.yml'.format(PROJ_HOME)
+else:
+  GITHUB_BUILD_MERGER_TRYOUT_FILEPATH='{}/github-build-merger/subjob.yml'.format(PROJ_HOME)
 
 MASTER_GITHUB_ACTIONS_FILEPATH='{}/.github/workflows/master_build.yml'.format(PROJ_HOME)
 
