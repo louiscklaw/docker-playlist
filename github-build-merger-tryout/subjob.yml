@@ -1,8 +1,8 @@
 test_merger:
   runs-on: ubuntu-latest
   steps:
-    - uses: actions/checkout@v2
     - name: test merger
+      uses: actions/checkout@v2
       env: # Or as an environment variable
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -27,8 +27,8 @@ merge:
   needs: test_merger
   runs-on: ubuntu-latest
   steps:
-    - uses: actions/checkout@v2
     - name: merge branch
+      uses: actions/checkout@v2
       env: # Or as an environment variable
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
