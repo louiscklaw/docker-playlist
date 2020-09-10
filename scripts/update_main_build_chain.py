@@ -11,7 +11,7 @@ SCRIPT_DIR=os.path.dirname(__file__)
 PROJ_HOME=os.path.abspath(os.path.join(SCRIPT_DIR,'..'))
 
 GITHUB_BUILD_MERGER_TRYOUT_FILEPATH=''
-if (PROJ_HOME.find('github-playlist')):
+if (PROJ_HOME.find('github-playlist') > -1):
   GITHUB_BUILD_MERGER_TRYOUT_FILEPATH='{}/github-build-merger-tryout/subjob.yml'.format(PROJ_HOME)
 else:
   GITHUB_BUILD_MERGER_TRYOUT_FILEPATH='{}/github-build-merger/subjob.yml'.format(PROJ_HOME)
@@ -82,7 +82,8 @@ def getNameFromSubJob(subjob_contents):
   return output
 
 def main():
-  yml_files = listYmlFiles(PROJ_HOME)
+  yml_files = list(set(listYmlFiles(PROJ_HOME)))
+
   # playlist_names = map(lambda x: x.split('/')[-1], yml_files)
   # pprint(list(yml_files))
   yml_file_contents = list(map(lambda x: getYmlFile(x), yml_files))

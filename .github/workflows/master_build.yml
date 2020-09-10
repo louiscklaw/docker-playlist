@@ -100,7 +100,7 @@ jobs:
   
 
   # 
-  # /home/logic/_workspace/docker-playlist/github-build-merger-tryout/subjob.yml
+  # /home/logic/_workspace/docker-playlist/github-build-merger/subjob.yml
   # 
   test_merger:
     runs-on: ubuntu-latest
@@ -130,7 +130,7 @@ jobs:
           github-build-merger-tryout/test.sh
   
   merge:
-    needs: [test_merger, docker_helloworld_tryout, docker_gnome_tryout, docker_python_tryout, docker_ubuntu_tryout]
+    needs: [test_merger, docker_python_tryout, docker_helloworld_tryout, docker_ubuntu_tryout, docker_gnome_tryout]
     runs-on: ubuntu-latest
     steps:
       - name: checkout

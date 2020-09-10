@@ -6,4 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm install 12
 
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+
 /bin/bash

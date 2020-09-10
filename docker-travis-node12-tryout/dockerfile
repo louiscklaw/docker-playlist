@@ -1,16 +1,21 @@
-# FROM travisci/ci-garnet:packer-1512502276-986baf0
-FROM travisci/ci-sardonyx:packer-1599029247-b31bfaec
+FROM ubuntu:18.04
 
-# Set default user and workdir
-USER root
-WORKDIR /root
 
 # Set DEBIAN_FRONTEND to noninteractive
 ENV DEBIAN_FRONTEND noninteractive
+RUN ln -fs /usr/share/zoneinfo/Asia/Hong_Kong /etc/localtime
 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-# sudo apt-get install -qqy npm
+RUN sed -i 's/http:\/\/archive\.ubuntu\.com/http:\/\/ftp\.cuhk\.edu\.hk\/pub\/Linux/g' /etc/apt/sources.list && \
+  sed -i 's/http:\/\/security\.ubuntu\.com/http:\/\/ftp\.cuhk\.edu\.hk\/pub\/Linux/g' /etc/apt/sources.list
 
-COPY ./entry.sh /entry.sh
+RUN apt-get update && \
+  apt-get install -y zsh sudo
 
-CMD ["/bin/bash /entry.sh"]
+RUN apt-get install -y software-properties-common
+RUN apt-get install -y git
+
+# Set default user and workdir
+USER root
+WORKDIR /root/work_dir
+
+CMD ["/bin/bash"]
