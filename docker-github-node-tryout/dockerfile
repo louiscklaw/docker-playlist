@@ -1,0 +1,53 @@
+FROM ubuntu:18.04
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN sed -i 's/http:\/\/archive\.ubuntu\.com/http:\/\/ftp\.cuhk\.edu\.hk\/pub\/Linux/g' /etc/apt/sources.list && \
+  sed -i 's/http:\/\/security\.ubuntu\.com/http:\/\/ftp\.cuhk\.edu\.hk\/pub\/Linux/g' /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y sudo
+
+RUN sudo apt install -y git
+RUN git config --global user.email "test@example.com"
+RUN git config --global user.name "docker-github-node"
+
+
+RUN sudo apt install -qqy curl
+RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+RUN sudo apt install -y nodejs
+
+RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+RUN sudo apt-get update && sudo apt-get install yarn
+
+
+# Set default user and workdir
+
+# RUN chown -R 1001:116 /home/runner
+RUN sudo addgroup --gid 116 docker
+# RUN sudo addgroup --gid 4 admin
+# RUN sudo addgroup --gid 101 systemd-journal
+
+RUN sudo adduser -q --home /home/runner --uid 1001 --gid 116 runner
+RUN sudo adduser runner docker
+RUN sudo adduser runner adm
+# RUN sudo adduser runner systemd-journal
+
+RUN sudo chown 1001:116 -R /home/runner
+RUN ls -l /home
+
+COPY ./overlay/etc/sudoers/runner /etc/sudoers.d/runner
+
+USER runner
+WORKDIR /home/runner/work_dir
+
+RUN sudo cat /etc/sudoers
+
+RUN sudo apt install -y entr
+
+
+RUN node -v
+RUN npm -v
+RUN yarn --version
+
+CMD ["/bin/bash"]
