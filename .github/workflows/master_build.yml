@@ -130,7 +130,7 @@ jobs:
           github-build-merger-tryout/test.sh
   
   merge:
-    needs: [test_merger, docker_python_tryout, docker_helloworld_tryout, docker_ubuntu_tryout, docker_gnome_tryout]
+    needs: [test_merger, docker_helloworld_tryout, docker_python_tryout, docker_gnome_tryout, docker_ubuntu_tryout]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
