@@ -23,7 +23,7 @@ test_merger:
         export LANG=C.UTF-8
 
         pipenv --help
-        github-build-merger-tryout/test.sh
+        github-build-merger/test.sh
 
 merge:
   needs: test_merger
@@ -50,7 +50,7 @@ merge:
         export LC_ALL=C.UTF-8
         export LANG=C.UTF-8
 
-        cd github-build-merger-tryout
+        cd github-build-merger
           pipenv sync
 
           pipenv run python3 ./merge.py

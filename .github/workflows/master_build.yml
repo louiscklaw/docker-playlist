@@ -1,5 +1,6 @@
 name: master_build
-on: [push]
+on:
+  push:
 
 jobs:
 
@@ -127,10 +128,10 @@ jobs:
           export LANG=C.UTF-8
   
           pipenv --help
-          github-build-merger-tryout/test.sh
+          github-build-merger/test.sh
   
   merge:
-    needs: [test_merger, docker_helloworld_tryout, docker_python_tryout, docker_gnome_tryout, docker_ubuntu_tryout]
+    needs: [docker_gnome_tryout, docker_helloworld_tryout, docker_python_tryout, docker_ubuntu_tryout, test_merger]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -154,7 +155,7 @@ jobs:
           export LC_ALL=C.UTF-8
           export LANG=C.UTF-8
   
-          cd github-build-merger-tryout
+          cd github-build-merger
             pipenv sync
   
             pipenv run python3 ./merge.py

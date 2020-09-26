@@ -4,8 +4,7 @@
 # https://docs.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
 
 import sys
-import os, re, subprocess
-import slack
+import os, re
 import chalk
 
 from fabric.api import local, shell_env, lcd, run, settings
@@ -67,7 +66,8 @@ def merge_to_pre_merge_master_branch(branch_to_merge, cwd):
   create_branch_if_not_exist('pre-merge-master', cwd)
   run_command('git merge -m"pre-merge-master from develop and use theirs for test," origin/develop',cwd)
 
-
+def git_clone_source(PUSH_URI, TEMP_DIR):
+  local('git clone "{}" "{}"'.format(PUSH_URI, TEMP_DIR))
 
 def merge_to_master_branch(branch_to_merge, cwd):
   checkout_branch('master', cwd)
@@ -280,7 +280,7 @@ def process_dependabot_PR(PUSH_URI, pr_branch, cwd, no_push_uri = False):
 
   # create_branch_if_not_exist_remote(test_pr_branch,cwd)
   checkout_branch('develop', cwd)
-  run_command('git merge {}'.format(pr_branch))
+  run_command('git merge --ff-only "{}"'.format('origin/{}'.format(pr_branch)), cwd)
   push_commit(PUSH_URI, 'develop', cwd, False)
 
   # print('Step 2: Merge the changes and update on GitHub.')
@@ -309,6 +309,7 @@ def print_message(msg_text):
   print(chalk.blue(msg_text))
 
 def run_command(command_body, cwd=OS_CWD, ignore_error=True, except_in=MyException.command_error):
+
   if (DRY_RUN):
     return dummy_run_result()
   else:
