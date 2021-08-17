@@ -1,0 +1,41 @@
+version: "3"
+services:
+  debug:
+    build: ./debug
+    volumes:
+      - ./debug:/home/logic/_workspace/LynkedKK
+    environment:
+      - HELLO=WORLD
+
+  jest:
+    build: ./jest
+    volumes:
+      - ./jest:/home/logic/_workspace/LynkedKK
+    environment:
+      - HELLO=WORLD
+
+  # react:
+  #   build: ./react
+  #   volumes:
+  #     - ./react:/home/logic/_workspace/LynkedKK
+  #   expose:
+  #     - "8002"
+  #     - "8003"
+  #     - "8004"
+
+  # firebase:
+  #   build: ./firebase
+  #   volumes:
+  #     - ./firebase:/home/logic/_workspace/LynkedKK
+  #   environment:
+  #     - FIREBASE_TOKEN=$FIREBASE_TOKEN
+  #   expose:
+  #     - "4000"
+  #     - "5000"
+  #     - "5001"
+  #     - "8080"
+  #     - "8085"
+  #     - "9000"
+  #     - "9005"
+  #     - "9099"
+  #     - "9199"
