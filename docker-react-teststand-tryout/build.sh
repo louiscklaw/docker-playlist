@@ -28,8 +28,13 @@ set -ex
 
 wait
 
+# pushd jest
+#   docker build . -t logickee/puppeteer-jest --no-cache
+#   docker push logickee/puppeteer-jest
+# popd
+
 docker-compose pull
-docker-compose build
+# docker-compose build
 docker-compose kill
 docker-compose down --remove-orphans
 docker-compose rm

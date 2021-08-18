@@ -12,5 +12,12 @@ RUN yarn global add node-firestore-import-export
 
 WORKDIR /home/logic/_workspace/LynkedKK
 
+COPY wait-for-it.sh /wait-for-it.sh
+
+COPY wait-ready.sh /wait-ready.sh
+
 COPY entry.sh /entry.sh
-ENTRYPOINT ["./entry.sh"]
+
+# ENTRYPOINT ["./entry.sh"]
+
+CMD ['/bin/bash']

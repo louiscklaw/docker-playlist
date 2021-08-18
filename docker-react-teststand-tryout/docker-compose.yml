@@ -7,35 +7,56 @@ services:
     environment:
       - HELLO=WORLD
 
+  firebase:
+    build: ./firebase
+    volumes:
+      - ./firebase:/home/logic/_workspace/LynkedKK
+    environment:
+      - FIREBASE_TOKEN=$FIREBASE_TOKEN
+      - NODE_ENV="development"
+      - MENY_MANAGE_HOST_URL='http://localhost:8002'
+      - MENY_CLIENT_HOST_URL='http://localhost:8004'
+      - MENY_ADMIN_HOST_URL='http://localhost:8003'
+      - FIREBASE_AUTH_EMULATOR_HOST="localhost:9099"
+      - GOOGLE_APPLICATION_CREDENTIALS=/home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout/credentials/lynked-demo-tryout-firebase-adminsdk-h5zru-2586f8f0a0.json
+    expose:
+      - "4000"
+      - "5000"
+      - "5001"
+      - "8080"
+      - "8085"
+      - "9000"
+      - "9005"
+      - "9099"
+      - "9199"
+    ports:
+      - "14000:4000"
+      - "19099:9099"
+      - "15001:5001"
+
+  react:
+    build: ./react
+    depends_on:
+      - firebase
+    volumes:
+      - ./react:/home/logic/_workspace/LynkedKK
+    expose:
+      - "8002"
+      - "8003"
+      - "8004"
+    ports:
+      - "18002:8002"
+      - "18003:8003"
+      - "18004:8004"
+    env_file:
+      - react.env
+
   jest:
-    build: ./jest
+    depends_on:
+      - react
+      - firebase
+    image: logickee/puppeteer-jest
     volumes:
       - ./jest:/home/logic/_workspace/LynkedKK
     environment:
       - HELLO=WORLD
-
-  # react:
-  #   build: ./react
-  #   volumes:
-  #     - ./react:/home/logic/_workspace/LynkedKK
-  #   expose:
-  #     - "8002"
-  #     - "8003"
-  #     - "8004"
-
-  # firebase:
-  #   build: ./firebase
-  #   volumes:
-  #     - ./firebase:/home/logic/_workspace/LynkedKK
-  #   environment:
-  #     - FIREBASE_TOKEN=$FIREBASE_TOKEN
-  #   expose:
-  #     - "4000"
-  #     - "5000"
-  #     - "5001"
-  #     - "8080"
-  #     - "8085"
-  #     - "9000"
-  #     - "9005"
-  #     - "9099"
-  #     - "9199"
