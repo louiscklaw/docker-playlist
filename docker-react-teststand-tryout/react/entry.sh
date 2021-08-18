@@ -6,7 +6,7 @@ mkdir -p /home/logic/_workspace/LynkedKK
 
 pushd /home/logic/_workspace/LynkedKK
   pushd ./lynked-demo-tryout/meny-light-demo/meny-manage
-    scripts/dev.sh
+    scripts/dev.sh &
   popd
 
   # pushd ./lynked-demo-tryout/meny-light-demo/meny-client
