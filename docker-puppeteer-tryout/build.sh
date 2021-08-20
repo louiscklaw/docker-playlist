@@ -2,10 +2,6 @@
 
 set -ex
 
-rm -rf docker-puppeteer-tryout/screenshots
+docker build -t logickee/puppeteer -f Dockerfile .
 
-cd docker-puppeteer-tryout
-    docker-compose -f docker-compose.integration-tests.yml run tests
-
-    ls screenshots/
-cd ..
+docker push logickee/puppeteer

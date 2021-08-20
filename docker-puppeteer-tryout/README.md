@@ -1,17 +1,17 @@
-# Docker Puppeteer Example
+# Docker Puppeteer
 
-This as an example of using the Docker Puppeteer docker image to run Mocha tests against a linked Docker Compose web service, and capturing a screenshot into a local `./screenshots` directory.
+A Node + Puppeteer base image for running Puppeteer scripts. Add your own tools (such as Jest, Mocha, etc), link services you want to test via Docker Compose, and run your Puppeteer scripts with a headless Chromium.
 
-## Running
+## Versions
 
-```shell
-# Clone this example
-git clone https://github.com/buildkite/docker-puppeteer.git
-cd docker-puppeteer/example
+See the list of [Docker Hub tags](https://hub.docker.com/r/buildkite/puppeteer/tags/) for Puppeteer versions available.
 
-# Build and run the example tests
-docker-compose -f docker-compose.integration-tests.yml run tests
+## Example
 
-# See the screen that was generated
-ls screenshots/
-```
+See the [example directory](example) for a complete Docker Compose example, showing how to run Puppeteer against a linked Docker Compose web service.
+
+## Releasing
+
+1. Create a new release on GitHub. The image is tagged with the same version as Puppeteer.
+2. Docker Hub automatically builds images for the tag.
+3. There is no step 3.

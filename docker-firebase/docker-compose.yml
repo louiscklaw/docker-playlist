@@ -1,0 +1,6 @@
+version: "3"
+services:
+  firebase:
+    image: logickee/docker-firebase
+    expose:
+      - "80"
