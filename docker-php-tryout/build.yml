@@ -1,0 +1,24 @@
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
+# https://github.com/sdras/awesome-actions
+
+docker_ubuntu_tryout:
+  runs-on: ubuntu-latest
+  steps:
+    - name: docker-ubuntu-tryout
+      uses: actions/checkout@v2
+
+    - name: try build image
+      env: # Or as an environment variable
+        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      run: |
+        cd docker-ubuntu-tryout
+
+          docker build -t logickee/ubuntu_1804 -f dockerfile.1804 .
+          docker build -t logickee/ubuntu_2004 -f dockerfile.2004 .
+          docker build -t logickee/ubuntu_2010 -f dockerfile.2010 .
+          docker build -t logickee/ubuntu_1404 -f dockerfile.1404 .
+          docker build -t logickee/ubuntu_1604 -f dockerfile.1604 .
+
+        cd ..
