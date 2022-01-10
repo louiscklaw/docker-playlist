@@ -1,0 +1,18 @@
+version: "3"
+services:
+  tests_host:
+    build:
+      context: ./tests_host
+      dockerfile: dockerfile
+    volumes:
+      - "./integration-tests:/integration-tests"
+      - "./screenshots:/screenshots"
+    command: "wait-for-it.sh react_host:80 -- mocha --recursive /integration-tests"
+    depends_on:
+      - react_host
+  react_host:
+    build:
+      context: ./react_host
+      dockerfile: dockerfile
+    expose:
+      - "80"
