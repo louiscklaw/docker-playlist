@@ -2,6 +2,4 @@
 
 export PORT=3000
 
-pushd App
-  yarn start
-popd
+yarn start
