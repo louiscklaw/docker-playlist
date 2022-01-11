@@ -9,7 +9,7 @@ pushd tests_host
 popd
 
 pushd tests_host
-  mocha --recursive integration-tests
+  yarn run int_test
 popd
 
 echo 'test setup done'
