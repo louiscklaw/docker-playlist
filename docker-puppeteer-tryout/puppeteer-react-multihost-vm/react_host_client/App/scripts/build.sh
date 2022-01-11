@@ -2,6 +2,6 @@
 
 export PORT=3001
 
-cd App
-  yarn --dev 
+pushd App
   yarn start
+popd
