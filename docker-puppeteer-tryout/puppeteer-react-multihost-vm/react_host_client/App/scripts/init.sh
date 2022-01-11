@@ -3,5 +3,5 @@
 export PORT=3000
 
 pushd App
-  yarn start
+  yarn --dev 
 popd

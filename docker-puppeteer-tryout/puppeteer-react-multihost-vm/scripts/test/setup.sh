@@ -9,6 +9,20 @@ killall node || true
 killall node || true
 killall node || true
 
+# yarn --dev
+pushd react_host_admin/App
+  scripts/init.sh
+popd
+
+pushd react_host_client/App
+  scripts/init.sh
+popd
+
+pushd react_host_cms/App
+  scripts/init.sh
+popd
+
+
 pushd react_host_admin/App
   scripts/build.sh &
 popd
