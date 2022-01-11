@@ -4,10 +4,10 @@ set -ex
 
 export BROWSER=none
 
-killall node || true
-killall node || true
-killall node || true
-killall node || true
+sudo killall node || true
+sudo killall node || true
+sudo killall node || true
+sudo killall node || true
 
 # yarn --dev
 pushd react_host_admin/App
