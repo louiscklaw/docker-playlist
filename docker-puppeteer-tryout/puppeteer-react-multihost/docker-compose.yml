@@ -1,0 +1,47 @@
+version: "3"
+services:
+  tests_host:
+    build:
+      context: ./tests_host
+      dockerfile: dockerfile
+    volumes:
+      - "./tests_host/integration-tests:/integration-tests"
+      - "./tests_host/screenshots:/screenshots"
+    # command: "wait-for-it.sh react_host_client:3000 && \
+    #   -- mocha --recursive /integration-tests"
+    command: >
+      bash -c "wait-for-it.sh react_host_client:3000 && 
+      wait-for-it.sh react_host_cms:3000 && 
+      wait-for-it.sh react_host_admin:3000 -- mocha --recursive /integration-tests"
+    depends_on:
+      - react_host_client
+
+  react_host_client:
+    build:
+      context: ./react_host_client
+      dockerfile: dockerfile
+    volumes:
+      - "./react_host_client/App:/App"
+    ports:
+      - "3000:3000"
+    command: "/App/scripts/build.sh"
+
+  react_host_cms:
+    build:
+      context: ./react_host_cms
+      dockerfile: dockerfile
+    volumes:
+      - "./react_host_cms/App:/App"
+    ports:
+      - "3001:3000"
+    command: "/App/scripts/build.sh"
+
+  react_host_admin:
+    build:
+      context: ./react_host_admin
+      dockerfile: dockerfile
+    volumes:
+      - "./react_host_admin/App:/App"
+    ports:
+      - "3002:3000"
+    command: "/App/scripts/build.sh"

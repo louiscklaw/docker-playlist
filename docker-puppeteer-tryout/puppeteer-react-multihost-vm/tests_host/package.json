@@ -1,0 +1,17 @@
+{
+  "name": "tests_host",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "int_test": "mocha --recursive integration-tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^9.1.3",
+    "puppeteer": "^13.0.1"
+  }
+}

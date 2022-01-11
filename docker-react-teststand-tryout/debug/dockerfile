@@ -1,0 +1,13 @@
+FROM node:lts-buster-slim
+
+ENV DEBIAN_FRONTEND noninteractive
+RUN ln -fs /usr/share/zoneinfo/Asia/Hong_Kong /etc/localtime
+
+RUN sed -i 's/http:\/\/archive\.ubuntu\.com/http:\/\/ftp\.cuhk\.edu\.hk\/pub\/Linux/g' /etc/apt/sources.list && \
+  sed -i 's/http:\/\/security\.ubuntu\.com/http:\/\/ftp\.cuhk\.edu\.hk\/pub\/Linux/g' /etc/apt/sources.list
+
+RUN apt update && apt install -y git curl wget sudo iputils-ping
+
+WORKDIR /home/logic/_workspace/LynkedKK
+
+CMD ['/bin/bash']
