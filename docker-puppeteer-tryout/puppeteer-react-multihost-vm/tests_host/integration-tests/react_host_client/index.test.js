@@ -32,10 +32,14 @@ after(async () => {
   await browser.close();
 });
 
-describe("react_host_client helloworld", () => {
-  it("renders", async () => {
-    const response = await page.goto("http://localhost:3001/");
-    assert(response.ok());
-    await page.screenshot({ path: `screenshots/react_host_client/app.png` });
-  });
-});
+describe(
+  "react_host_client helloworld",
+  () => {
+    it("renders", async () => {
+      const response = await page.goto("http://localhost:3001/");
+      assert(response.ok());
+      await page.screenshot({ path: `screenshots/react_host_client/app.png` });
+    });
+  },
+  30 * 1000
+);
