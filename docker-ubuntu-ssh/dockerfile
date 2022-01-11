@@ -11,10 +11,6 @@ RUN useradd -rm -d /home/jenkins -s /bin/bash -g root -G sudo -u 1000 jenkins
 
 RUN  echo 'jenkins:jenkins' | chpasswd
 
-RUN service ssh start
-
-EXPOSE 22
-
 # build specific tools starts here
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo bash - 
@@ -30,9 +26,15 @@ RUN yarn -V
 
 RUN apt install -y python python3 python3-pip pipenv
 
+# build specific tools end here
+
 RUN mkdir -p /home/jenkins/.ssh
 COPY ./home/jenkins/.ssh /home/jenkins/.ssh
 RUN chown jenkins:root -R /home/jenkins/.ssh
+
+
+RUN service ssh start
+EXPOSE 22
 
 CMD ["/usr/sbin/sshd","-D"]
 
