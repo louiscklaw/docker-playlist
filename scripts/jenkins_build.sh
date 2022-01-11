@@ -2,4 +2,6 @@
 
 set -ex
 
-echo 'helloworld'
+pushd docker-puppeteer-tryout/puppeteer-react-multihost-vm
+  scripts/test/main.sh
+popd
