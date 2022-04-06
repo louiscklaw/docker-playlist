@@ -7,12 +7,12 @@ services:
     restart: unless-stopped
     env_file: .env
     environment:
-      DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_HOST: ${DATABASE_HOST}
-      DATABASE_PORT: ${DATABASE_PORT}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      - DATABASE_CLIENT: ${DATABASE_CLIENT}
+      - DATABASE_NAME: ${DATABASE_NAME}
+      - DATABASE_HOST: ${DATABASE_HOST}
+      - DATABASE_PORT: ${DATABASE_PORT}
+      - DATABASE_USERNAME: ${DATABASE_USERNAME}
+      - DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     ports:
       - 1337:1337
     volumes:
@@ -42,9 +42,9 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     env_file: .env
     environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE: ${MYSQL_DATABASE}
+      - MYSQL_USER: ${MYSQL_USER}
+      - MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - ./db:/var/lib/mysql
