@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  strapiexample:
+  strapi:
+    container_name: strapi
     image: strapi/strapi
-    container_name: strapiexample
     restart: unless-stopped
     env_file: .env
     environment:
@@ -13,33 +13,38 @@ services:
       DATABASE_PORT: ${DATABASE_PORT}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-    #    links:
-    #      - mongo:mongo
-    networks:
-      - strapi-app-network
+    ports:
+      - 1337:1337
     volumes:
       - ./app:/srv/app
-    ports:
-      - "1337:1337"
+    depends_on:
+      - db
 
-  mongoexample:
-    image: mongo
-    container_name: mongoexample
-    restart: unless-stopped
+  # mongoexample:
+  #   image: mongo
+  #   container_name: mongoexample
+  #   restart: unless-stopped
+  #   env_file: .env
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+  #   networks:
+  #     - strapi-app-network
+  #   volumes:
+  #     - strapidata:/data/db
+  #   ports:
+  #     - "27017:27017"
+
+  db:
+    container_name: mysql
+    image: mysql:5.7
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
     env_file: .env
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-    networks:
-      - strapi-app-network
+      MYSQL_DATABASE: strapi
+      MYSQL_USER: strapi
+      MYSQL_PASSWORD: strapi
+      MYSQL_ROOT_PASSWORD: strapi
     volumes:
-      - strapidata:/data/db
-    ports:
-      - "27017:27017"
-
-networks:
-  strapi-app-network:
-    driver: bridge
-
-volumes:
-  strapidata:
+      - ./db:/var/lib/mysql
