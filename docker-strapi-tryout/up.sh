@@ -6,5 +6,9 @@ set -ex
 
 TMP_DIR=$(mktemp -d)
 
+docker-compose kill 
+
 docker-compose pull
-docker-compose up
+docker-compose down
+
+docker-compose up 
