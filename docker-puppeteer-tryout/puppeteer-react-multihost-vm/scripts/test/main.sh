@@ -12,4 +12,7 @@ pushd tests_host
   yarn run int_test
 popd
 
-echo 'test setup done'
+echo 'test done'
+
+scripts/test/clear.sh
+

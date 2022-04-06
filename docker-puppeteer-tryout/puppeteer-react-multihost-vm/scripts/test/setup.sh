@@ -35,6 +35,9 @@ pushd react_host_cms/App
   scripts/build.sh &
 popd
 
+# wait a while for servers to settle
+sleep 10
+
 ./scripts/wait-for-it.sh -t 60 localhost:3000
 ./scripts/wait-for-it.sh -t 60 localhost:3001
 ./scripts/wait-for-it.sh -t 60 localhost:3002
