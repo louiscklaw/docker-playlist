@@ -7,16 +7,22 @@ services:
     restart: unless-stopped
     env_file: .env
     environment:
-      - DATABASE_CLIENT: ${DATABASE_CLIENT}
-      - DATABASE_NAME: ${DATABASE_NAME}
-      - DATABASE_HOST: ${DATABASE_HOST}
-      - DATABASE_PORT: ${DATABASE_PORT}
-      - DATABASE_USERNAME: ${DATABASE_USERNAME}
-      - DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      - DATABASE_CLIENT=mysql
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
     ports:
       - 1337:1337
     volumes:
       - ./app:/srv/app
+
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.strapi.rule=Host(`rest_manage_api.iamon99.com`)
+      - traefik.http.routers.strapi.tls=true
+
     depends_on:
       - db
 
@@ -48,3 +54,8 @@ services:
       - MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - ./db:/var/lib/mysql
+
+networks:
+  default:
+    external:
+      name: web
