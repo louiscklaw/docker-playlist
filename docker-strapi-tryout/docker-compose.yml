@@ -1,6 +1,20 @@
 version: '3'
 
 services:
+  db:
+    container_name: mysql
+    image: mysql:5.7
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    env_file: .env
+    environment:
+      - MYSQL_DATABASE: ${MYSQL_DATABASE}
+      - MYSQL_USER: ${MYSQL_USER}
+      - MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ./db:/var/lib/mysql
+
   strapi:
     container_name: strapi
     image: strapi/strapi
@@ -30,3 +44,23 @@ services:
       MYSQL_ROOT_PASSWORD: strapi
     volumes:
       - ./db:/var/lib/mysql
+  
+# mongoexample:
+  #   image: mongo
+  #   container_name: mongoexample
+  #   restart: unless-stopped
+  #   env_file: .env
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+  #   networks:
+  #     - strapi-app-network
+  #   volumes:
+  #     - strapidata:/data/db
+  #   ports:
+  #     - "27017:27017"
+
+networks:
+  default:
+    external:
+      name: web
