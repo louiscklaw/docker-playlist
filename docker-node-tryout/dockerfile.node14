@@ -10,7 +10,7 @@ WORKDIR /
 RUN apt-get update && \
   apt-get install -y zsh sudo curl gpgv
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get -qqy install nodejs
 
 CMD ["/bin/bash"]
