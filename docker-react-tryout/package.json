@@ -1,0 +1,14 @@
+{
+  "name": "docker-react-tryout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test_docker_compose": "npx nodemon --watch docker-compose.test.yml --exec \"docker-compose -f docker-compose.test.yml up\"",
+    "gitUpdate": "git pull && git add . && git commit -m \"update docker-react-tryout,\" && git push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
