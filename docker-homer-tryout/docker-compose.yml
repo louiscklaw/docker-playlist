@@ -1,0 +1,19 @@
+version: "2.1"
+
+## https://hub.docker.com/r/b4bz/homer/
+services:
+  homer:
+    container_name: homer
+    image: b4bz/homer:latest
+    environment:
+      UID: ${CONFIG_USER_UID}
+      GID: ${CONFIG_USER_GID}
+      TZ: ${CONFIG_SYSTEM_REGION}
+    volumes:
+      - './volumes/logos/:/www/logos/'
+      - './volumes/config.yml:/www/assets/config.yml'
+      - './volumes/logos/favicon-16x16.png:/www/assets/icons/favicon-16x16.png'
+      - './volumes/logos/favicon-32x32.png:/www/assets/icons/favicon-32x32.png'
+    ports:
+      - 50080:8080
+    restart: unless-stopped

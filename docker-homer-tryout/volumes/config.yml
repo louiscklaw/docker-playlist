@@ -1,0 +1,131 @@
+---
+# Homepage configuration
+# See https://fontawesome.com/icons for icons options
+
+title: "Home Laboratory"
+subtitle: "Hermes"
+logo: "logos/owl.svg"
+icon: "logos/owl.svg"
+
+header: true
+footer: false
+
+# Optional theme customization
+theme: default
+colors:
+  light:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#f5f5f5"
+    card-background: "#ffffff"
+    text: "#363636"
+    text-header: "#ffffff"
+    text-title: "#303030"
+    text-subtitle: "#424242"
+    card-shadow: rgba(0, 0, 0, 0.1)
+    link-hover: "#363636"
+  dark:
+    highlight-primary: "#2E3440"
+    highlight-secondary: "#4C566A"
+    highlight-hover: "#81A1C1"
+    background: "#3B4252"
+    card-background: "#2E3440"
+    text: "#D8DEE9"
+    text-header: "#D8DEE9"
+    text-title: "#81A1C1"
+    text-subtitle: "#81A1C1"
+    card-shadow: rgba(0, 0, 0, 0.4)
+    link-hover: "#BF616A"
+    # colors from Nord theme: https://github.com/arcticicestudio/nord
+
+# Optional message
+#message:
+#  #url: https://b4bz.io
+#  style: "is-dark" # See https://bulma.io/documentation/components/message/#colors for styling options.
+#  title: "Demo !"
+#  icon: "fa fa-grin"
+#  content: "This is a dummy homepage demo. <br /> Find more information on <a href='https://github.com/bastienwirtz/homer'>github.com/bastienwirtz/homer</a>"
+
+# Optional navbar
+# links: [] # Allows for navbar (dark mode, layout, and search) without any links
+links:
+  - name: "Edit Config"
+    icon: "far fa-edit"
+    url: "http://${CONFIG_LAN_IP}:50104/?folder=/app/"
+    target: "_blank" # optional html a tag target attribute
+
+# Services
+# First level array represent a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+
+services:
+  - name: "Karlsen"
+    icon: "fas fa-home"
+    items:
+       - name: "Front page"
+         icon: "fas fa-home"
+         subtitle: "www.karlsen.fr"
+         tag: "karlsen home"
+         url: "https://www.karlsen.fr"
+         target: "_blank"
+       - name: "Share"
+         icon: "fas fa-share-alt"
+         subtitle: "share.karlsen.fr"
+         tag: "karlsen share"
+         url: "https://share.karlsen.fr"
+         target: "_blank"
+       - name: "Webmail"
+         icon: "fas fa-envelope-open"
+         subtitle: "webmail.karlsen.fr"
+         tag: "karlsen mail"
+         url: "https://webmail.karlsen.fr"
+         target: "_blank"
+  - name: "Tools"
+    icon: "fas fa-tools"
+    items:
+      - name: "PiHole"
+        logo: "logos/pihole.webp"
+        subtitle: "DNS-level Ad Blocking"
+        tag: "adblocker"
+        url: "http://${CONFIG_LAN_IP}:50100/admin"
+        target: "_blank"
+      - name: "Code-Server"
+        logo: "logos/vscode.svg"
+        subtitle: "Remote VS Code Editor"
+        tag: "code editor"
+        url: "http://${CONFIG_LAN_IP}:50104/?folder=/app/"
+        target: "_blank"
+      - name: "Deluge"
+        logo: "logos/deluge.svg"
+        subtitle: "BitTorrent client"
+        tag: "deluge torrent bittorrent"
+        url: "http://${CONFIG_LAN_IP}:50106"
+        target: "_blank"
+      - name: "YNAB"
+        icon: "fas fa-coins"
+        subtitle: "Budgeting app"
+        tag: "budget money ynab bucket"
+        url: "https://app.youneedabudget.com"
+        target: "_blank"
+  - name: "Server"
+    icon: "fas fa-server"
+    items:
+      - name: "Uptime-Kuma"
+        logo: "logos/uptimekuma.svg"
+        subtitle: "Webservices monitor"
+        tag: "uptime monitor"
+        url: "http://${CONFIG_LAN_IP}:50102"
+        target: "_blank"
+      - name: "Portainer"
+        logo: "logos/portainer.png"
+        subtitle: "Docker Container Management"
+        tag: "docker"
+        url: "https://${CONFIG_LAN_IP}:50105"
+        target: "_blank"
+      - name: "sshwifty"
+        icon: "fas fa-terminal"
+        subtitle: "Web console"
+        tag: "web terminal console"
+        url: "https://${CONFIG_LAN_IP}:50101"
+        target: "_blank"
