@@ -1,0 +1,14 @@
+version: "2.1"
+
+## https://github.com/louislam/uptime-kuma
+services:
+  uptime-kuma:
+    container_name: uptime-kuma
+    image: louislam/uptime-kuma:1
+    environment:
+      TZ: ${CONFIG_SYSTEM_REGION}
+    volumes:
+      - './volumes/etc-uptimekuma/:/app/data'
+    ports:
+      - 50102:3001
+    restart: unless-stopped
