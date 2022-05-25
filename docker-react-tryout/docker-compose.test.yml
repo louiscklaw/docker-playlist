@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  restaurant_cms:
+    container_name: restaurant_cms
+    image: restaurant_cms
+    build:
+      context: ./restaurant_cms
+    volumes:
+      - ./restaurant_cms:/my-app
+    ports:
+      - 3000:3000
+    command: /my-app/entry.sh
+
+  admin_cms:
+    container_name: admin_cms
+    image: admin_cms
+    build:
+      context: ./admin_cms
+    volumes:
+      - ./admin_cms:/my-app
+    ports:
+      - 3001:3000
+    command: /my-app/entry.sh

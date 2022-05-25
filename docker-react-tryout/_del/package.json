@@ -1,0 +1,16 @@
+{
+  "name": "docker-node-tryout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bash ./build.sh",
+    "build_react": "docker build -t logickee/docker_react_tryout .",
+    "start_react": "docker-compose up -d ",
+    "gitUpdate": "git pull && git add . && git commit -m \"update docker-node-tryout\" && git push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
