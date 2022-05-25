@@ -1,0 +1,25 @@
+version: "2.1"
+
+## https://hub.docker.com/r/linuxserver/code-server
+services:
+  code-server:
+    container_name: code-server
+    image: ghcr.io/linuxserver/code-server
+    environment:
+      PUID: ${CONFIG_USER_UID}
+      PGID: ${CONFIG_USER_GID}
+      TZ: ${CONFIG_SYSTEM_REGION}
+      PASSWORD: ${CONFIG_CODESERVER_PASSWORD} #optional
+      #HASHED_PASSWORD: #optional
+      #SUDO_PASSWORD: password #optional
+      #SUDO_PASSWORD_HASH: #optional
+      #PROXY_DOMAIN: code-server.my.domain #optional
+      #UMASK:
+    volumes:
+      - './volumes/etc-codeserver/:/config'
+      - '/home/${CONFIG_USER_NAME}/_workspace/:/app/_workspace:rw'
+      # - '/home/${CONFIG_USER_NAME}/docker/homer/config.yml:/app/homer-config.yml:rw'
+      # - '/home/${CONFIG_USER_NAME}/docker/wireguard/config/:/app/wireguard:rw'
+    ports:
+      - 50104:8443
+    restart: unless-stopped
