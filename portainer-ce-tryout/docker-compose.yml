@@ -1,0 +1,19 @@
+version: "3"
+
+## https://documentation.portainer.io/v2.0/deploy/ceinstalldocker/
+services:
+  portainer-ce:
+    container_name: portainer-ce
+    image: portainer/portainer-ce:latest
+    environment:
+      TZ: ${CONFIG_SYSTEM_REGION}
+    command: --admin-password '${CONFIG_PORTAINER_ADMIN_PW}'
+    volumes:
+      - './portainer_data/:/data'
+      - '../:/app/data/custom/'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    ports:
+      #- 8000:8000  # only required if using the Edge compute features with Edge agents
+      #- 9000:9000 # http
+      - 50105:9443 # https
+    restart: unless-stopped
