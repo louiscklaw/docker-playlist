@@ -7,6 +7,7 @@ services:
     image: louislam/uptime-kuma:1
     environment:
       TZ: ${CONFIG_SYSTEM_REGION}
+      UPTIME_KUMA_DISABLE_FRAME_SAMEORIGIN: 1
     volumes:
       - './volumes/etc-uptimekuma/:/app/data'
     ports:
