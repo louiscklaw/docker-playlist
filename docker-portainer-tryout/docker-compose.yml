@@ -6,14 +6,25 @@ services:
     container_name: portainer-ce
     image: portainer/portainer-ce:latest
     environment:
-      TZ: ${CONFIG_SYSTEM_REGION}
+      TZ: "Asia/Hong_Kong"
     # command: --admin-password '${CONFIG_PORTAINER_ADMIN_PW}'
     volumes:
-      - './volumes/portainer_data/:/data'
-      - './volumes/:/app/data/custom/'
-      - '/var/run/docker.sock:/var/run/docker.sock'
+      - "./volumes/portainer_data/:/data"
+      - "./volumes/:/app/data/custom/"
+      - "/var/run/docker.sock:/var/run/docker.sock"
     ports:
       #- 8000:8000  # only required if using the Edge compute features with Edge agents
       - 9000:9000 # http
       - 9443:9443 # https
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.iamon99.com`)"
+      - "traefik.http.routers.portainer.entrypoints=websecure"
+      - "traefik.http.routers.portainer.tls.certresolver=myresolver"
+      - "traefik.http.services.portainer.loadbalancer.server.port=3001"
+
+networks:
+  default:
+    external:
+      name: traefik-proxy-network
