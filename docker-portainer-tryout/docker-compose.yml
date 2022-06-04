@@ -22,7 +22,7 @@ services:
       - "traefik.http.routers.portainer.rule=Host(`portainer.iamon99.com`)"
       - "traefik.http.routers.portainer.entrypoints=websecure"
       - "traefik.http.routers.portainer.tls.certresolver=myresolver"
-      - "traefik.http.services.portainer.loadbalancer.server.port=3001"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9443"
 
 networks:
   default:
