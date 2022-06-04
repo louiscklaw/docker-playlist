@@ -1,6 +1,6 @@
-version: "2.1"
-
 # CREDIT: https://github.com/louislam/uptime-kuma
+version: "3"
+
 services:
   uptime-kuma:
     container_name: uptime-kuma
