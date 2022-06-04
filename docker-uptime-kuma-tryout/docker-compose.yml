@@ -9,7 +9,13 @@ services:
       TZ: ${CONFIG_SYSTEM_REGION}
       UPTIME_KUMA_DISABLE_FRAME_SAMEORIGIN: 1
     volumes:
-      - './volumes/etc-uptimekuma/:/app/data'
+      - "./volumes/etc-uptimekuma/:/app/data"
     ports:
       - 50102:3001
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio.rule=Host(`status.iamon99.com`)"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.tls.certresolver=myresolver"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=3001"
