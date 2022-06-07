@@ -1,5 +1,5 @@
 {
-  "name": "portainer-ce-tryout",
+  "name": "docker-portainer-tryout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
