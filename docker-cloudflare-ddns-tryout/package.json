@@ -1,12 +1,12 @@
 {
-  "name": "docker-changedetection-tryout",
+  "name": "docker-cloudflare-ddns-tryout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker_rebuild": "docker-compose build && docker-compose rm -s -v -f && docker-compose up -d && docker-compose logs -f ",
-    "gitUpdate": "git add . && git commit -m\"update docker-changedetection-tryout,\" && git pull && git push",
+    "gitUpdate": "git add . && git commit -m\"update docker-cloudflare-ddns-tryout,\" && git pull && git push",
     "gitSync": "git fetch --all && git pull"
   },
   "keywords": [],
