@@ -25,5 +25,5 @@ services:
       - SCREEN_HEIGHT=1080
       - SCREEN_DEPTH=24
     volumes:
-      - ./volumes/shm:/dev/shm
+      - /dev/shm:/dev/shm
     restart: unless-stopped
