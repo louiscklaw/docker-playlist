@@ -1,0 +1,13 @@
+version: "2"
+services:
+  cloudflare:
+    image: oznu/cloudflare-ddns:latest
+    restart: unless-stopped
+    labels:
+      - traefik.enable=false
+    environment:
+      - "API_KEY=${CF_TOKEN}"
+      - "ZONE=${DNS_DOMAIN}"
+      # - "SUBDOMAIN=${SUBDOMAIN}"
+      - "DNS_SERVER=1.0.0.1"
+    dns: 1.1.1.1
