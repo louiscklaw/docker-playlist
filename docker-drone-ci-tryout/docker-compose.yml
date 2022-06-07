@@ -11,7 +11,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=drone-net
       - traefik.http.services.drone-svc.loadbalancer.server.port=80
-      - traefik.http.routers.drone-rtr.rule=Host(`drone.${DNS_DOMAIN}`)
+      - traefik.http.routers.drone-rtr.rule=Host(`${DNS_DOMAIN}`)
       - traefik.http.routers.drone-rtr.entrypoints=websecure
       - traefik.http.routers.drone-rtr.tls=true
     environment:
