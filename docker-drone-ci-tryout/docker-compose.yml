@@ -3,7 +3,7 @@ version: "3"
 ## https://hub.docker.com/r/drone/drone/tags
 services:
   drone:
-    image: drone/drone:2
+    image: drone/drone:latest
     restart: unless-stopped
     # container_name: drone
     user: ${XID:-1000}
@@ -23,10 +23,10 @@ services:
       - DRONE_USER_CREATE=${DRONE_USER_CREATE}
       - DRONE_USER_FILTER=${DRONE_USER_FILTER}
     volumes:
-      - ./volumes/drone/server/data:/data
+      - ./volumes/drone/data:/data
 
   drone-runner:
-    image: drone/drone-runner-docker:1
+    image: drone/drone-runner-docker:latest
     restart: unless-stopped
     # container_name: drone_runner_1
     environment:
