@@ -1,0 +1,15 @@
+# https://github.com/subdavis/selfhosted/blob/b6418942b2645008ec13006d5d98557194d55724/docker-compose.yml
+version: "3"
+
+services:
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+    command: --schedule "0 10 3 * * *" --cleanup
+    labels:
+      - traefik.enable=false
+    volumes:
+      - ${SOCK_PATH:-/var/run/docker.sock}:/var/run/docker.sock
+      - "${PRIMARY_MOUNT}/watchtower/config/:/config"
+      - "${PRIMARY_MOUNT}/watchtower/docker-config.json:/config.json"
