@@ -13,3 +13,8 @@ services:
       - ${SOCK_PATH:-/var/run/docker.sock}:/var/run/docker.sock
       - "./volumes/watchtower/config/:/config"
       - "./volumes/watchtower/docker-config.json:/config.json"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Hong_Kong
+      - VERSION=docker
