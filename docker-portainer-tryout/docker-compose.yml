@@ -6,7 +6,10 @@ services:
     container_name: portainer-ce
     image: portainer/portainer-ce:latest
     environment:
+      PUID: "1000"
+      PGID: "1000"
       TZ: "Asia/Hong_Kong"
+      VERSION: "docker"
     # command: --admin-password '${CONFIG_PORTAINER_ADMIN_PW}'
     volumes:
       - "./volumes/portainer_data/:/data"
