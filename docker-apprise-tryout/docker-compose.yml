@@ -1,0 +1,21 @@
+# CREDIT: https://github.com/shepherdjerred/servers/blob/main/zeus/docker-compose.yml
+
+version: "3"
+
+services:
+  apprise:
+    container_name: apprise
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+      - VERSION=docker
+    image: lscr.io/linuxserver/apprise-api
+    restart: unless-stopped
+    volumes:
+      - "./volumes/config/:/config"
+
+networks:
+  default:
+    external:
+      name: traefik-proxy-network
