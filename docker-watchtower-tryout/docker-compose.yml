@@ -10,9 +10,8 @@ services:
     labels:
       - traefik.enable=false
     volumes:
-      - ${SOCK_PATH:-/var/run/docker.sock}:/var/run/docker.sock
-      - "./volumes/watchtower/config/:/config"
-      - "./volumes/watchtower/docker-config.json:/config.json"
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./volumes/watchtower/config.json:/config.json
     environment:
       - PUID=1000
       - PGID=1000
