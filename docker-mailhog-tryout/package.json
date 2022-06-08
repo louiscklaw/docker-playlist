@@ -1,0 +1,14 @@
+{
+  "name": "docker-mailhog-tryout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/index.js",
+    "docker_rebuild": "docker-compose rm -s -v -f && docker-compose up -d && docker-compose logs -f ",
+    "gitUpdate": "git add . && git commit -m\"update docker-mailhog-tryout,\" && git pull && git push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
