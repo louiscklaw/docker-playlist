@@ -7,6 +7,9 @@ services:
     network_mode: host
     volumes:
       - ./volumes/homeassistant:/config
+    ports:
+      - 8123:8123
+
     environment:
       - PUID=1000
       - PGID=1000
