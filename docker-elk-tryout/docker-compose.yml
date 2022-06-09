@@ -1,6 +1,18 @@
 version: "3.8"
 
 services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
+    restart: unless-stopped
+    environment:
+      - "discovery.type=single-node"
+      - TZ=Asia/Hong_Kong
+    volumes:
+      - ./volumes/esdata:/usr/share/elasticsearch/data
+    ports:
+      - 9300:9300
+      - 9200:9200
+
   logstash:
     image: docker.elastic.co/logstash/logstash:7.7.0
     restart: unless-stopped
