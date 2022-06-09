@@ -9,7 +9,7 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Asia/Hong_Kong
-      SUBDOMAINS: ${CONFIG_DUCKDNS_USERNAME}
+      SUBDOMAINS: ${CONFIG_DUCKDNS_SUBDOMAINS}
       TOKEN: ${CONFIG_DUCKDNS_TOKEN}
       LOG_FILE: "true" #optional
     volumes:
