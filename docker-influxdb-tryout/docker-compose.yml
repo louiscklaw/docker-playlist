@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  homeassistant:
+    image: bitnami/influxdb:latest
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - ./volumes:/var/lib/influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Hong_Kong
+      - VERSION=docker
+      - INFLUXDB_ADMIN_USER_PASSWORD=${INFLUXDB_PASSWORD_ADMIN}
+      - INFLUXDB_USER_BUCKET=cassiopeiainflux
+      - INFLUXDB_USER=${INFLUXDB_USER}
+      - INFLUXDB_USER_PASSWORD=${INFLUXDB_PASSWORD}
+      - INFLUXDB_ADMIN_USER_TOKEN=admintoken123
+      - INFLUXDB_USER_ORG=it
+
+    # labels:
+    #   traefik.enable: "true"
+    #   traefik.docker.network: web
+    #   traefik.http.routers.homeassistant.rule: Host(`home-cluster.${CF_DOMAIN}`)
+    #   traefik.http.routers.homeassistant.entrypoints: https
+    #   traefik.http.routers.homeassistant.tls.certresolver: cloudflare
+    #   traefik.http.services.homeassistant.loadbalancer.server.port: 8123
+
+    #   traefik.tcp.routers.homekit.entrypoints: homekit
+    #   traefik.tcp.routers.homekit.service: homeassistant
+    #   traefik.tcp.services.homeassistant.loadbalancer.server.port: 21064
+
+    # traefik.udp.routers.homekitudp.entrypoints: homekitudp
+    # traefik.udp.routers.homekitudp.service: homeassistant
+    # traefik.udp.services.homeassistant.loadbalancer.server.port: 5353
