@@ -1,0 +1,17 @@
+version: "2.1"
+
+## https://hub.docker.com/r/linuxserver/duckdns/
+services:
+  duckdns:
+    container_name: duckdns
+    image: ghcr.io/linuxserver/duckdns
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Hong_Kong
+      SUBDOMAINS: ${CONFIG_DUCKDNS_USERNAME}
+      TOKEN: ${CONFIG_DUCKDNS_TOKEN}
+      LOG_FILE: "true" #optional
+    volumes:
+      - "./volumes/etc-duckdns/:/config"
+    restart: unless-stopped
