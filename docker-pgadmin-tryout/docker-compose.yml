@@ -32,7 +32,7 @@ services:
       - postgres
     restart: unless-stopped
     ports:
-      - 3000:3000
+      - 3003:3000
     environment:
       PGRST_DB_URI: postgres://postgres:postgres@db:5432/postgres
       PGRST_DB_SCHEMA: public
