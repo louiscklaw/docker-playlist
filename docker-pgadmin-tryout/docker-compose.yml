@@ -27,6 +27,7 @@ services:
       PGADMIN_CONFIG_SERVER_MODE: "False"
     volumes:
       - ./volumes/pgadmin:/var/lib/pgadmin
+      - ./volumes/pgadmin/sessions:/var/lib/pgadmin/sessions
     depends_on:
       - postgres
     ports:
