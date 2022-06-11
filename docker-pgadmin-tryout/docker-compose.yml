@@ -5,8 +5,8 @@ services:
     image: "postgres:13.1-alpine"
     container_name: postgres
     environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=database
       - PGDATA=/data/postgres
     ports:
