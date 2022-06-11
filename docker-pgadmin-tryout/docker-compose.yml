@@ -26,6 +26,7 @@ services:
     volumes:
       - ./volumes/pgadmin:/root/.pgadmin
 
+  # https://postgrest.org/en/stable/tutorials/tut0.html
   rest:
     image: postgrest/postgrest:v9.0.0
     restart: unless-stopped
