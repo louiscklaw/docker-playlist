@@ -10,6 +10,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
       PGDATA: /data/postgres
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./volumes/postgres:/data/postgres
     ports:
       - "5432:5432"
@@ -22,12 +23,14 @@ services:
     # container_name: pgadmin_container
     hostname: "pgadmin"
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_DEFAULT_EMAIL: user@123.com
+      PGADMIN_DEFAULT_PASSWORD: password
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./volumes/pgadmin:/var/lib/pgadmin
       - ./volumes/pgadmin/sessions:/var/lib/pgadmin/sessions
+      - ./volumes/pgadmin/storage:/var/lib/pgadmin/storage
+
     depends_on:
       - postgres
     ports:
