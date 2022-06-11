@@ -1,5 +1,8 @@
 version: "3"
 services:
+  # admin@123.com
+  # Aa1234567
+
   strapi:
     image: strapi/strapi
     environment:
