@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:latest
+    # container_name: website-db
+    environment:
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: db_password
+      POSTGRES_DB: test_db
+    volumes:
+      - ./volumes/postgres/dbdata:/var/lib/postgresql/data
+      - ./volumes/postgres/db.sql:/docker-entrypoint-initdb.d/db.sql
+
+    ports:
+      - "5432:5432"
+
+  phppgadmin:
+    image: neimheadh/phppgadmin:7.13.0
+    # container_name: phppgadmin
+
+    ports:
+      - 8082:80
+
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASS=db_password
+    depends_on:
+      - db
