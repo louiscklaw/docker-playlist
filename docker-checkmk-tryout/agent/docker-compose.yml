@@ -8,7 +8,7 @@ services:
       RANCHER_DEBUG: "false"
     network_mode: host
     ports:
-      - 6556:6556/tcp
+      - "6556:6556"
     volumes:
       - /run:/run
       - /var/log:/var/log
