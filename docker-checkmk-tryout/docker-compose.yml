@@ -3,7 +3,7 @@ services:
   checkmk:
     image: checkmk/check-mk-raw:2.0.0-latest
     ports:
-      - "8080:5000"
+      - "8089:5000"
     volumes:
       - ../volumes/omd/sites:/omd/sites
     environment:
