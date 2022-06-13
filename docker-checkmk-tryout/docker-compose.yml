@@ -5,7 +5,12 @@ services:
     ports:
       - "8089:5000"
     volumes:
-      - ../volumes/omd/sites:/omd/sites
+      - ./volumes/omd/sites:/omd/sites
+      - /etc/localtime:/etc/localtime:ro
     environment:
       TZ: "Pacific/Auckland"
-    tmpfs: /opt/omd/sites/cmk/tmp:uid=1000,gid=1000
+    tmpfs:
+      - /opt/omd/sites/cmk/tmp:uid=1000,gid=1000
+    restart: unless-stopped
+    ulimits:
+      nofile: 1024
