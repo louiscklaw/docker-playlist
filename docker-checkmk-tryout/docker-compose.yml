@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  checkmk:
+    container_name: "checkmk"
+    hostname: "checkmk"
+    build:
+      dockerfile: "Dockerfile"
+      context: "."
+    tmpfs:
+      - "/opt/omd/sites/cmk/tmp:uid=1000,gid=1000"
+    ulimits:
+      nofile:
+        soft: 1024
+        hard: 1024
+    restart: "unless-stopped"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "./volumes/cmk-backup:/mnt/backup"
+      - "./volumes/omd-sites:/omd/sites"
+    environment:
+      - CMK_SITE_ID=${CMK_SITE_ID}
+      - CMK_PASSWORD=${CMK_PASSWORD}
+    # networks:
+    # - "traefik.network"
+#     labels:
+#       - "traefik.enable=true"
+
+#       # Frontend
+#       - "traefik.http.routers.checkmk-frontend-router.rule=Host(`monitor.friessleben.de`)"
+#       - "traefik.http.routers.checkmk-frontend-router.entrypoints=websecure"
+#       - "traefik.http.routers.checkmk-frontend-router.tls=true"
+#       - "traefik.http.routers.checkmk-frontend-router.tls.certresolver=le-tls-challenge"
+#       - "traefik.http.routers.checkmk-frontend-router.service=checkmk-frontend-service"
+#       - "traefik.http.services.checkmk-frontend-service.loadbalancer.server.port=5000"
+
+# networks:
+#   traefik.network:
+#     external: true
