@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  appsmith:
+    image: appsmith/appsmith-ce:v1.7.0
+    ports:
+      - 8085:80
+      - 443:443
+      - 9001:9001
+    volumes:
+      - ./volumes/appsmith:/appsmith-stacks
