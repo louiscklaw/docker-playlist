@@ -1,0 +1,8 @@
+version: "3"
+services:
+  questdb:
+    container_name: docker_questdb
+    image: questdb/questdb:latest
+    ports:
+      - "9001:9000"
+      - "5435:8812"
