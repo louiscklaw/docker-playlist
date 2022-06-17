@@ -49,7 +49,7 @@ services:
     # PARSE_DASHBOARD_PASSWORD: Parse Dashboard password. Default: bitnami
 
     environment:
-      - PARSE_HOST=127.0.0.1
+      - PARSE_HOST=http://192.168.10.61/
 
 volumes:
   mongodb_data:
