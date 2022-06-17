@@ -12,7 +12,7 @@ services:
   parse:
     image: docker.io/bitnami/parse:4
     ports:
-      - "1337:1337"
+      - "1339:1337"
     volumes:
       - "parse_data:/bitnami/parse"
     depends_on:
