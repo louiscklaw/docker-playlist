@@ -1,14 +1,14 @@
 version: "2"
 services:
-  playwright-chrome:
-    hostname: playwright-chrome
-    image: browserless/chrome
-    restart: unless-stopped
-    environment:
-      - EXIT_ON_HEALTH_FAILURE=true
-      - MAX_CONCURRENT_SESSIONS=10
-      - DEFAULT_IGNORE_HTTPS_ERRORS=true
-      - DEFAULT_LAUNCH_ARGS=["--window-size=1920,10800"]
+#  playwright-chrome:
+#    hostname: playwright-chrome
+#    image: browserless/chrome
+#    restart: unless-stopped
+#    environment:
+#      - EXIT_ON_HEALTH_FAILURE=true
+#      - MAX_CONCURRENT_SESSIONS=10
+#      - DEFAULT_IGNORE_HTTPS_ERRORS=true
+#      - DEFAULT_LAUNCH_ARGS=["--window-size=2560,5440"]
 
   browser-chrome:
     hostname: browser-chrome
@@ -16,11 +16,16 @@ services:
     environment:
       - VNC_NO_PASSWORD=1
       - SCREEN_WIDTH=1920
-      - SCREEN_HEIGHT=1080
+      - SCREEN_HEIGHT=5080
       - SCREEN_DEPTH=24
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_MAX_SESSIONS=4
+    shm_size: 2gb
     volumes:
       - /dev/shm:/dev/shm
     restart: unless-stopped
+    ports:
+      - 4444:4444
 
   changedetection.io:
     image: ghcr.io/dgtlmoon/changedetection.io
@@ -30,11 +35,12 @@ services:
       - ./volumes/datastore:/datastore
 
     environment:
+      - FETCH_WORKERS=3
       - PORT=5000
       - PUID=1000
       - PGID=1000
       - WEBDRIVER_URL=http://browser-chrome:4444/wd/hub
-      - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/
+ #     - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/
 
     ports:
       - 5000:5000
