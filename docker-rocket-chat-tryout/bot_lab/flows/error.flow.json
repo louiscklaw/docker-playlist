@@ -1,0 +1,34 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "nodes": [
+    {
+      "id": "3rr0r",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "error-handling"
+        }
+      ]
+    },
+    {
+      "id": "53a063076e",
+      "name": "error-handling",
+      "next": [
+        {
+          "condition": "true",
+          "node": ""
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-OC9rEB"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}
