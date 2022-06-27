@@ -1,0 +1,17 @@
+version: '3.0'
+services:
+  rasa:
+    image: abelkmathew/rasa-healthbot
+    ports:
+      - 5005:5005
+    volumes:
+      - ./volumes/rasa:/app
+    command: 
+      - run
+    
+  action-server:
+    image: rasa/rasa-sdk:2.8.4
+    volumes:
+      - ./volumes/action-server/actions:/app/actions
+    ports:
+      - 5055:5055
