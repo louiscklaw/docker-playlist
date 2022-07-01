@@ -3,6 +3,7 @@ version: "3.9"
 services:
   metabase:
     image: metabase/metabase:v0.43.2
+    restart: unless-stopped
     ports:
       - 8094:3000
     environment:
