@@ -2,9 +2,9 @@ version: "3.9"
 
 services:
   matomo:
-    image: matomo:4.10.0
+    image: matomo:4
     ports:
-      - 8086:80
+      - 80:80
     environment:
       MATOMO_DATABASE_HOST: mysql
       MATOMO_DATABASE_USERNAME: root
@@ -13,6 +13,7 @@ services:
     depends_on:
       - mysql
     # restart: always
+
   mysql:
     image: mysql:8.0.29
     command: |
@@ -22,8 +23,8 @@ services:
       --sql-mode=""
     environment:
       MYSQL_DATABASE: tests
-      MYSQL_USER: gabrielrufino
-      MYSQL_PASSWORD: 12345678
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
       MYSQL_ROOT_PASSWORD: password
     ports:
       - 3306:3306
