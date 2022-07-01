@@ -5,7 +5,7 @@ services:
     image: matomo:4-fpm-alpine
     ports:
       - 80:80
-      - 443:443
+      - 8092:443
     environment:
       MATOMO_DATABASE_HOST: mysql
       MATOMO_DATABASE_USERNAME: root
