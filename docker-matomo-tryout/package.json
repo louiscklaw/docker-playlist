@@ -1,11 +1,12 @@
 {
-  "name": "docker-pgadmin-tryout",
+  "name": "docker-matomo-tryout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gitUpdate": "git add . && git commit -m\"update docker-pgadmin-tryout\"",
+    "gitSync": "git fetch --all && git pull",
+    "gitUpdate": "yarn gitSync && git add . && git commit -m\"update docker-matomo-tryout\"",
     "docker_rebuild": "docker-compose build && docker-compose up -d && docker-compose logs -f"
   },
   "keywords": [],
