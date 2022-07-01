@@ -12,7 +12,7 @@ services:
       MATOMO_DATABASE_DBNAME: matomo_db
     depends_on:
       - mysql
-    # restart: always
+    restart: unless-stopped
 
   mysql:
     image: mysql:8.0.29
@@ -31,4 +31,4 @@ services:
     volumes:
       - ./volumes/mysql/:/home/shared
       - ./volumes/mysql:/var/lib/mysql
-    # restart: always
+    restart: unless-stopped
