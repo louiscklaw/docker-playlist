@@ -4,6 +4,6 @@ services:
   rethinkdb:
     image: rethinkdb:latest
     ports:
-      - "8080:8080"
+      - "8093:8080"
     volumes:
       - "./volumes/rethinkdb:/data/rethinkdb_data"
