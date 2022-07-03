@@ -8,3 +8,4 @@ services:
       - "4445:4444"
     environment:
       tors: 25
+    restart: unless-stopped
