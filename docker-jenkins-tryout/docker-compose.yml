@@ -31,8 +31,10 @@ services:
       - ${JENKINS_PORT:-8087}:8080
       - 50000:50000
     # doesn't auto-install, done explicitly by jenkins.sh now
-    #volumes:
-    #  - ./setup/jenkins-plugins.txt:/usr/share/jenkins/ref/plugins.txt
+    volumes:
+      - ./setup/jenkins-plugins.txt:/usr/share/jenkins/ref/plugins.txt
+      - ./volumes/jenkins_home:/var/jenkins_home
+      - /:/host_root:ro
     user: root:root
     # gets 403 without -Djenkins.install.runSetupWizard=false
     healthcheck:
@@ -48,6 +50,7 @@ services:
       # skips creating admin user or prompting to install plugins
       #JAVA_OPTS: -Dhudson.footerURL=https://github.com/harisekhon -Djenkins.install.runSetupWizard=false
       JAVA_OPTS: -Dhudson.footerURL=https://github.com/harisekhon
+      TZ: Asia/Hong_Kong
   jenkins-agent:
     hostname: jenkins-agent
     # doesn't have an lts tag at the moment
