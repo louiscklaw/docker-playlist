@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  tor_proxy:
+    image: mattes/rotating-proxy:latest
+    ports:
+      - "5566:5566"
+      - "4444:4444"
+    environment:
+      tors: 25
