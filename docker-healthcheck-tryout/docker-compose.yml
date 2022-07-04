@@ -6,7 +6,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - SITE_ROOT=http://192.168.10.61:8097
+      - SITE_ROOT=http://healthcheck.iamon99.com
       - SITE_NAME=louislabs
       - DEFAULT_FROM_EMAIL=healthcheck@louislabs.com
       # - EMAIL_HOST=localhost
