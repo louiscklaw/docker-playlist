@@ -6,19 +6,19 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - SITE_ROOT=http://localhost:8000
-      - SITE_NAME=redacted
-      - DEFAULT_FROM_EMAIL=redacted
+      - SITE_ROOT=http://192.168.10.61:8084
+      - SITE_NAME=louislabs
+      - DEFAULT_FROM_EMAIL=healthcheck@louislabs.com
       # - EMAIL_HOST=localhost
       # - EMAIL_PORT=25
       # - EMAIL_HOST_USER=redacted
       # - EMAIL_HOST_PASSWORD=redacted
       # - EMAIL_USE_TLS=True
       - ALLOWED_HOSTS=["*"]
-      - SUPERUSER_EMAIL=admin@123.com
-      - SUPERUSER_PASSWORD=Aa1234567
+      - SUPERUSER_EMAIL=${SUPERUSER_EMAIL}
+      - SUPERUSER_PASSWORD=${SUPERUSER_PASSWORD}
     volumes:
       - ./volumes/data:/config
     ports:
-      - 8000:8000
+      - 8084:8000
     restart: unless-stopped
