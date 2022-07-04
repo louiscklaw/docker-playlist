@@ -13,6 +13,7 @@ docker run -d -p 5566:5566 -p 4444:4444 --env tors=25 mattes/rotating-proxy
 
 # test with ...
 # curl --proxy 127.0.0.1:5566 https://api.my-ip.io/ip
+curl --proxy 192.168.10.61:5566 https://ifconfig.me
 
 # monitor
 # http://127.0.0.1:4444/haproxy?stats
