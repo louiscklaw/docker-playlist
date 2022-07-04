@@ -22,3 +22,18 @@ services:
     ports:
       - 8084:8000
     restart: unless-stopped
+    labels:
+      - 'traefik.enable=true'
+      - "traefik.http.routers.healthcheck-http.rule=Host(`healthcheck.iamon99.com`)"
+      - "traefik.http.routers.healthcheck-http.entrypoints=web"
+      - "traefik.http.routers.healthcheck-http.middlewares=healthcheck-https"
+      - "traefik.http.middlewares.healthcheck-https.redirectscheme.scheme=https"
+      - 'traefik.http.routers.healthcheck.rule=Host(`healthcheck.iamon99.com`)'
+      - 'traefik.http.routers.healthcheck.entrypoints=websecure'
+      - 'traefik.http.routers.healthcheck.tls.certresolver=myresolver'
+      - 'traefik.http.services.healthcheck.loadbalancer.server.port=8000'
+      
+networks:
+  default:
+    external:
+      name: traefik-proxy-network
