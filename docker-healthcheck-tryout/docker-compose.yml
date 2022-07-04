@@ -1,0 +1,24 @@
+version: "3"
+services:
+  healthchecks:
+    image: lscr.io/linuxserver/healthchecks:latest
+    container_name: healthchecks
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - SITE_ROOT=http://localhost:8000
+      - SITE_NAME=redacted
+      - DEFAULT_FROM_EMAIL=redacted
+      # - EMAIL_HOST=localhost
+      # - EMAIL_PORT=25
+      # - EMAIL_HOST_USER=redacted
+      # - EMAIL_HOST_PASSWORD=redacted
+      # - EMAIL_USE_TLS=True
+      - ALLOWED_HOSTS=["*"]
+      - SUPERUSER_EMAIL=admin@123.com
+      - SUPERUSER_PASSWORD=Aa1234567
+    volumes:
+      - ./volumes/data:/config
+    ports:
+      - 8000:8000
+    restart: unless-stopped
