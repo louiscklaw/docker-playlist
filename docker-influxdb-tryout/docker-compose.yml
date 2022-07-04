@@ -21,30 +21,30 @@ services:
       - INFLUXDB_ADMIN_USER_TOKEN=admintoken123
       - INFLUXDB_USER_ORG=it
 
-  chronograf:
-    image: chronograf:1.9.4
-    ports:
-      - "8888:8888"
-    volumes:
-      - ./volumes/chronograf-storage:/var/lib/chronograf
-    environment:
-      - INFLUXDB_URL=http://influxdb:8086
-      - INFLUXDB_USERNAME=${INFLUXDB_USERNAME:-admin}
-      - INFLUXDB_PASSWORD=${INFLUXDB_PASSWORD:-Aa1234567}
-    restart: unless-stopped
+  # chronograf:
+  #   image: chronograf:1.9.4
+  #   ports:
+  #     - "8888:8888"
+  #   volumes:
+  #     - ./volumes/chronograf-storage:/var/lib/chronograf
+  #   environment:
+  #     - INFLUXDB_URL=http://influxdb:8086
+  #     - INFLUXDB_USERNAME=${INFLUXDB_USERNAME:-admin}
+  #     - INFLUXDB_PASSWORD=${INFLUXDB_PASSWORD:-Aa1234567}
+  #   restart: unless-stopped
 
-    # labels:
-    #   traefik.enable: "true"
-    #   traefik.docker.network: web
-    #   traefik.http.routers.homeassistant.rule: Host(`home-cluster.${CF_DOMAIN}`)
-    #   traefik.http.routers.homeassistant.entrypoints: https
-    #   traefik.http.routers.homeassistant.tls.certresolver: cloudflare
-    #   traefik.http.services.homeassistant.loadbalancer.server.port: 8123
+  #   labels:
+  #     traefik.enable: "true"
+  #     traefik.docker.network: web
+  #     traefik.http.routers.homeassistant.rule: Host(`home-cluster.${CF_DOMAIN}`)
+  #     traefik.http.routers.homeassistant.entrypoints: https
+  #     traefik.http.routers.homeassistant.tls.certresolver: cloudflare
+  #     traefik.http.services.homeassistant.loadbalancer.server.port: 8123
 
-    #   traefik.tcp.routers.homekit.entrypoints: homekit
-    #   traefik.tcp.routers.homekit.service: homeassistant
-    #   traefik.tcp.services.homeassistant.loadbalancer.server.port: 21064
+  #     traefik.tcp.routers.homekit.entrypoints: homekit
+  #     traefik.tcp.routers.homekit.service: homeassistant
+  #     traefik.tcp.services.homeassistant.loadbalancer.server.port: 21064
 
-    # traefik.udp.routers.homekitudp.entrypoints: homekitudp
-    # traefik.udp.routers.homekitudp.service: homeassistant
-    # traefik.udp.services.homeassistant.loadbalancer.server.port: 5353
+  #     traefik.udp.routers.homekitudp.entrypoints: homekitudp
+  #     traefik.udp.routers.homekitudp.service: homeassistant
+  #     traefik.udp.services.homeassistant.loadbalancer.server.port: 5353
