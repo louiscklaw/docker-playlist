@@ -10,6 +10,7 @@ services:
       - ./restaurant_cms:/my-app
     ports:
       - 3000:3000
+    restart: unless-stopped
     command: /my-app/entry.sh
 
   admin_cms:
@@ -21,4 +22,5 @@ services:
       - ./admin_cms:/my-app
     ports:
       - 3001:3000
+    restart: unless-stopped
     command: /my-app/entry.sh
