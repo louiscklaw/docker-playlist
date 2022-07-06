@@ -1,0 +1,10 @@
+FROM node:latest
+
+USER 1000
+
+WORKDIR /my-app
+
+# copy to my-app
+# COPY . .
+
+ENTRYPOINT ["/my-app/entry.sh"]
