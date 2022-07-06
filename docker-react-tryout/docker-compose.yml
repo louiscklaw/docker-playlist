@@ -29,9 +29,9 @@ services:
     # container_name: docusaurus
     # image: docusaurus
     build:
-      context: ./docusaurus
+      context: ./wiki
     volumes:
-      - ./docusaurus:/my-app
+      - ./wiki:/my-app
     ports:
       - 3006:3000
     restart: unless-stopped
