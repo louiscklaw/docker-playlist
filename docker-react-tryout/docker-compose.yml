@@ -3,7 +3,7 @@ version: "3.8"
 services:
   restaurant_cms:
     # container_name: restaurant_cms
-    image: restaurant_cms
+    # image: restaurant_cms
     build:
       context: ./restaurant_cms
     volumes:
@@ -15,12 +15,24 @@ services:
 
   admin_cms:
     # container_name: admin_cms
-    image: admin_cms
+    # image: admin_cms
     build:
       context: ./admin_cms
     volumes:
       - ./admin_cms:/my-app
     ports:
       - 3005:3000
+    restart: unless-stopped
+    command: /my-app/entry.sh
+
+  docusaurus:
+    # container_name: docusaurus
+    # image: docusaurus
+    build:
+      context: ./docusaurus
+    volumes:
+      - ./docusaurus:/my-app
+    ports:
+      - 3006:3000
     restart: unless-stopped
     command: /my-app/entry.sh
