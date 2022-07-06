@@ -9,7 +9,7 @@ services:
     volumes:
       - ./restaurant_cms:/my-app
     ports:
-      - 3000:3000
+      - 3004:3000
     restart: unless-stopped
     command: /my-app/entry.sh
 
@@ -21,6 +21,6 @@ services:
     volumes:
       - ./admin_cms:/my-app
     ports:
-      - 3001:3000
+      - 3005:3000
     restart: unless-stopped
     command: /my-app/entry.sh
