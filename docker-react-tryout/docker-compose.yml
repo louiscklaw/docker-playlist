@@ -25,14 +25,9 @@ services:
     restart: unless-stopped
     command: /my-app/entry.sh
 
-  # docusaurus:
-  #   # container_name: docusaurus
-  #   # image: docusaurus
-  #   build:
-  #     context: ./wiki
-  #   volumes:
-  #     - ./wiki:/my-app
-  #   ports:
-  #     - 3006:3000
-  #   restart: unless-stopped
-  #   command: /my-app/entry.sh
+  wiki:
+    build:
+      context: ./wiki
+    ports:
+      - 3005:3000
+    restart: unless-stopped

@@ -1,10 +1,15 @@
 FROM node:latest
 
-USER 1000
-
 WORKDIR /my-app
 
-# copy to my-app
-# COPY . .
+# # copy to my-app
+COPY ./docusaurus-app /my-app
+RUN chmod a+x /my-app/entry.sh
+RUN chown node:node -R /my-app
+USER node
 
-ENTRYPOINT ["/my-app/entry.sh"]
+RUN yarn
+RUN yarn build
+EXPOSE 3000
+
+CMD "yarn" "serve" "--host=0.0.0.0"
