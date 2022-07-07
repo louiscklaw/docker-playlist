@@ -1,0 +1,6 @@
+**/.cache
+**/public
+**/*.log
+**/node_modules
+**/Dockerfile
+**/.git

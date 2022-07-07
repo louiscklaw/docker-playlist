@@ -3,6 +3,9 @@
 set -ex
 
 
+docker build -t logickee/gatsby-helloworld-tryout gatsby_helloworld
+docker image push logickee/gatsby-helloworld-tryout
+
 docker build -t logickee/nextjs-helloworld-tryout nextjs_helloworld_js
 docker image push logickee/nextjs-helloworld-tryout
 

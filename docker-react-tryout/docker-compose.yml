@@ -35,6 +35,17 @@ services:
       - 3007:3000
     restart: unless-stopped
 
+  gatsby_helloworld:
+    # container_name: admin_cms
+    # build:
+    #   context: ./admin_cms
+    # volumes:
+    #   - ./admin_cms:/my-app
+    image: logickee/gatsby-helloworld-tryout
+    ports:
+      - 3008:3000
+    restart: unless-stopped
+
   wiki:
     # build:
     #   context: ./wiki
