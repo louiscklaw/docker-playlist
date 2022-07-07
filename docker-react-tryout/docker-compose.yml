@@ -1,34 +1,33 @@
 version: "3.8"
 
 services:
-  # restaurant_cms:
-  #   # container_name: restaurant_cms
-  #   # image: restaurant_cms
-  #   build:
-  #     context: ./restaurant_cms
-  #   volumes:
-  #     - ./restaurant_cms:/my-app
-  #   ports:
-  #     - 3004:3000
-  #   restart: unless-stopped
-  #   command: /my-app/entry.sh
+  restaurant_cms:
+    #   # container_name: restaurant_cms
+    #   build:
+    #     context: ./restaurant_cms
+    #   volumes:
+    #     - ./restaurant_cms:/my-app
+    #   command: /my-app/entry.sh
+    image: logickee/restaurant-cms-tryout
+    ports:
+      - 3004:3000
+    restart: unless-stopped
 
   # admin_cms:
   #   # container_name: admin_cms
-  #   # image: admin_cms
-  #   build:
-  #     context: ./admin_cms
-  #   volumes:
-  #     - ./admin_cms:/my-app
+  #   # build:
+  #   #   context: ./admin_cms
+  #   # volumes:
+  #   #   - ./admin_cms:/my-app
+  #   image: logickee/admin-cms-tryout
   #   ports:
   #     - 3005:3000
   #   restart: unless-stopped
-  #   command: /my-app/entry.sh
 
   wiki:
     # build:
     #   context: ./wiki
     image: logickee/wiki-app-tryout
     ports:
-      - 3005:3000
+      - 3006:3000
     restart: unless-stopped
