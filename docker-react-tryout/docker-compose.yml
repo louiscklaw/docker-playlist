@@ -32,7 +32,7 @@ services:
     #   - ./admin_cms:/my-app
     image: logickee/nextjs-helloworld-tryout
     ports:
-      - 3006:3000
+      - 3007:3000
     restart: unless-stopped
 
   wiki:
