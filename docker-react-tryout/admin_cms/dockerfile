@@ -1,10 +1,14 @@
 FROM node:latest
 
-USER 1000
+WORKDIR /app
 
-WORKDIR /my-app
+# # copy to app
+COPY ./app /app
+RUN chown node:node -R /app
+USER node
 
-# copy to my-app
-# COPY . .
+RUN yarn
+RUN yarn build
+EXPOSE 3000
 
-ENTRYPOINT ["/my-app/entry.sh"]
+CMD "yarn" "serve" "--host=0.0.0.0"

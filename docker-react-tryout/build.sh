@@ -8,3 +8,6 @@ docker image push logickee/wiki-app-tryout
 
 docker build -t logickee/restaurant-cms-tryout restaurant_cms
 docker image push logickee/restaurant-cms-tryout
+
+docker build -t logickee/admin-cms-tryout admin_cms
+docker image push logickee/admin-cms-tryout
