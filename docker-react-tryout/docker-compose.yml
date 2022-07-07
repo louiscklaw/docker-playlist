@@ -24,6 +24,17 @@ services:
       - 3005:3000
     restart: unless-stopped
 
+  nextjs_helloworld:
+    # container_name: admin_cms
+    # build:
+    #   context: ./admin_cms
+    # volumes:
+    #   - ./admin_cms:/my-app
+    image: logickee/nextjs-helloworld-tryout
+    ports:
+      - 3006:3000
+    restart: unless-stopped
+
   wiki:
     # build:
     #   context: ./wiki
