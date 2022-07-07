@@ -9,7 +9,7 @@ USER node
 
 RUN yarn
 RUN yarn build
-EXPOSE 3000
+EXPOSE 9000
 
 
 CMD "yarn" "serve"
