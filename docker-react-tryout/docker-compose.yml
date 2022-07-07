@@ -43,7 +43,7 @@ services:
     #   - ./admin_cms:/my-app
     image: logickee/gatsby-helloworld-tryout
     ports:
-      - 3008:3000
+      - 3008:9000
     restart: unless-stopped
 
   wiki:
