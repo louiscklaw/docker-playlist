@@ -13,16 +13,16 @@ services:
       - 3004:3000
     restart: unless-stopped
 
-  # admin_cms:
-  #   # container_name: admin_cms
-  #   # build:
-  #   #   context: ./admin_cms
-  #   # volumes:
-  #   #   - ./admin_cms:/my-app
-  #   image: logickee/admin-cms-tryout
-  #   ports:
-  #     - 3005:3000
-  #   restart: unless-stopped
+  admin_cms:
+    # container_name: admin_cms
+    # build:
+    #   context: ./admin_cms
+    # volumes:
+    #   - ./admin_cms:/my-app
+    image: logickee/admin-cms-tryout
+    ports:
+      - 3005:3000
+    restart: unless-stopped
 
   wiki:
     # build:
