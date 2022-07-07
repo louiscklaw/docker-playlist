@@ -9,13 +9,14 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
+    "serve": "^13.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test_dockerfile":"npx nodemon dockerfile --exec \"./scripts/rebuild.ps1\"",
+    "test_dockerfile": "npx nodemon dockerfile --exec \"./scripts/rebuild.ps1\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
