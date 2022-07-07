@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker_rebuild": "docker-compose kill && docker-compose rm -v -f && docker-compose up -d && docker-compose logs -f",
+    "docker_rebuild": "docker-compose pull && docker-compose kill && docker-compose rm -v -f && docker-compose up -d && docker-compose logs -f",
     "test_docker_compose": "npx nodemon --watch **/*.yml --exec \"npm run docker_compose_down && npm run docker_compose_up\"",
     "gitSync": "git fetch --all && git pull",
     "gitUpdate": "git add . && git commit -m \"update docker-react-tryout,\" && yarn gitSync && git push"
