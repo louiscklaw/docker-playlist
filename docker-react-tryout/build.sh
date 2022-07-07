@@ -3,4 +3,5 @@
 set -ex
 
 
-docker-compose up
+docker build -t logickee/wiki-app-tryout wiki
+docker image push logickee/wiki-app-tryout
