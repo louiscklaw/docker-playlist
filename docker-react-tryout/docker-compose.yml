@@ -85,27 +85,27 @@ services:
       - "6443:4443"
       - "6444:4444"
 
-  redis:
-    image: redis:6.0.7
-    container_name: redis
-    hostname: redis
-    ports:
-      - "6379:6379"
-    volumes:
-      - ./volumes/redis/conf:/etc/redis
-      - ./volumes/redis/data:/data
-    command: redis-server /etc/redis/redis.conf
-    restart: always
+  # redis:
+  #   image: redis:6.0.7
+  #   container_name: redis
+  #   hostname: redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - ./volumes/redis/conf:/etc/redis
+  #     - ./volumes/redis/data:/data
+  #   command: redis-server /etc/redis/redis.conf
+  #   restart: always
 
-  redisinsight:
-    image: redislabs/redisinsight:latest
-    container_name: redisinsight
-    hostname: redisinsight
-    ports:
-      - "8001:8001"
-    volumes:
-      - ./volumes/redisinsight:/db
-    restart: always
+  # redisinsight:
+  #   image: redislabs/redisinsight:latest
+  #   container_name: redisinsight
+  #   hostname: redisinsight
+  #   ports:
+  #     - "8001:8001"
+  #   volumes:
+  #     - ./volumes/redisinsight:/db
+  #   restart: always
 
   strapi:
     image: strapi/strapi
