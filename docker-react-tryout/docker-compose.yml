@@ -56,7 +56,7 @@ services:
 
   whoami:
     image: "traefik/whoami"
-    container_name: "whoami_root"
+    # container_name: "whoami_root"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami_root.rule=Host(`whoami_react_test.iamon99.com`)"
@@ -136,7 +136,7 @@ services:
       - "5432:5432"
 
   pgweb:
-    container_name: pgweb
+    # container_name: pgweb
     restart: always
     image: sosedoff/pgweb
     ports:
