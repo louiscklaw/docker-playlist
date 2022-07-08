@@ -133,7 +133,7 @@ services:
     volumes:
       - ./volume/postgres/data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "6432:5432"
 
   pgweb:
     # container_name: pgweb
