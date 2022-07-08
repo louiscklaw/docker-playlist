@@ -1,0 +1,13 @@
+{
+  "name": "docker-osx-tryout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker_rebuild": "docker-compose build && docker-compose rm -s -v -f && docker-compose up -d && docker-compose logs -f"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

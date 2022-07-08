@@ -1,0 +1,1 @@
+https://github.com/RocketChat/rocketchat-botpress-lab-bot/blob/main/INSTALL.MD
