@@ -80,7 +80,6 @@ services:
 
   selenium-hub:
     image: selenium/hub:latest
-    container_name: selenium-hub
     ports:
       - "5442:4442"
       - "5443:4443"
