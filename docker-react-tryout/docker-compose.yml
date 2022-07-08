@@ -96,8 +96,6 @@ services:
       - ./volumes/redis/data:/data
     command: redis-server /etc/redis/redis.conf
     restart: always
-    networks:
-      - devops
 
   redisinsight:
     image: redislabs/redisinsight:latest
@@ -108,8 +106,6 @@ services:
     volumes:
       - ./volumes/redisinsight:/db
     restart: always
-    networks:
-      - devops
 
 networks:
   default:
