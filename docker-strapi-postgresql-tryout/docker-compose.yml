@@ -15,7 +15,7 @@ services:
     links:
       - postgres:postgres
     volumes:
-      - ./app:/srv/app
+      - ./volume/strapi/app:/srv/app
     ports:
       - "1337:1337"
     depends_on:
@@ -29,7 +29,7 @@ services:
       POSTGRES_USER: strapi
       POSTGRES_PASSWORD: strapi
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - ./volume/postgres/data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:
