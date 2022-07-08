@@ -140,7 +140,7 @@ services:
     restart: always
     image: sosedoff/pgweb
     ports:
-      - "8084:8081"
+      - "6084:8081"
     links:
       - postgres:postgres
     environment:
