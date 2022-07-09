@@ -1,41 +1,31 @@
-# Website
+# 7Wate 知识库
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+![Alt](https://repobeats.axiom.co/api/embed/b6e6a199e422ce596ea7423372746b6debadaa7d.svg "Repobeats analytics image")
 
-### Installation
+## 目录
 
-```
-$ yarn
-```
+- 博客(blog)
+- 维基
+    - 开发(dev)
+    - 算法(algo)
+    - 运维(ops)
+    - 安全(safe)
+    - 其他(docs)
+- 社区(org)
+- 职业(work)
+- 生活(life)
+- 艺术(art)
 
-### Local Development
+## 协议
 
-```
-$ yarn start
-```
+- 本站所有**原创**内容，采用 [GPL-3.0](http://www.thebigfly.com/gnu/FDLv1.3/) 协议。
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+- 本站所有**引用第三方**原创内容，所属**版权均归原作者**所有。如有侵权冒犯，请[邮件联系](mailto:admin@7wate.com)删除。
 
-### Build
+- **Docusaurus** is [MIT licensed.](https://github.com/facebook/docusaurus/blob/main/LICENSE)
 
-```
-$ yarn build
-```
+## 致谢
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+感谢第三方原创作者的共享！
 
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+感觉 Docusaurus 官方的维护开发！
