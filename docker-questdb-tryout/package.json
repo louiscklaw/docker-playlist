@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker_rebuild": "docker-compose kill && docker-compose up -d && docker-compose logs -f",
-    "gitUpdate": "git add . && git commit -m\"update docker-questdb-tryout\""
+    "gitSync": "git fetch --all && git pull",
+    "gitUpdate": "git add . && git commit -m\"update docker-questdb-tryout\" && yarn gitSync && git push"
   },
   "keywords": [],
   "author": "",
