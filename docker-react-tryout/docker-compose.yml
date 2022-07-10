@@ -148,6 +148,16 @@ services:
     depends_on:
       - postgres
 
+  questdb:
+    # container_name: docker_questdb
+    image: questdb/questdb:latest
+    ports:
+      - "9001:9000"
+      - "5435:8812"
+    environment:
+      - TZ=Asia/Hong_Kong
+    restart: unless-stopped
+
 networks:
   default:
     external:
