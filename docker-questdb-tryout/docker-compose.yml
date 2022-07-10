@@ -6,3 +6,6 @@ services:
     ports:
       - "9001:9000"
       - "5435:8812"
+    environment:
+      - TZ=Asia/Hong_Kong
+    restart: unless-stopped
