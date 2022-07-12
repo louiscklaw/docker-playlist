@@ -47,6 +47,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami_root.rule=Host(`changedetect.iamon99.com`)"
-      - "traefik.http.routers.whoami_root.entrypoints=websecure"
-      - "traefik.http.routers.whoami_root.tls.certresolver=myresolver"
+      - "traefik.http.routers.changedetect.rule=Host(`changedetect.iamon99.com`)"
+      - "traefik.http.routers.changedetect.entrypoints=websecure"
+      - "traefik.http.routers.changedetect.tls.certresolver=myresolver"
+      - "traefik.http.services.changedetect.loadbalancer.server.port=5000"
