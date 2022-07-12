@@ -1,14 +1,14 @@
 version: "2"
 services:
-#  playwright-chrome:
-#    hostname: playwright-chrome
-#    image: browserless/chrome
-#    restart: unless-stopped
-#    environment:
-#      - EXIT_ON_HEALTH_FAILURE=true
-#      - MAX_CONCURRENT_SESSIONS=10
-#      - DEFAULT_IGNORE_HTTPS_ERRORS=true
-#      - DEFAULT_LAUNCH_ARGS=["--window-size=2560,5440"]
+  #  playwright-chrome:
+  #    hostname: playwright-chrome
+  #    image: browserless/chrome
+  #    restart: unless-stopped
+  #    environment:
+  #      - EXIT_ON_HEALTH_FAILURE=true
+  #      - MAX_CONCURRENT_SESSIONS=10
+  #      - DEFAULT_IGNORE_HTTPS_ERRORS=true
+  #      - DEFAULT_LAUNCH_ARGS=["--window-size=2560,5440"]
 
   browser-chrome:
     hostname: browser-chrome
@@ -40,8 +40,13 @@ services:
       - PUID=1000
       - PGID=1000
       - WEBDRIVER_URL=http://browser-chrome:4444/wd/hub
- #     - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/
+      # - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/
 
     ports:
       - 5000:5000
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami_root.rule=Host(`changedetect.iamon99.com`)"
+      - "traefik.http.routers.whoami_root.entrypoints=websecure"
+      - "traefik.http.routers.whoami_root.tls.certresolver=myresolver"
