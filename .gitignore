@@ -1,3 +1,4 @@
+**/*del
 **/*.lock
 **/.env
 .env.docker
