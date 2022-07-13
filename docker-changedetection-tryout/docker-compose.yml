@@ -11,7 +11,7 @@ services:
   #      - DEFAULT_LAUNCH_ARGS=["--window-size=2560,5440"]
 
   browser-chrome:
-    hostname: browser-chrome
+    # hostname: browser-chrome
     image: selenium/standalone-chrome-debug:3.141.59
     environment:
       - VNC_NO_PASSWORD=1
@@ -24,13 +24,14 @@ services:
     volumes:
       - /dev/shm:/dev/shm
     restart: unless-stopped
-    ports:
-      - 4444:4444
+    #ports:
+    #  - 4444:4444
 
   changedetection.io:
     image: ghcr.io/dgtlmoon/changedetection.io
     # container_name: changedetection.io
-    hostname: changedetection.io
+    # hostname: changedetection.io
+    user: 1000:1000 
     volumes:
       - ./volumes/datastore:/datastore
 
