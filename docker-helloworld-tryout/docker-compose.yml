@@ -10,3 +10,12 @@ services:
     #   - "traefik.http.routers.whoami_root.entrypoints=websecure"
     #   - "traefik.http.routers.whoami_root.tls.certresolver=myresolver"
     restart: always
+  whoami1:
+    image: "traefik/whoami"
+    container_name: "whoami_helloworld1"
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.whoami_root.rule=Host(`whoami_react_test.iamon99.com`)"
+    #   - "traefik.http.routers.whoami_root.entrypoints=websecure"
+    #   - "traefik.http.routers.whoami_root.tls.certresolver=myresolver"
+    restart: always
