@@ -1,7 +1,7 @@
 version: "3.4"
 
 services:
-  whoami:
+  whoami1:
     image: "traefik/whoami"
     container_name: "whoami_helloworld1"
     # labels:
@@ -10,7 +10,7 @@ services:
     #   - "traefik.http.routers.whoami_root.entrypoints=websecure"
     #   - "traefik.http.routers.whoami_root.tls.certresolver=myresolver"
     restart: always
-  whoami:
+  whoami2:
     image: "traefik/whoami"
     container_name: "whoami_helloworld2"
     # labels:
