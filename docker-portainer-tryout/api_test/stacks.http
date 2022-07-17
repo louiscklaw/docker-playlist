@@ -1,0 +1,77 @@
+GET https://example.com HTTP/1.1
+
+###
+
+GET http://192.168.10.21:9000/api/stacks 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOjEsInNjb3BlIjoiZGVmYXVsdCIsImZvcmNlQ2hhbmdlUGFzc3dvcmQiOmZhbHNlLCJleHAiOjE2NTc5MjIwMzEsImlhdCI6MTY1NzkwNzYzMX0.D_XGEvwgb0YaqzQ1Kohg4gybT5WaX2eZorGc2clZSqY
+X-API-Key: ptr_7KJ6okGhjH1CYSLZ4mvR6mDm8tl1e1ZGps35K0TGD7g=
+###
+
+### deploy new stack
+POST http://192.168.10.21:9000/api/stacks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOjEsInNjb3BlIjoiZGVmYXVsdCIsImZvcmNlQ2hhbmdlUGFzc3dvcmQiOmZhbHNlLCJleHAiOjE2NTc5MjIwMzEsImlhdCI6MTY1NzkwNzYzMX0.D_XGEvwgb0YaqzQ1Kohg4gybT5WaX2eZorGc2clZSqY
+
+{}
+
+
+#
+
+
+# Start a stack, create containers
+POST http://192.168.10.21:9000/api/stacks/2/start
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOjEsInNjb3BlIjoiZGVmYXVsdCIsImZvcmNlQ2hhbmdlUGFzc3dvcmQiOmZhbHNlLCJleHAiOjE2NTc5MjIwMzEsImlhdCI6MTY1NzkwNzYzMX0.D_XGEvwgb0YaqzQ1Kohg4gybT5WaX2eZorGc2clZSqY
+
+{}
+
+###
+
+# stop a stack, delete containers
+POST http://192.168.10.21:9000/api/stacks/2/stop
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOjEsInNjb3BlIjoiZGVmYXVsdCIsImZvcmNlQ2hhbmdlUGFzc3dvcmQiOmZhbHNlLCJleHAiOjE2NTc5MjIwMzEsImlhdCI6MTY1NzkwNzYzMX0.D_XGEvwgb0YaqzQ1Kohg4gybT5WaX2eZorGc2clZSqY
+
+{}
+
+###
+
+# delete stack
+DELETE http://192.168.10.21:9000/api/stacks/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOjEsInNjb3BlIjoiZGVmYXVsdCIsImZvcmNlQ2hhbmdlUGFzc3dvcmQiOmZhbHNlLCJleHAiOjE2NTc5MjIwMzEsImlhdCI6MTY1NzkwNzYzMX0.D_XGEvwgb0YaqzQ1Kohg4gybT5WaX2eZorGc2clZSqY
+
+{"force": true}
+
+###
+
+# create container
+# https://docs.docker.com/engine/api/v1.41/#tag/Container/operation/ContainerCreate
+# https://docs.portainer.io/v/ce-2.9/api/examples#create-a-container
+POST http://192.168.10.21:9000/api/endpoints/2/docker/containers/create
+  ?name=hellocontainer
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOjEsInNjb3BlIjoiZGVmYXVsdCIsImZvcmNlQ2hhbmdlUGFzc3dvcmQiOmZhbHNlLCJleHAiOjE2NTc5MjIwMzEsImlhdCI6MTY1NzkwNzYzMX0.D_XGEvwgb0YaqzQ1Kohg4gybT5WaX2eZorGc2clZSqY
+X-API-Key: ptr_7KJ6okGhjH1CYSLZ4mvR6mDm8tl1e1ZGps35K0TGD7g=
+content-type: application/json
+
+{
+  "name": "web01",
+  "Image":"nginx:latest",
+  "ExposedPorts":{ "80/tcp":{} },
+  "HostConfig":{ "PortBindings":{ "80/tcp":[{ "HostPort": "8080" }] } }
+}
+
+###
+POST http://192.168.10.21:9000/api/auth  HTTP/1.1
+content-type: application/json
+
+{
+  "Username": "admin",
+  "Password": "hellopassword"
+}
+
+###
+
+POST http://192.168.10.21:9000/api/users/admin/init  HTTP/1.1
+content-type: application/json
+
+{
+  "Username": "admin",
+  "Password": "hellopassword"
+}
