@@ -9,8 +9,7 @@ create table api.todos (
   due timestamptz
 );
 
-insert into api.todos (task) values
-  ('finish tutorial 0'), ('pat self on back');
+insert into api.todos (task) values ('finish tutorial 0'), ('pat self on back');
 
 -- make a role
 create role web_anon nologin;

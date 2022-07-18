@@ -1,0 +1,37 @@
+# https://postgrest.org/en/stable/tutorials/tut1.html
+@JWT=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIn0.XOVXpyXEmsxA0ExZxUCmxqFl29gnGb20vzjaYnhbkBQ
+@BASE_URL=http://localhost:3003
+
+###
+# helloworld
+GET https://example.com HTTP/1.1
+
+###
+# helloworld
+GET {{BASE_URL}}/todos
+
+### insert
+#
+POST {{BASE_URL}}/todos
+Authorization: Bearer {{JWT}}
+Content-Type: application/json
+Prefer: return=representation
+
+{"task": "learn how to auth 12321"}
+
+### update
+#
+PUT {{BASE_URL}}/todos?id=eq.1 
+Authorization: Bearer {{JWT}}
+Content-Type: application/json
+
+{ "id": 1, "done": true, "task": "new task" }
+
+
+### DELETE
+#
+DELETE {{BASE_URL}}/todos?id=eq.2
+Authorization: Bearer {{JWT}}
+Prefer: return=representation
+
+
