@@ -29,7 +29,7 @@ services:
       - postgres
 
   # https://postgrest.org/en/stable/tutorials/tut0.html
-  rest:
+  postgrest:
     image: postgrest/postgrest:v9.0.0
     restart: unless-stopped
     ports:
