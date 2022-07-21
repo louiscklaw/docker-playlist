@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gitSync": "git fetch --all && git stash && git pull && git stash pop",
+    "gitSync": "git fetch --all && git stash && git pull && git stash pop || true",
     "gitUpdate": "yarn gitSync && git add . && git commit -m\"update docker-playlist,\" && yarn gitSync && git push"
   },
   "repository": {
