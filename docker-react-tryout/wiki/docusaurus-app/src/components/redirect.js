@@ -10,7 +10,7 @@ export function Open({ go }) {
     <div>
       {redirectContent()}
       👉 或者手动点击<strong>本篇文章阅读地址</strong>: &nbsp;
-      <a href={go} target='_blank'>
+      <a href={go} target="_blank">
         {go}
       </a>
     </div>

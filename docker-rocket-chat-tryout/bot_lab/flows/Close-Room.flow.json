@@ -27,9 +27,7 @@
           "node": "END"
         }
       ],
-      "onEnter": [
-        "rocketchat/omnichannel-close-room {}"
-      ],
+      "onEnter": ["rocketchat/omnichannel-close-room {}"],
       "onReceive": null,
       "type": "standard"
     },
@@ -48,9 +46,7 @@
           "node": "main.flow.json#menu"
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-uFNm9g"
-      ],
+      "onEnter": ["say #!builtin_text-uFNm9g"],
       "onReceive": [],
       "type": "standard"
     }

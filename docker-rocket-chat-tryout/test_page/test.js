@@ -1,9 +1,9 @@
-const http = require("http");
+const http = require('http')
 
 const requestListener = function (req, res) {
-  res.writeHead(200);
+  res.writeHead(200)
   res.end(
-`<!DOCTYPE html>
+    `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -25,8 +25,9 @@ const requestListener = function (req, res) {
     </script>
 </body>
 </html>
-`);
-};
+`,
+  )
+}
 
-const server = http.createServer(requestListener);
-server.listen(8080);
+const server = http.createServer(requestListener)
+server.listen(8080)

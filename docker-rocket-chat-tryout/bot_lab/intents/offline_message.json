@@ -11,13 +11,9 @@
     {
       "id": "BjeGYIl5YdZOeSSpk1qfu",
       "name": "offline_message",
-      "entities": [
-        "any"
-      ],
+      "entities": ["any"],
       "color": 1
     }
   ],
-  "contexts": [
-    "global"
-  ]
+  "contexts": ["global"]
 }

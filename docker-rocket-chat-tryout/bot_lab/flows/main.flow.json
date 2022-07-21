@@ -27,9 +27,7 @@
           "node": "get-initial-info"
         }
       ],
-      "onEnter": [
-        "rocketchat/config-test {}"
-      ],
+      "onEnter": ["rocketchat/config-test {}"],
       "onReceive": null,
       "type": "standard"
     },
@@ -116,9 +114,7 @@
           "node": "menu"
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-R0538G"
-      ],
+      "onEnter": ["say #!builtin_text-R0538G"],
       "onReceive": null,
       "type": "standard"
     },

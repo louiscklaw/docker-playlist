@@ -1,18 +1,18 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require('prism-react-renderer/themes/github')
+const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "7Wate",
-  tagline: "For Freedom",
-  url: "https://wiki.7wate.com",
-  baseUrl: "/",
-  onBrokenLinks: "log",
-  onBrokenMarkdownLinks: "log",
-  favicon: "img/favicon.ico",
+  title: '7Wate',
+  tagline: 'For Freedom',
+  url: 'https://wiki.7wate.com',
+  baseUrl: '/',
+  onBrokenLinks: 'log',
+  onBrokenMarkdownLinks: 'log',
+  favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -23,32 +23,32 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "zh-Hans",
-    locales: ["zh-Hans"],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
   },
 
   presets: [
     [
-      "classic",
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
-          showLastUpdateAuthor:true,
-          showLastUpdateTime:true,
-          breadcrumbs:false,
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+          breadcrumbs: false,
         },
         blog: {
-          blogTitle:"7Wate`s Blog",
-          blogDescription:"7Wate 的个人生活和工作记录",
-          blogSidebarCount:7,
-          blogSidebarTitle:"文章",
+          blogTitle: '7Wate`s Blog',
+          blogDescription: '7Wate 的个人生活和工作记录',
+          blogSidebarCount: 7,
+          blogSidebarTitle: '文章',
           showReadingTime: true,
-          editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
+          editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve('./src/css/custom.css'),
         },
         sitemap: {
           changefreq: 'weekly',
@@ -59,142 +59,141 @@ const config = {
   ],
   plugins: [
     [
-      "@docusaurus/plugin-content-docs",
+      '@docusaurus/plugin-content-docs',
       {
-        id: "life",
-        path: "life",
-        routeBasePath: "life",
-        sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
-        showLastUpdateAuthor:true,
-        showLastUpdateTime:true,
-        breadcrumbs:false,
+        id: 'life',
+        path: 'life',
+        routeBasePath: 'life',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        breadcrumbs: false,
       },
     ],
     [
-      "@docusaurus/plugin-content-docs",
+      '@docusaurus/plugin-content-docs',
       {
-        id: "art",
-        path: "art",
-        routeBasePath: "art",
-        sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
-        showLastUpdateAuthor:true,
-        showLastUpdateTime:true,
-        breadcrumbs:false,
+        id: 'art',
+        path: 'art',
+        routeBasePath: 'art',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        breadcrumbs: false,
       },
     ],
     [
-      "@docusaurus/plugin-content-docs",
+      '@docusaurus/plugin-content-docs',
       {
-        id: "dev",
-        path: "dev",
-        routeBasePath: "dev",
-        sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
-        showLastUpdateAuthor:true,
-        showLastUpdateTime:true,
-        breadcrumbs:false,
+        id: 'dev',
+        path: 'dev',
+        routeBasePath: 'dev',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        breadcrumbs: false,
       },
     ],
     [
-      "@docusaurus/plugin-content-docs",
+      '@docusaurus/plugin-content-docs',
       {
-        id: "algo",
-        path: "algo",
-        routeBasePath: "algo",
-        sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
-        showLastUpdateAuthor:true,
-        showLastUpdateTime:true,
-        breadcrumbs:false,
+        id: 'algo',
+        path: 'algo',
+        routeBasePath: 'algo',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        breadcrumbs: false,
       },
     ],
     [
-      "@docusaurus/plugin-content-docs",
+      '@docusaurus/plugin-content-docs',
       {
-        id: "ops",
-        path: "ops",
-        routeBasePath: "ops",
-        sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
-        showLastUpdateAuthor:true,
-        showLastUpdateTime:true,
-        breadcrumbs:false,
+        id: 'ops',
+        path: 'ops',
+        routeBasePath: 'ops',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        breadcrumbs: false,
       },
     ],
     [
-      "@docusaurus/plugin-content-docs",
+      '@docusaurus/plugin-content-docs',
       {
-        id: "safe",
-        path: "safe",
-        routeBasePath: "safe",
-        sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
-        showLastUpdateAuthor:true,
-        showLastUpdateTime:true,
-        breadcrumbs:false,
+        id: 'safe',
+        path: 'safe',
+        routeBasePath: 'safe',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        breadcrumbs: false,
       },
     ],
     [
-      "@docusaurus/plugin-content-docs",
+      '@docusaurus/plugin-content-docs',
       {
-        id: "othe",
-        path: "othe",
-        routeBasePath: "othe",
-        sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
-        showLastUpdateAuthor:true,
-        showLastUpdateTime:true,
-        breadcrumbs:false,
+        id: 'othe',
+        path: 'othe',
+        routeBasePath: 'othe',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        breadcrumbs: false,
       },
     ],
     [
-      "@docusaurus/plugin-content-docs",
+      '@docusaurus/plugin-content-docs',
       {
-        id: "org",
-        path: "org",
-        routeBasePath: "org",
-        sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
-        showLastUpdateAuthor:true,
-        showLastUpdateTime:true,
-        breadcrumbs:false,
+        id: 'org',
+        path: 'org',
+        routeBasePath: 'org',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        breadcrumbs: false,
       },
     ],
     [
-      "@docusaurus/plugin-content-docs",
+      '@docusaurus/plugin-content-docs',
       {
-        id: "work",
-        path: "work",
-        routeBasePath: "work",
-        sidebarPath: require.resolve("./sidebars.js"),
-        editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
-        showLastUpdateAuthor:true,
-        showLastUpdateTime:true,
-        breadcrumbs:false,
+        id: 'work',
+        path: 'work',
+        routeBasePath: 'work',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://git.7wate.com/zhouzhongping/wiki/src/branch/master',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        breadcrumbs: false,
       },
     ],
     [
-      "@docusaurus/plugin-google-analytics",
+      '@docusaurus/plugin-google-analytics',
       {
-        trackingID: "G-MHMEL0F832",
+        trackingID: 'G-MHMEL0F832',
       },
     ],
-    
-      // "plugin-image-zoom",
-    
+
+    // "plugin-image-zoom",
   ],
   themes: [
     [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
+      require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         // ... Your options.
         // `hashed` is recommended as long-term-cache of index file is possible.
         hashed: true,
         // For Docs using Chinese, The `language` is recommended to set to:
         // ```
-        language: ["en", "zh"],
+        language: ['en', 'zh'],
         // ```
       },
     ],
@@ -213,12 +212,12 @@ const config = {
       // },
       metadata: [
         {
-          name: "keywords",
-          content: "7wate, wiki, blog, c, c++, java, python, linux",
+          name: 'keywords',
+          content: '7wate, wiki, blog, c, c++, java, python, linux',
         },
       ],
       navbar: {
-        title: "📚 7Wate`s Wiki",
+        title: '📚 7Wate`s Wiki',
         hideOnScroll: true,
         // logo: {
         //   alt: 'Site Logo',
@@ -230,51 +229,48 @@ const config = {
         //   height: 32,
         // },
         items: [
-          { to: "/blog", label: "👨🏻‍🌾 博客", position: "right" },
+          { to: '/blog', label: '👨🏻‍🌾 博客', position: 'right' },
           {
-            position: "right",
-            label: "👨🏻‍🎓 维基",
+            position: 'right',
+            label: '👨🏻‍🎓 维基',
             items: [
               {
-                label: "开发",
-                to: "/dev",
+                label: '开发',
+                to: '/dev',
               },
               {
-                label: "算法",
-                to: "/algo",
+                label: '算法',
+                to: '/algo',
               },
               {
-                label: "运维",
-                to: "/ops",
+                label: '运维',
+                to: '/ops',
               },
               {
-                label: "安全",
-                to: "/safe",
+                label: '安全',
+                to: '/safe',
               },
               {
-                label: "其他",
-                to: "/docs",
+                label: '其他',
+                to: '/docs',
               },
-              
             ],
           },
-          { to: "/org", label: "🤶 社区", position: "right" },
-          { to: "/work", label: "👨‍💻 职业", position: "right" },
-          { to: "/life", label: "🚴🏻‍♀️ 生活", position: "right" },
-          { to: "/art", label: "👨‍🎨 艺术", position: "right" },
-          
-          
+          { to: '/org', label: '🤶 社区', position: 'right' },
+          { to: '/work', label: '👨‍💻 职业', position: 'right' },
+          { to: '/life', label: '🚴🏻‍♀️ 生活', position: 'right' },
+          { to: '/art', label: '👨‍🎨 艺术', position: 'right' },
         ],
       },
       footer: {
-        style: "dark",
+        style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} 7Wate, Inc. Built with <a href="https://www.docusaurus.cn/" target="_blank" rel="noopener noreferrer">Docusaurus</a>.<br>Powered by <a href="https://webify.cloudbase.net/" target="_blank" rel="noopener noreferrer">CloudBase Webify</a>`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        defaultLanguage: "markdown",
-        additionalLanguages: ["java", "git"],
+        defaultLanguage: 'markdown',
+        additionalLanguages: ['java', 'git'],
       },
       // imageZoom: {
       //   // CSS selector to apply the plugin to, defaults to '.markdown img'
@@ -290,6 +286,6 @@ const config = {
       //   },
       // },
     }),
-};
+}
 
-module.exports = config;
+module.exports = config

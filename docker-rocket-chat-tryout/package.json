@@ -14,7 +14,7 @@
     "docker_rebuild": "npm run docker_compose_pull && npm run docker_compose_build && npm run docker_compose_kill && npm run docker_compose_down && npm run docker_compose_up && docker-compose logs -f",
     "gitUpdate": "git pull && git add . && git commit -m \"update docker-rocket-chat-tryout,\" && git push",
     "gitSync": "git fetch --all && git pull --ff-only",
-    "docker_prune":"docker kill $(docker ps -qa) || true && docker system prune"
+    "docker_prune": "docker kill $(docker ps -qa) || true && docker system prune"
   },
   "keywords": [],
   "author": "",

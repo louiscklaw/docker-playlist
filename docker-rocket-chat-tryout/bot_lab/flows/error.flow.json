@@ -24,9 +24,7 @@
           "node": ""
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-OC9rEB"
-      ],
+      "onEnter": ["say #!builtin_text-OC9rEB"],
       "onReceive": null,
       "type": "standard"
     }

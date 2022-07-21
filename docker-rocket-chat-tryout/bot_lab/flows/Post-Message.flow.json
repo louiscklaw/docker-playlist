@@ -45,9 +45,7 @@
           "node": "main.flow.json#menu"
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-U81uJf"
-      ],
+      "onEnter": ["say #!builtin_text-U81uJf"],
       "onReceive": null,
       "type": "standard"
     },
@@ -61,9 +59,7 @@
           "node": "main.flow.json#menu"
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-wniPjb"
-      ],
+      "onEnter": ["say #!builtin_text-wniPjb"],
       "onReceive": null,
       "type": "standard"
     }

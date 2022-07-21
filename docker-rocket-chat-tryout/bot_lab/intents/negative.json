@@ -1,17 +1,8 @@
 {
   "name": "negative",
   "utterances": {
-    "en": [
-      "no",
-      "not",
-      "i dont want",
-      "i don't want it",
-      "no, thanks",
-      "no way"
-    ]
+    "en": ["no", "not", "i dont want", "i don't want it", "no, thanks", "no way"]
   },
   "slots": [],
-  "contexts": [
-    "global"
-  ]
+  "contexts": ["global"]
 }

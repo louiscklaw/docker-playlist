@@ -11,16 +11,12 @@
     "turnExpiry": 2,
     "intent": "offline_message",
     "slotName": "offline_message",
-    "entities": [
-      "any"
-    ]
+    "entities": ["any"]
   },
   "nodes": [
     {
       "name": "slot-extract",
-      "onEnter": [
-        "say #!builtin_text-OI_sY1 {}"
-      ],
+      "onEnter": ["say #!builtin_text-OI_sY1 {}"],
       "onReceive": [
         "basic-skills/slot_fill {\"slotName\":\"offline_message\",\"entities\":\"any\", \"turnExpiry\":2}"
       ],
@@ -77,9 +73,7 @@
     },
     {
       "name": "check-if-extracted",
-      "onEnter": [
-        "basic-skills/slot_update_contexts {\"intentName\":\"offline_message\"}"
-      ],
+      "onEnter": ["basic-skills/slot_update_contexts {\"intentName\":\"offline_message\"}"],
       "next": [
         {
           "condition": "session.slots['offline_message'] !== undefined",

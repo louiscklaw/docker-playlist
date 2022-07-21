@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",
     "gitSync": "git fetch --all && git stash && git pull && git stash pop || true",
     "gitUpdate": "yarn gitSync && git add . && git commit -m\"update docker-playlist,\" && yarn gitSync && git push"
   },
@@ -26,8 +27,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "scripts/pre-commit.sh",
-      "pre-push": "scripts/pre-push.sh"
+      "pre-commit": "yarn format"
     }
+  },
+  "dependencies": {
+    "prettier": "^2.7.1"
   }
 }

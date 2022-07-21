@@ -1,1 +1,6 @@
-{"username": "admin", "password": "61646d696e", "api_address": "http://localhost:8000", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2U0NmM5NjI3MTUwMzlhOTVlYzA5MyIsIm5iZiI6MTY1NzY4NTcyOSwidXNlcm5hbWUiOiJhZG1pbiJ9.RYczoO540KBKMummyq3gXhJUXm5BJ2jtov5ZCOm1rtw"}
+{
+  "username": "admin",
+  "password": "61646d696e",
+  "api_address": "http://localhost:8000",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2U0NmM5NjI3MTUwMzlhOTVlYzA5MyIsIm5iZiI6MTY1NzY4NTcyOSwidXNlcm5hbWUiOiJhZG1pbiJ9.RYczoO540KBKMummyq3gXhJUXm5BJ2jtov5ZCOm1rtw"
+}

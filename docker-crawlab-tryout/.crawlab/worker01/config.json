@@ -1,1 +1,11 @@
-{"key":"08e93e13-f3d3-11ec-8f92-0242c0a8f005","is_master":false,"name":"08e93e13-f3d3-11ec-8f92-0242c0a8f005","ip":"","mac":"","hostname":"","description":"","auth_key":"Crawlab2021!","max_runners":8}
+{
+  "key": "08e93e13-f3d3-11ec-8f92-0242c0a8f005",
+  "is_master": false,
+  "name": "08e93e13-f3d3-11ec-8f92-0242c0a8f005",
+  "ip": "",
+  "mac": "",
+  "hostname": "",
+  "description": "",
+  "auth_key": "Crawlab2021!",
+  "max_runners": 8
+}

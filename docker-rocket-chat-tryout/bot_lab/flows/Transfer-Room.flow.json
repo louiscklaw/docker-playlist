@@ -27,9 +27,7 @@
           "node": "END"
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-Ji5TpK"
-      ],
+      "onEnter": ["say #!builtin_text-Ji5TpK"],
       "onReceive": null,
       "type": "standard"
     },
@@ -43,9 +41,7 @@
           "node": "question-leave-offline-message"
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-jexsmi"
-      ],
+      "onEnter": ["say #!builtin_text-jexsmi"],
       "onReceive": null,
       "type": "standard"
     },
@@ -85,9 +81,7 @@
           "node": "no-offline-message"
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-UtDbfv"
-      ],
+      "onEnter": ["say #!builtin_text-UtDbfv"],
       "onReceive": [],
       "type": "standard"
     },
@@ -162,9 +156,7 @@
           "node": "main.flow.json#menu"
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-1oqC1z"
-      ],
+      "onEnter": ["say #!builtin_text-1oqC1z"],
       "onReceive": null,
       "type": "standard"
     },
@@ -178,10 +170,7 @@
           "node": "Close-Room.flow.json"
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-9Ib6L5",
-        "builtin/wait {\"delay\":\"6000\"}"
-      ],
+      "onEnter": ["say #!builtin_text-9Ib6L5", "builtin/wait {\"delay\":\"6000\"}"],
       "onReceive": null,
       "type": "standard"
     },
@@ -195,9 +184,7 @@
           "node": "main.flow.json#menu"
         }
       ],
-      "onEnter": [
-        "say #!builtin_text-4x-hw2"
-      ],
+      "onEnter": ["say #!builtin_text-4x-hw2"],
       "onReceive": null,
       "type": "standard"
     }

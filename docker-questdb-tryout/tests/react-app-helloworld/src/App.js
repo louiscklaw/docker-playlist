@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react'
 
-const HOST = "http://localhost:9000";
+const HOST = 'http://localhost:9000'
 
 function App() {
-  const [debug_query_result, setDebugQueryResult] = React.useState(null);
+  const [debug_query_result, setDebugQueryResult] = React.useState(null)
 
   async function handleCreateTableClick(e) {
-    console.log("handleCreateTableClick");
+    console.log('handleCreateTableClick')
     try {
-      const query = "CREATE TABLE sensors (ID LONG, make STRING, city STRING);";
+      const query = 'CREATE TABLE sensors (ID LONG, make STRING, city STRING);'
 
       // proxy enabled in package.json, check proxy
       // https://stackoverflow.com/questions/47902840/enabling-cors-in-create-react-app-utility
-      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`);
-      const json = await response.json();
+      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`)
+      const json = await response.json()
 
-      console.log(json);
+      console.log(json)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
   async function handleInsertReadingsClick(e) {
@@ -31,14 +31,14 @@ function App() {
               rnd_long(0, 10000, 0) sensorId
           FROM long_sequence(10000000) x)
       TIMESTAMP(ts)
-      PARTITION BY MONTH;`;
+      PARTITION BY MONTH;`
 
-      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`);
-      const json = await response.json();
+      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`)
+      const json = await response.json()
 
-      console.log(json);
+      console.log(json)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
@@ -50,41 +50,41 @@ function App() {
           rnd_str('Eberle', 'Honeywell', 'Omron', 'United Automation', 'RS Pro') make,
           rnd_str('New York', 'Miami', 'Boston', 'Chicago', 'San Francisco') city
       FROM long_sequence(10000) x
-  ;`;
+  ;`
 
-      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`);
-      const json = await response.json();
+      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`)
+      const json = await response.json()
 
-      console.log(json);
+      console.log(json)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
   async function handleInsertClickSimple(e) {
     try {
-      const query = "INSERT INTO trades VALUES('abc', 123456)";
+      const query = "INSERT INTO trades VALUES('abc', 123456)"
 
-      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`);
-      const json = await response.json();
+      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`)
+      const json = await response.json()
 
-      console.log(json);
+      console.log(json)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
   async function handleQueryClick(e) {
     try {
-      const query = "SELECT name FROM trades;";
+      const query = 'SELECT name FROM trades;'
 
-      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`);
-      const json = await response.json();
-      setDebugQueryResult(json);
+      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`)
+      const json = await response.json()
+      setDebugQueryResult(json)
 
-      console.log(json);
+      console.log(json)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
@@ -97,15 +97,15 @@ function App() {
           FROM sensors
           WHERE city='Miami' AND make='Omron') a
       ON readings.sensorId = a.sensId
-      WHERE ts IN '2019-10-21;1d'`;
+      WHERE ts IN '2019-10-21;1d'`
 
-      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`);
-      const json = await response.json();
-      setDebugQueryResult(json);
+      const response = await fetch(`/exec?query=${encodeURIComponent(query)}`)
+      const json = await response.json()
+      setDebugQueryResult(json)
 
-      console.log(json);
+      console.log(json)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
@@ -115,47 +115,39 @@ function App() {
       <div>
         <div>create</div>
         <div>
-          <button onClick={(e) => handleCreateTableClick(e)}>
-            create table
-          </button>
+          <button onClick={e => handleCreateTableClick(e)}>create table</button>
         </div>
       </div>
       <div>
         <div>insert</div>
         <div>
-          <button onClick={(e) => handleInsertReadingsClick(e)}>
-            handleInsertReadingsClick
-          </button>
+          <button onClick={e => handleInsertReadingsClick(e)}>handleInsertReadingsClick</button>
         </div>
         <div>
-          <button onClick={(e) => handleInsertSensorsClick(e)}>
-            handleInsertSensorsClick
-          </button>
+          <button onClick={e => handleInsertSensorsClick(e)}>handleInsertSensorsClick</button>
         </div>
       </div>
       <div>
         <div>query</div>
         <div>
           <button
-            onClick={(e) => {
-              setDebugQueryResult({});
+            onClick={e => {
+              setDebugQueryResult({})
             }}
           >
             reset query result
           </button>
         </div>
         <div>
-          <button onClick={(e) => handleQueryClick(e)}>handleQueryClick</button>
-          <button onClick={(e) => handleQueryReadingsClick(e)}>
-            handleQueryReadingsClick
-          </button>
+          <button onClick={e => handleQueryClick(e)}>handleQueryClick</button>
+          <button onClick={e => handleQueryReadingsClick(e)}>handleQueryReadingsClick</button>
         </div>
         <div>
           <pre>{JSON.stringify(debug_query_result, null, 2)}</pre>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

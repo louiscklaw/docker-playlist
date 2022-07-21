@@ -14,8 +14,8 @@
     "docker_rebuild": "npm run docker_compose_pull && npm run docker_compose_build && npm run docker_compose_kill && npm run docker_compose_down && npm run docker_compose_up",
     "gitUpdate": "git pull && git add . && git commit -m \"update\" && git push",
     "gitSync": "git fetch --all && git pull --ff-only",
-    "docker_prune":"docker kill $(docker ps -qa) || true && docker system prune",
-    "reset_volume":"sudo rm -rf volumes && mkdir -p volumes && touch volumes/.gitkeep"
+    "docker_prune": "docker kill $(docker ps -qa) || true && docker system prune",
+    "reset_volume": "sudo rm -rf volumes && mkdir -p volumes && touch volumes/.gitkeep"
   },
   "keywords": [],
   "author": "",

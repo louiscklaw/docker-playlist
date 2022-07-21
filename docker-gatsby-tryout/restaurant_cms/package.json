@@ -15,7 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test_dockerfile":"npx nodemon dockerfile --exec \"./scripts/rebuild.ps1\"",
+    "test_dockerfile": "npx nodemon dockerfile --exec \"./scripts/rebuild.ps1\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -29,7 +29,7 @@ const svgList = [
 ]
 const Svg = ({ Svg, color, title, link }) => {
   return (
-    <a href={link} target='_blank'>
+    <a href={link} target="_blank">
       <Svg className={styles.svg} style={{ fill: color }} />
     </a>
   )
@@ -39,11 +39,11 @@ function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext()
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className='container'>
-        <h1 className='hero__title'>{siteConfig.title}</h1>
-        <p className='hero__subtitle'>{siteConfig.tagline}</p>
+      <div className="container">
+        <h1 className="hero__title">{siteConfig.title}</h1>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link className='button button--secondary button--lg' to='/docs/intro'>
+          <Link className="button button--secondary button--lg" to="/docs/intro">
             🖱Click Here!
           </Link>
         </div>
@@ -81,7 +81,7 @@ function MyHero() {
         </div>
       </div>
       <div className={styles.rightContainer}>
-        <img src={HeroImg} alt='HeroImg' />
+        <img src={HeroImg} alt="HeroImg" />
       </div>
     </div>
   )
@@ -91,8 +91,9 @@ export default function Home() {
   return (
     <Layout
       // title={`${siteConfig.title}`}
-      title='Home'
-      description='Wiki知识库/vscode/javascript/软件/工具'>
+      title="Home"
+      description="Wiki知识库/vscode/javascript/软件/工具"
+    >
       {/* <HomepageHeader /> */}
       <main>
         <MyHero />

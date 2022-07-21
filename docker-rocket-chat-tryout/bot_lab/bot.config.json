@@ -48,9 +48,7 @@
     }
   },
   "defaultLanguage": "en",
-  "languages": [
-    "en"
-  ],
+  "languages": ["en"],
   "id": "lab",
   "name": "lab",
   "pipeline_status": {
@@ -73,10 +71,7 @@
       "enabled": false,
       "maxAge": "1h"
     },
-    "socketTransports": [
-      "websocket",
-      "polling"
-    ],
+    "socketTransports": ["websocket", "polling"],
     "rateLimit": {
       "enabled": false,
       "limitWindow": "30s",
@@ -157,9 +152,7 @@
     }
   ],
   "pro": {
-    "collaboratorsAuthStrategies": [
-      "default"
-    ],
+    "collaboratorsAuthStrategies": ["default"],
     "enabled": false,
     "licenseKey": "paste your license key here",
     "monitoring": {
@@ -177,9 +170,7 @@
     },
     "externalAuth": {
       "enabled": false,
-      "algorithms": [
-        "HS256"
-      ],
+      "algorithms": ["HS256"],
       "publicKey": "insert key here",
       "jwksClient": {}
     },
@@ -230,10 +221,7 @@
     "enabled": true,
     "collectionInterval": "1s",
     "retentionPeriod": "30d",
-    "ignoredEventTypes": [
-      "visit",
-      "typing"
-    ],
+    "ignoredEventTypes": ["visit", "typing"],
     "ignoredEventProperties": [],
     "debuggerProperties": [
       "ndu.triggers",
