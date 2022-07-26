@@ -1,6 +1,5 @@
-version: '3'
-
 # CREDIT: https://kinsta.com/blog/mailhog/#:~:text=MailHog%20is%20an%20email%20testing,to%20send%20and%20receive%20emails.
+
 services:
   mailhog:
     image: 'mailhog/mailhog:latest'
