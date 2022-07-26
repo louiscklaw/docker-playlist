@@ -6,7 +6,9 @@
   "scripts": {
     "test": "node ./test/index.js",
     "docker_rebuild": "docker-compose rm -s -v -f && docker-compose up -d && docker-compose logs -f ",
-    "gitUpdate": "git add . && git commit -m\"update docker-mailhog-tryout,\" && git pull && git push"
+    "gitSync": "git fetch --all && git stash && git pull && git stash pop || true",
+    "gitUpdate": "yarn gitSync && git add . && git commit -m\"update docker-mailhog-tryout,\" && yarn gitSync && git push"
+
   },
   "keywords": [],
   "author": "",
