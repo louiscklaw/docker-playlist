@@ -25,11 +25,6 @@
     "@commitlint/config-conventional": "^9.1.2",
     "husky": "^4.3.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn format"
-    }
-  },
   "dependencies": {
     "gulp": "^4.0.2",
     "prettier": "^2.7.1",
