@@ -1,0 +1,16 @@
+FROM node:16-buster-slim
+
+# Set DEBIAN_FRONTEND to noninteractive
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt update &&\
+  apt install -yy git curl wget
+
+# # Set default user and workdir
+RUN npm i -g @nestjs/cli
+
+
+USER node
+WORKDIR /app
+
+CMD ["/bin/bash"]
