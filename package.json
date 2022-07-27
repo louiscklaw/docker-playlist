@@ -31,6 +31,8 @@
     }
   },
   "dependencies": {
-    "prettier": "^2.7.1"
+    "gulp": "^4.0.2",
+    "prettier": "^2.7.1",
+    "recursive-copy": "^2.0.14"
   }
 }
