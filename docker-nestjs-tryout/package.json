@@ -1,0 +1,18 @@
+{
+  "name": "docker-node-tryout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bash ./build.sh",
+    "build_node14": "docker build -t logickee/docker_node14_tryout -f dockerfile.node14 .",
+    "start_node14": "docker run -it --env-file .env.docker --rm logickee/docker_node14_tryout node --version",
+    "build_node12": "docker build -t logickee/docker_node12_tryout -f dockerfile.node12 .",
+    "start_node12": "docker run -it --env-file .env.docker --rm logickee/docker_node12_tryout node --version",
+    "gitUpdate": "git pull && git add . && git commit -m \"update docker-node-tryout\" && git push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
