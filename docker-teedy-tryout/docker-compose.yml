@@ -12,7 +12,7 @@ services:
       - DATABASE_USER=teedy
       - DATABASE_PASSWORD=changeme
     ports:
-      - 8094:8080
+      - 8095:8080
     # labels:
     #   # Traefik Labels
     #   - 'traefik.enable=true'
