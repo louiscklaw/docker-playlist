@@ -27,9 +27,17 @@ username=user1
 
 ###
 POST http://localhost:8095/api/user/login
-Content-Type: application/x-www-form-urlencoded;charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 
 username=admin&password=superSecure
+
+
+###
+POST http://localhost:8095/api/user/login
+Content-Type: application/x-www-form-urlencoded
+
+username=restaurant2&password=restaurant2
+
 
 ###
 POST http://localhost:8095/api/user/logout
@@ -39,10 +47,12 @@ POST http://localhost:8095/api/user/onboarded
 
 # User - Register a new user
 ###
-POST http://localhost:8095/api/user
-Content-Type: application/x-www-form-urlencoded;charset=utf-8
+PUT http://localhost:8095/api/user
+Content-Type: application/x-www-form-urlencoded
 
-username=restaurant1&password=restaurant1&email=restaurant1@gmail.com&storage_quota=1073741824
+username=restaurant2&password=restaurant2&email=restaurant2@gmail.com&storage_quota=1000000000
+
+
 
 # put a file to temp
 # https://demo.teedy.io/apidoc/#api-File-PutFile
@@ -56,6 +66,7 @@ Content-Type: application/octet-stream
 
 < hotdog.jpg
 -----------------------------hello-file-boundary--
+
 
 # put a file to temp
 # https://demo.teedy.io/apidoc/#api-File-PutFile
@@ -73,18 +84,68 @@ Content-Type: application/octet-stream
 
 
 # File - Attach a file to a document
+###
+POST http://localhost:8095/api/file/42da170e-9b3a-4212-90f8-37dbe10073ce/attach
+Content-Type: application/x-www-form-urlencoded
+
+id=66492188-89d8-4e10-8351-e6ed6ef98cc8
+
 
 # File - Delete a file
 ###
-DELETE http://localhost:8095/api/file/12206337-00da-456d-8cdc-f3ce7faeefa6
+DELETE http://localhost:8095/api/file/66492188-89d8-4e10-8351-e6ed6ef98cc8
 
 
 ###
 # File - Get a file data
-GET http://localhost:8095/api/file/618d9b0b-d80f-4814-b41d-20cffc8abfd5/data
+GET http://localhost:8095/api/file/66492188-89d8-4e10-8351-e6ed6ef98cc8/data
 
 
 ###
 # File - Get a file data
 GET http://localhost:8095/api/file/list
+
+
+
+
+
+# Add a document
+###
+PUT http://localhost:8095/api/document
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+title=restaurant3&language=eng
+
+
+# Delete a document
+###
+DELETE http://localhost:8095/api/document/24a00fae-e405-4b84-9f4f-14708ec77b95
+
+
+
+# Export a document to PDF
+###
+
+
+
+# Get a document
+###
+GET http://localhost:8095/api/document/66492188-89d8-4e10-8351-e6ed6ef98cc8
+
+
+
+# Get documents
+###
+GET http://localhost:8095/api/document/list
+
+
+# Import a new document from an EML file
+###
+
+
+
+# Update a document
+###
+
+
 
