@@ -5,7 +5,7 @@ on:
 jobs:
 
   # 
-  # D:\_workspace\docker-playlist/docker-gnome-tryout/build.yml
+  # /home/logic/_workspace/docker-playlist/docker-gnome-tryout/build.yml
   # 
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
@@ -27,7 +27,7 @@ jobs:
           cd ..
   
   # 
-  # D:\_workspace\docker-playlist/docker-jenkins-tryout/build.yml
+  # /home/logic/_workspace/docker-playlist/docker-jenkins-tryout/build.yml
   # 
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
@@ -49,7 +49,7 @@ jobs:
           cd ..
   
   # 
-  # D:\_workspace\docker-playlist/docker-lighthouse-tryout/build.yml
+  # /home/logic/_workspace/docker-playlist/docker-lighthouse-tryout/build.yml
   # 
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
@@ -77,7 +77,29 @@ jobs:
           cd ..
   
   # 
-  # D:\_workspace\docker-playlist/docker-php-tryout/build.yml
+  # /home/logic/_workspace/docker-playlist/docker-parse-tryout/build.yml
+  # 
+  # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
+  # https://github.com/sdras/awesome-actions
+  
+  docker_helloworld_tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: docker-helloworld-tryout
+        uses: actions/checkout@v2
+  
+      - name: try build image
+        env: # Or as an environment variable
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+        run: |
+          cd docker-helloworld-tryout
+            docker build -t logickee/helloworld -f dockerfile .
+          cd ..
+  
+  # 
+  # /home/logic/_workspace/docker-playlist/docker-php-tryout/build.yml
   # 
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
@@ -105,7 +127,7 @@ jobs:
           cd ..
   
   # 
-  # D:\_workspace\docker-playlist/docker-python-tryout/build.yml
+  # /home/logic/_workspace/docker-playlist/docker-python-tryout/build.yml
   # 
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
@@ -127,7 +149,7 @@ jobs:
           cd ..
   
   # 
-  # D:\_workspace\docker-playlist/docker-ubuntu-tryout/build.yml
+  # /home/logic/_workspace/docker-playlist/docker-ubuntu-tryout/build.yml
   # 
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
@@ -157,7 +179,7 @@ jobs:
   
 
   # 
-  # D:\_workspace\docker-playlist/github-build-merger/subjob.yml
+  # /home/logic/_workspace/docker-playlist/github-build-merger/subjob.yml
   # 
   test_merger:
     runs-on: ubuntu-latest
@@ -187,7 +209,7 @@ jobs:
           github-build-merger/test.sh
   
   merge:
-    needs: [docker_gnome_tryout, docker_helloworld_tryout, docker_python_tryout, docker_ubuntu_tryout, docker_ubuntu_tryout, docker_ubuntu_tryout, test_merger]
+    needs: [docker_gnome_tryout, docker_helloworld_tryout, docker_helloworld_tryout, docker_python_tryout, docker_ubuntu_tryout, docker_ubuntu_tryout, docker_ubuntu_tryout, test_merger]
     runs-on: ubuntu-latest
     steps:
       - name: checkout

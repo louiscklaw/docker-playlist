@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",
-    "gitSync": "git fetch --all && git stash && git pull && git stash pop || true",
+    "gitSync": "git fetch --all && git stash && git pull && git stash pop",
     "gitUpdate": "yarn gitSync && git add . && git commit -m\"update docker-playlist,\" && yarn gitSync && git push"
   },
   "repository": {
@@ -25,9 +24,10 @@
     "@commitlint/config-conventional": "^9.1.2",
     "husky": "^4.3.0"
   },
-  "dependencies": {
-    "gulp": "^4.0.2",
-    "prettier": "^2.7.1",
-    "recursive-copy": "^2.0.14"
+  "husky": {
+    "hooks": {
+      "pre-commit": "scripts/pre-commit.sh",
+      "pre-push": "scripts/pre-push.sh"
+    }
   }
 }

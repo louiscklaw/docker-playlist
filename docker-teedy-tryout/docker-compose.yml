@@ -12,17 +12,17 @@ services:
       - DATABASE_USER=teedy
       - DATABASE_PASSWORD=changeme
     ports:
-      - 8091:8080
-    labels:
-      # Traefik Labels
-      - 'traefik.enable=true'
-      # HTTPS Labels
-      - 'traefik.http.routers.teedy.rule=Host(`docu_share`)' # Domain Name
-      - 'traefik.http.routers.teedy.entrypoints=web-secure'
-      - 'traefik.http.routers.teedy.middlewares=default-headers@file'
-      - 'traefik.http.routers.teedy.service=teedy'
-      - 'traefik.http.routers.teedy.tls=true'
-      - 'traefik.http.services.teedy.loadbalancer.server.port=8080' # Proxied Port
+      - 8094:8080
+    # labels:
+    #   # Traefik Labels
+    #   - 'traefik.enable=true'
+    #   # HTTPS Labels
+    #   - 'traefik.http.routers.teedy.rule=Host(`docu_share`)' # Domain Name
+    #   - 'traefik.http.routers.teedy.entrypoints=web-secure'
+    #   - 'traefik.http.routers.teedy.middlewares=default-headers@file'
+    #   - 'traefik.http.routers.teedy.service=teedy'
+    #   - 'traefik.http.routers.teedy.tls=true'
+    #   - 'traefik.http.services.teedy.loadbalancer.server.port=8080' # Proxied Port
   postgres:
     image: postgres:latest
     # container_name: postgres
