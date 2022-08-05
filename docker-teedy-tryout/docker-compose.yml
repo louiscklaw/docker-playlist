@@ -1,0 +1,36 @@
+services:
+  teedy:
+    image: sismics/docs:latest
+    # container_name: teedy
+    # hostname: teedy
+    # restart: unless-stopped
+    volumes:
+      - /mnt/sdb1/teedy/teedy_docs:/docs
+    environment:
+      - DOCS_BASE_URL=https://localhost
+      - DATABSASE_URL=postgresql://postgres:5432/teedy
+      - DATABASE_USER=teedy
+      - DATABASE_PASSWORD=changeme
+    ports:
+      - 8091:8080
+    labels:
+      # Traefik Labels
+      - 'traefik.enable=true'
+      # HTTPS Labels
+      - 'traefik.http.routers.teedy.rule=Host(`docu_share`)' # Domain Name
+      - 'traefik.http.routers.teedy.entrypoints=web-secure'
+      - 'traefik.http.routers.teedy.middlewares=default-headers@file'
+      - 'traefik.http.routers.teedy.service=teedy'
+      - 'traefik.http.routers.teedy.tls=true'
+      - 'traefik.http.services.teedy.loadbalancer.server.port=8080' # Proxied Port
+  postgres:
+    image: postgres:latest
+    # container_name: postgres
+    # hostname: postgres
+    # restart: unless-stopped
+    volumes:
+      - /mnt/sdb1/teedy/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=teedy
+      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_DB=teedy
