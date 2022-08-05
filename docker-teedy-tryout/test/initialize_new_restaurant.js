@@ -1,6 +1,15 @@
 'use strict'
 
-import fetch, { File, FormData, fileFromSync } from 'node-fetch'
+import fetch, {
+  FormData,
+  Blob,
+  blobFrom,
+  blobFromSync,
+  File,
+  fileFrom,
+  fileFromSync,
+} from 'node-fetch'
+
 import fs from 'fs'
 import path from 'path'
 
