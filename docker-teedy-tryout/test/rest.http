@@ -75,10 +75,24 @@ PUT http://localhost:8095/api/file
 Content-Type: multipart/form-data; boundary=---------------------------hello-file-boundary
 
 -----------------------------hello-file-boundary
-Content-Disposition: form-data; name="file"; filename="hotdog.jpg"
+Content-Disposition: form-data; name="file"; filename="64bit.dat"
 Content-Type: application/octet-stream
 
-< hotdog.jpg
+< 64bit.dat
+-----------------------------hello-file-boundary--
+
+
+# put a file to temp
+# https://demo.teedy.io/apidoc/#api-File-PutFile
+###
+POST https://httpbin.org/post
+Content-Type: multipart/form-data; boundary=---------------------------hello-file-boundary
+
+-----------------------------hello-file-boundary
+Content-Disposition: form-data; name="file"; filename="64bit.dat"
+Content-Type: application/octet-stream
+
+< 64bit.dat
 -----------------------------hello-file-boundary--
 
 
@@ -112,7 +126,7 @@ GET http://localhost:8095/api/file/list
 # Add a document
 ###
 PUT http://localhost:8095/api/document
-Content-Type: application/x-www-form-urlencoded;charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 
 title=restaurant3&language=eng
 
