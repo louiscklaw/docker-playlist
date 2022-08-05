@@ -5,12 +5,15 @@ services:
     # hostname: teedy
     # restart: unless-stopped
     volumes:
-      - /mnt/sdb1/teedy/teedy_docs:/docs
+      # - /mnt/sdb1/teedy/teedy_docs:/docs
+      - ./volumes/teedy_docs:/docs
     environment:
-      - DOCS_BASE_URL=https://localhost
+      - DOCS_BASE_URL=https://teedy.mycompany.com
       - DATABSASE_URL=postgresql://postgres:5432/teedy
       - DATABASE_USER=teedy
       - DATABASE_PASSWORD=changeme
+      - DOCS_ADMIN_PASSWORD_INIT=$$2a$$05$$PcMNUbJvsk7QHFSfEIDaIOjk1VI9/E7IPjTKx.jkjPxkx2EOKSoPS
+
     ports:
       - 8095:8080
     # labels:

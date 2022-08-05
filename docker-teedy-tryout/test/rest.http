@@ -1,0 +1,90 @@
+#
+# User - Check username availability
+
+
+###
+GET http://localhost:8095/api
+
+
+
+###
+GET http://localhost:8095/api/user/list
+
+###
+GET http://localhost:8095/api/user/check_username?username=admin
+
+###
+GET http://localhost:8095/api/user/check_username?username=logickee
+
+
+
+###
+POST http://localhost:8095/api/user/password_lost
+Content-Type: application/x-www-form-urlencoded
+
+username=user1
+
+
+###
+POST http://localhost:8095/api/user/login
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+username=admin&password=superSecure
+
+###
+POST http://localhost:8095/api/user/logout
+
+###
+POST http://localhost:8095/api/user/onboarded
+
+# User - Register a new user
+###
+POST http://localhost:8095/api/user
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+username=restaurant1&password=restaurant1&email=restaurant1@gmail.com&storage_quota=1073741824
+
+# put a file to temp
+# https://demo.teedy.io/apidoc/#api-File-PutFile
+###
+PUT http://localhost:8095/api/file
+Content-Type: multipart/form-data; boundary=---------------------------hello-file-boundary
+
+-----------------------------hello-file-boundary
+Content-Disposition: form-data; name="file"; filename="hotdog.jpg"
+Content-Type: application/octet-stream
+
+< hotdog.jpg
+-----------------------------hello-file-boundary--
+
+# put a file to temp
+# https://demo.teedy.io/apidoc/#api-File-PutFile
+###
+PUT http://localhost:8095/api/file
+Content-Type: multipart/form-data; boundary=---------------------------hello-file-boundary
+
+-----------------------------hello-file-boundary
+Content-Disposition: form-data; name="file"; filename="hotdog.jpg"
+Content-Type: application/octet-stream
+
+< hotdog.jpg
+-----------------------------hello-file-boundary--
+
+
+
+# File - Attach a file to a document
+
+# File - Delete a file
+###
+DELETE http://localhost:8095/api/file/12206337-00da-456d-8cdc-f3ce7faeefa6
+
+
+###
+# File - Get a file data
+GET http://localhost:8095/api/file/618d9b0b-d80f-4814-b41d-20cffc8abfd5/data
+
+
+###
+# File - Get a file data
+GET http://localhost:8095/api/file/list
+
