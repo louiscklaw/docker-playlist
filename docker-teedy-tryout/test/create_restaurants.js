@@ -1,33 +1,40 @@
-// create restaurants as documents
 'use strict'
 
-const { default: axios } = require('axios')
-const { CookieJar } = require('tough-cookie')
-const { wrapper } = require('axios-cookiejar-support')
-const qs = require('qs')
+import fetch, {
+  FormData,
+  Blob,
+  blobFrom,
+  blobFromSync,
+  File,
+  fileFrom,
+  fileFromSync,
+} from 'node-fetch'
 
-const jar = new CookieJar()
-const client = wrapper(axios.create({ jar }))
+const params = new URLSearchParams()
+params.append('username', 'admin')
+params.append('password', 'superSecure')
 
-client
-  .post(
-    `http://localhost:8095/api/user/login`,
-    qs.stringify({ username: 'admin', password: 'superSecure' }),
-  )
-  .then(() => {
-    return Promise.all(
-      Array(30)
-        .fill(0)
-        .map((x, idx) =>
-          client.put(
-            `http://localhost:8095/api/document`,
-            qs.stringify({ title: `restaurant_${idx}`, language: 'eng' }),
-            { withCredentials: true },
-          ),
-        ),
-    )
-  })
-  .then(ress => {
-    console.log(ress)
-  })
-  .catch(err => console.log(err))
+var response = await fetch('http://localhost:8095/api/user/login', {
+  method: 'POST',
+  body: params,
+})
+let auth_token = response.headers.raw()['set-cookie']
+
+console.log(response)
+
+for (var i = 0; i < 9; i++) {
+  console.log(`creating restaurant ${i}`)
+  const params = new URLSearchParams()
+  params.append('title', `restaurant_${i}`)
+  params.append('language', 'eng')
+
+  try {
+    response = await fetch(`http://localhost:8095/api/document`, {
+      method: 'PUT',
+      body: params,
+      headers: { cookie: auth_token },
+    })
+  } catch (error) {
+    console.log('err')
+  }
+}
