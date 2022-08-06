@@ -20,21 +20,24 @@ var response = await fetch('http://localhost:8095/api/user/login', {
 })
 let auth_token = response.headers.raw()['set-cookie']
 
-console.log(response)
+// console.log(response)
 
-for (var i = 0; i < 9; i++) {
-  console.log(`creating restaurant ${i}`)
+var ids = []
+
+for (var i = 0; i < 10; i++) {
+  // console.log(`creating restaurant ${i}`)
+
   const params = new URLSearchParams()
   params.append('title', `restaurant_${i}`)
   params.append('language', 'eng')
 
-  try {
-    response = await fetch(`http://localhost:8095/api/document`, {
-      method: 'PUT',
-      body: params,
-      headers: { cookie: auth_token },
-    })
-  } catch (error) {
-    console.log('err')
-  }
+  response = await fetch(`http://localhost:8095/api/document`, {
+    method: 'PUT',
+    body: params,
+    headers: { cookie: auth_token },
+  })
+  var r_json = await response.json()
+  ids.push(r_json.id)
 }
+
+console.log({ ids })
