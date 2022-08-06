@@ -11,6 +11,8 @@ services:
       - DATABSASE_URL=postgresql://postgres:5432/teedy
       - DATABASE_USER=teedy
       - DATABASE_PASSWORD=changeme
+      # htpasswd -bnBC 5 "" superSecure | tr -d ':\n'
+      - DOCS_ADMIN_PASSWORD_INIT=$$2y$$05$$VxleK9EQyQfBVcWSB/LlOOLVNJIEYVSrWDpXtibc.Gcume/AzI5JG
     ports:
       - 8095:8080
     # labels:
