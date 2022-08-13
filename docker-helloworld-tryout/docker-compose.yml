@@ -1,10 +1,10 @@
-version: '3.4'
+version: "3.4"
 
 services:
   whoami1:
-    image: 'traefik/whoami'
+    image: "traefik/whoami"
     restart: unless-stopped
-    container_name: 'whoami_helloworld1'
+    container_name: "whoami_helloworld1"
     # labels:
     #   - "traefik.enable=true"
     #   - "traefik.http.routers.whoami_root.rule=Host(`whoami_react_test.iamon99.com`)"
@@ -15,7 +15,7 @@ services:
     image: mysql
     restart: unless-stopped
     # container_name: Monica-DB
-    user: '1000'
+    user: "1000"
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=true
       - MYSQL_DATABASE=monica

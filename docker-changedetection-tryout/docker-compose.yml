@@ -1,4 +1,3 @@
-version: "2"
 services:
   #  playwright-chrome:
   #    hostname: playwright-chrome
@@ -31,7 +30,7 @@ services:
     image: ghcr.io/dgtlmoon/changedetection.io
     # container_name: changedetection.io
     # hostname: changedetection.io
-    user: 1000:1000 
+    user: 1000:1000
     volumes:
       - ./volumes/datastore:/datastore
 
@@ -48,7 +47,16 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
+      - "traefik.http.routers.changedetect-http.rule=Host(`changedetect.iamon99.com`)"
+      - "traefik.http.routers.changedetect-http.entrypoints=web"
+      - "traefik.http.routers.changedetect-http.middlewares=changedetect-https"
+      - "traefik.http.middlewares.changedetect-https.redirectscheme.scheme=https"
       - "traefik.http.routers.changedetect.rule=Host(`changedetect.iamon99.com`)"
       - "traefik.http.routers.changedetect.entrypoints=websecure"
       - "traefik.http.routers.changedetect.tls.certresolver=myresolver"
-      - "traefik.http.services.changedetect.loadbalancer.server.port=5000"
+      - "traefik.http.services.changedetect.loadbalancer.server.port=8000"
+
+networks:
+  default:
+    external:
+      name: traefik-proxy-network
