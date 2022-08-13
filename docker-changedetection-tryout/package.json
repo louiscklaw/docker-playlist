@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker_rebuild": "docker-compose build && docker-compose rm -s -v -f && docker-compose up -d && docker-compose logs -f ",
+    "docker_rebuild": "docker compose up -d --build",
     "gitUpdate": "git add . && git commit -m\"update docker-changedetection-tryout,\" && git pull && git push",
     "gitSync": "git fetch --all && git pull"
   },
