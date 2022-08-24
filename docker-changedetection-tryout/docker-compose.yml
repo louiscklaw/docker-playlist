@@ -69,7 +69,7 @@ services:
     # hostname: changedetection.io
     user: 1000:1000
     volumes:
-      - ./volumes/datastore:/datastore
+      - ./volumes/private-changedetect/datastore:/datastore
 
     environment:
       - FETCH_WORKERS=2
