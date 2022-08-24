@@ -6,7 +6,7 @@ services:
     shm_size: 2gb
     environment:
       - EXIT_ON_HEALTH_FAILURE=true
-      - MAX_CONCURRENT_SESSIONS=3
+      - MAX_CONCURRENT_SESSIONS=2
       - DEFAULT_IGNORE_HTTPS_ERRORS=true
       - ENABLE_CORS=true
       - PREBOOT_CHROME=true
@@ -24,7 +24,7 @@ services:
       - SCREEN_HEIGHT=5080
       - SCREEN_DEPTH=24
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-      - SE_NODE_MAX_SESSIONS=3
+      - SE_NODE_MAX_SESSIONS=2
     shm_size: 2gb
     volumes:
       - /dev/shm:/dev/shm
