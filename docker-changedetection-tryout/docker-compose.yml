@@ -12,7 +12,7 @@ services:
       - PREBOOT_CHROME=true
       - KEEP_ALIVE=true
       - ENABLE_API_GET=true
-      - DEFAULT_LAUNCH_ARGS=["--window-size=2560,5440"]
+      - DEFAULT_LAUNCH_ARGS=["--window-size=1920,5080"]
 
   browser-chrome:
     # hostname: browser-chrome
