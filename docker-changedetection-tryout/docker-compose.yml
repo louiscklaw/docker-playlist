@@ -4,6 +4,8 @@ services:
     image: browserless/chrome
     restart: always
     shm_size: 2gb
+    volumes:
+      - /dev/shm:/dev/shms
     environment:
       - EXIT_ON_HEALTH_FAILURE=true
       - MAX_CONCURRENT_SESSIONS=2
