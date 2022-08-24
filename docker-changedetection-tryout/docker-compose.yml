@@ -1,28 +1,33 @@
 services:
-  #  playwright-chrome:
-  #    hostname: playwright-chrome
-  #    image: browserless/chrome
-  #    restart: unless-stopped
-  #    environment:
-  #      - EXIT_ON_HEALTH_FAILURE=true
-  #      - MAX_CONCURRENT_SESSIONS=10
-  #      - DEFAULT_IGNORE_HTTPS_ERRORS=true
-  #      - DEFAULT_LAUNCH_ARGS=["--window-size=2560,5440"]
+  playwright-chrome:
+    hostname: playwright-chrome
+    image: browserless/chrome
+    restart: always
+    shm_size: 2gb
+    environment:
+      - EXIT_ON_HEALTH_FAILURE=true
+      - MAX_CONCURRENT_SESSIONS=3
+      - DEFAULT_IGNORE_HTTPS_ERRORS=true
+      - ENABLE_CORS=true
+      - PREBOOT_CHROME=true
+      - KEEP_ALIVE=true
+      - ENABLE_API_GET=true
+      - DEFAULT_LAUNCH_ARGS=["--window-size=2560,5440"]
 
   browser-chrome:
     # hostname: browser-chrome
     image: selenium/standalone-chrome-debug:3.141.59
+    restart: always
     environment:
       - VNC_NO_PASSWORD=1
       - SCREEN_WIDTH=1920
       - SCREEN_HEIGHT=5080
       - SCREEN_DEPTH=24
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_MAX_SESSIONS=3
     shm_size: 2gb
     volumes:
       - /dev/shm:/dev/shm
-    restart: unless-stopped
     #ports:
     #  - 4444:4444
 
@@ -46,15 +51,15 @@ services:
       - 5000:5000
     restart: unless-stopped
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.changedetect-http.rule=Host(`changedetect.iamon99.com`)"
-      - "traefik.http.routers.changedetect-http.entrypoints=web"
-      - "traefik.http.routers.changedetect-http.middlewares=changedetect-https"
-      - "traefik.http.middlewares.changedetect-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.changedetect.rule=Host(`changedetect.iamon99.com`)"
-      - "traefik.http.routers.changedetect.entrypoints=websecure"
-      - "traefik.http.routers.changedetect.tls.certresolver=myresolver"
-      - "traefik.http.services.changedetect.loadbalancer.server.port=5000"
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.changedetect-http.rule=Host(`changedetect.iamon99.com`)'
+      - 'traefik.http.routers.changedetect-http.entrypoints=web'
+      - 'traefik.http.routers.changedetect-http.middlewares=changedetect-https'
+      - 'traefik.http.middlewares.changedetect-https.redirectscheme.scheme=https'
+      - 'traefik.http.routers.changedetect.rule=Host(`changedetect.iamon99.com`)'
+      - 'traefik.http.routers.changedetect.entrypoints=websecure'
+      - 'traefik.http.routers.changedetect.tls.certresolver=myresolver'
+      - 'traefik.http.services.changedetect.loadbalancer.server.port=5000'
 
 networks:
   default:
