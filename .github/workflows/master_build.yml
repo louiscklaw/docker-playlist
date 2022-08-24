@@ -4,217 +4,247 @@ on:
 
 jobs:
 
-  # 
+  #
   # D:\_workspace\docker-playlist/docker-gnome-tryout/build.yml
-  # 
+  #
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
-  
+
   docker_gnome_tryout:
     runs-on: ubuntu-latest
     steps:
       - name: docker-gnome-tryout
         uses: actions/checkout@v2
-  
+
       - name: try build image
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
         run: |
           cd docker-gnome-tryout
             docker build -t logickee/ubuntu_gnome -f dockerfile .
           cd ..
-  
-  # 
+
+  #
+<<<<<<< Updated upstream
+  # /home/logic/_workspace/docker-playlist/docker-jenkins-tryout/build.yml
+=======
   # D:\_workspace\docker-playlist/docker-jenkins-tryout/build.yml
-  # 
+>>>>>>> Stashed changes
+  #
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
-  
+
   docker_helloworld_tryout:
     runs-on: ubuntu-latest
     steps:
       - name: docker-helloworld-tryout
         uses: actions/checkout@v2
-  
+
       - name: try build image
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
         run: |
           cd docker-helloworld-tryout
             docker build -t logickee/helloworld -f dockerfile .
           cd ..
-  
-  # 
+
+  #
   # D:\_workspace\docker-playlist/docker-lighthouse-tryout/build.yml
-  # 
+  #
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
-  
+
   docker_ubuntu_tryout:
     runs-on: ubuntu-latest
     steps:
       - name: docker-ubuntu-tryout
         uses: actions/checkout@v2
-  
+
       - name: try build image
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
         run: |
           cd docker-ubuntu-tryout
-  
+
             docker build -t logickee/ubuntu_1804 -f dockerfile.1804 .
             docker build -t logickee/ubuntu_2004 -f dockerfile.2004 .
             docker build -t logickee/ubuntu_2010 -f dockerfile.2010 .
             docker build -t logickee/ubuntu_1404 -f dockerfile.1404 .
             docker build -t logickee/ubuntu_1604 -f dockerfile.1604 .
-  
+
           cd ..
-  
-  # 
+
+  #
+<<<<<<< Updated upstream
+  # /home/logic/_workspace/docker-playlist/docker-parse-tryout/build.yml
+  #
+  # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
+  # https://github.com/sdras/awesome-actions
+
+  docker_helloworld_tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: docker-helloworld-tryout
+        uses: actions/checkout@v2
+
+      - name: try build image
+        env: # Or as an environment variable
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        run: |
+          cd docker-helloworld-tryout
+            docker build -t logickee/helloworld -f dockerfile .
+          cd ..
+
+  #
+  # /home/logic/_workspace/docker-playlist/docker-php-tryout/build.yml
+=======
   # D:\_workspace\docker-playlist/docker-php-tryout/build.yml
-  # 
+>>>>>>> Stashed changes
+  #
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
-  
+
   docker_ubuntu_tryout:
     runs-on: ubuntu-latest
     steps:
       - name: docker-ubuntu-tryout
         uses: actions/checkout@v2
-  
+
       - name: try build image
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
         run: |
           cd docker-ubuntu-tryout
-  
+
             docker build -t logickee/ubuntu_1804 -f dockerfile.1804 .
             docker build -t logickee/ubuntu_2004 -f dockerfile.2004 .
             docker build -t logickee/ubuntu_2010 -f dockerfile.2010 .
             docker build -t logickee/ubuntu_1404 -f dockerfile.1404 .
             docker build -t logickee/ubuntu_1604 -f dockerfile.1604 .
-  
+
           cd ..
-  
-  # 
+
+  #
   # D:\_workspace\docker-playlist/docker-python-tryout/build.yml
-  # 
+  #
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
-  
+
   docker_python_tryout:
     runs-on: ubuntu-latest
     steps:
       - name: docker-python-tryout
         uses: actions/checkout@v2
-  
+
       - name: try build image
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
         run: |
           cd docker-python-tryout
             docker build -t logickee/docker_python -f dockerfile .
           cd ..
-  
-  # 
+
+  #
   # D:\_workspace\docker-playlist/docker-ubuntu-tryout/build.yml
-  # 
+  #
   # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
   # https://github.com/sdras/awesome-actions
-  
+
   docker_ubuntu_tryout:
     runs-on: ubuntu-latest
     steps:
       - name: docker-ubuntu-tryout
         uses: actions/checkout@v2
-  
+
       - name: try build image
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
         run: |
           cd docker-ubuntu-tryout
-  
+
             docker build -t logickee/ubuntu_1804 -f dockerfile.1804 .
             docker build -t logickee/ubuntu_2004 -f dockerfile.2004 .
             docker build -t logickee/ubuntu_2010 -f dockerfile.2010 .
             docker build -t logickee/ubuntu_1404 -f dockerfile.1404 .
             docker build -t logickee/ubuntu_1604 -f dockerfile.1604 .
-  
-          cd ..
-  
-  
 
-  # 
+          cd ..
+
+
+
+  #
   # D:\_workspace\docker-playlist/github-build-merger/subjob.yml
-  # 
+  #
   test_merger:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
-  
+
       - name: run test
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-  
+
         run: |
           sudo apt update
           sudo apt install -y python3 python3-pip python3-dev python3-wheel python3-setuptools
           python3 -V
           python3 -m pip install pipenv
-  
+
           export PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
           export PATH="$PATH:$PYTHON_BIN_PATH"
-  
+
           export LC_ALL=C.UTF-8
           export LANG=C.UTF-8
-  
+
           pipenv --help
           github-build-merger/test.sh
-  
+
   merge:
-    needs: [docker_gnome_tryout, docker_helloworld_tryout, docker_python_tryout, docker_ubuntu_tryout, docker_ubuntu_tryout, docker_ubuntu_tryout, test_merger]
+    needs: [docker_gnome_tryout, docker_helloworld_tryout, docker_helloworld_tryout, docker_python_tryout, docker_ubuntu_tryout, docker_ubuntu_tryout, docker_ubuntu_tryout, test_merger]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
-  
+
       - name: run merge
         env: # Or as an environment variable
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-  
+
         run: |
           sudo apt update
           sudo apt install -y python3 python3-pip python3-dev python3-wheel python3-setuptools
           python3 -V
           python3 -m pip install pipenv
-  
+
           export PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
           export PATH="$PATH:$PYTHON_BIN_PATH"
-  
+
           export LC_ALL=C.UTF-8
           export LANG=C.UTF-8
-  
+
           cd github-build-merger
             pipenv sync
-  
+
             pipenv run python3 ./merge.py
           cd ..
-  
-  
+
+

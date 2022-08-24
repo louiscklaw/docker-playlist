@@ -1,0 +1,165 @@
+#
+# User - Check username availability
+
+
+###
+GET http://localhost:8095/api
+
+
+
+###
+GET http://localhost:8095/api/user/list
+
+###
+GET http://localhost:8095/api/user/check_username?username=admin
+
+###
+GET http://localhost:8095/api/user/check_username?username=logickee
+
+
+
+###
+POST http://localhost:8095/api/user/password_lost
+Content-Type: application/x-www-form-urlencoded
+
+username=user1
+
+
+###
+POST http://localhost:8095/api/user/login
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=superSecure
+
+
+###
+POST http://localhost:8095/api/user/login
+Content-Type: application/x-www-form-urlencoded
+
+username=restaurant2&password=restaurant2
+
+
+###
+POST http://localhost:8095/api/user/logout
+
+###
+POST http://localhost:8095/api/user/onboarded
+
+# User - Register a new user
+###
+PUT http://localhost:8095/api/user
+Content-Type: application/x-www-form-urlencoded
+
+username=restaurant2&password=restaurant2&email=restaurant2@gmail.com&storage_quota=1000000000
+
+
+
+# put a file to temp
+# https://demo.teedy.io/apidoc/#api-File-PutFile
+###
+PUT http://localhost:8095/api/file
+Content-Type: multipart/form-data; boundary=---------------------------hello-file-boundary
+
+-----------------------------hello-file-boundary
+Content-Disposition: form-data; name="file"; filename="hotdog.jpg"
+Content-Type: application/octet-stream
+
+< hotdog.jpg
+-----------------------------hello-file-boundary--
+
+
+# put a file to temp
+# https://demo.teedy.io/apidoc/#api-File-PutFile
+###
+PUT http://localhost:8095/api/file
+Content-Type: multipart/form-data; boundary=---------------------------hello-file-boundary
+
+-----------------------------hello-file-boundary
+Content-Disposition: form-data; name="file"; filename="64bit.dat"
+Content-Type: application/octet-stream
+
+< 64bit.dat
+-----------------------------hello-file-boundary--
+
+
+# put a file to temp
+# https://demo.teedy.io/apidoc/#api-File-PutFile
+###
+POST https://httpbin.org/post
+Content-Type: multipart/form-data; boundary=---------------------------hello-file-boundary
+
+-----------------------------hello-file-boundary
+Content-Disposition: form-data; name="file"; filename="64bit.dat"
+Content-Type: application/octet-stream
+
+< 64bit.dat
+-----------------------------hello-file-boundary--
+
+
+
+# File - Attach a file to a document
+###
+POST http://localhost:8095/api/file/e22022b8-c278-411b-a20a-b8f989d42591/attach
+Content-Type: application/x-www-form-urlencoded
+
+id=a279f5fa-4f1c-4bdb-bd84-86a781db2a3a
+
+
+# File - Delete a file
+###
+DELETE http://localhost:8095/api/file/66492188-89d8-4e10-8351-e6ed6ef98cc8
+
+
+###
+# File - Get a file data
+GET http://localhost:8095/api/file/66492188-89d8-4e10-8351-e6ed6ef98cc8/data
+
+
+###
+# File - Get a file data
+GET http://localhost:8095/api/file/list
+
+
+
+
+
+# Add a document
+###
+PUT http://localhost:8095/api/document
+Content-Type: application/x-www-form-urlencoded
+
+title=restaurant3&language=eng
+
+
+# Delete a document
+###
+DELETE http://localhost:8095/api/document/24a00fae-e405-4b84-9f4f-14708ec77b95
+
+
+
+# Export a document to PDF
+###
+
+
+
+# Get a document
+###
+GET http://localhost:8095/api/document/66492188-89d8-4e10-8351-e6ed6ef98cc8
+
+
+
+# Get documents
+###
+GET http://localhost:8095/api/document/list
+
+
+# Import a new document from an EML file
+###
+
+
+
+# Update a document
+###
+
+
+

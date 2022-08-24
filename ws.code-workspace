@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../traefik-playlist"
+    },
+    {
+      "path": "../selenium-playlist"
+    }
+  ],
+  "settings": {}
+}
