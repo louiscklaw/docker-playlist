@@ -1,0 +1,25 @@
+---
+version: '2.1'
+services:
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Hong_Kong
+      - TRANSMISSION_WEB_HOME=/combustion-release/ #optional
+      - USER=username #optional
+      - PASS=password #optional
+      - WHITELIST=iplist #optional
+      - PEERPORT=peerport #optional
+      - HOST_WHITELIST=dnsname list #optional
+    volumes:
+      - ./volumes/config:/config
+      - /mnt/sdb1/Download:/downloads
+      - ./volumes/watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped
