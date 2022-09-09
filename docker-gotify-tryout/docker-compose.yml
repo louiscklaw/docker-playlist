@@ -3,6 +3,8 @@ services:
     image: gotify/server
     container_name: gotify
     restart: unless-stopped
+    ports:
+      - 8098:80
     volumes:
       - './volumes/data:/app/data'
     environment:
