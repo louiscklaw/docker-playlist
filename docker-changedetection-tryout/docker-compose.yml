@@ -22,6 +22,8 @@ services:
       - VNC_NO_PASSWORD=1
       - SCREEN_WIDTH=1920
       - SCREEN_HEIGHT=5080
+      - SE_SCREEN_WIDTH=1920
+      - SE_SCREEN_HEIGHT=5080
       - SCREEN_DEPTH=24
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_NODE_MAX_SESSIONS=2
@@ -30,7 +32,7 @@ services:
       - /dev/shm:/dev/shm
     #ports:
     #  - 4444:4444
-
+  
   changedetection.io:
     image: ghcr.io/dgtlmoon/changedetection.io
     user: 1000:1000
