@@ -1,0 +1,96 @@
+pageInfo:
+  title: Home Lab
+
+sections: # An array of sections
+  - name: Example Section
+    icon: far fa-rocket
+    items:
+      - title: GitHub
+        description: Dashy source code and docs
+        icon: fab fa-github
+        url: https://github.com/Lissy93/dashy
+      - title: Issues
+        description: View open issues, or raise a new one
+        icon: fas fa-bug
+        url: https://github.com/Lissy93/dashy/issues
+
+  - name: Local Services
+    items:
+      - title: Firewall
+        icon: favicon
+        url: http://192.168.1.1/
+      - title: Game Server
+        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        url: http://192.168.130.1/
+
+  - name: MyDashboards
+    items:
+      - title: checkmk
+        icon: favicon
+        url: http://192.168.1.1/
+      - title: traefik
+        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        url: http://192.168.130.1/
+      - title: torrent
+        icon: favicon
+        url: http://192.168.1.1/
+      - title: luigi dashbaord
+        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        url: http://192.168.130.1/
+
+  - name: Status
+    items:
+      - title: checkmk
+        icon: favicon
+        url: http://192.168.1.1/
+      - title: traefik
+        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        url: http://192.168.130.1/
+      - title: torrent
+        icon: favicon
+        url: http://192.168.1.1/
+      - title: luigi dashbaord
+        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        url: http://192.168.130.1/
+
+  - name: containers
+    items:
+      - title: checkmk
+        icon: favicon
+        url: http://192.168.1.1/
+      - title: traefik
+        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        url: http://192.168.130.1/
+      - title: torrent
+        icon: favicon
+        url: http://192.168.1.1/
+      - title: luigi dashbaord
+        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        url: http://192.168.130.1/
+
+  - name: tools
+    items:
+      - title: proxy pool
+        icon: favicon
+        url: http://192.168.10.61:5010/
+      - title: traefik
+        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        url: http://192.168.130.1/
+      - title: torrent
+        icon: favicon
+        url: http://192.168.1.1/
+      - title: luigi dashbaord
+        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        url: http://192.168.130.1/
+
+  - name: notes
+    items:
+      - title: port schedule
+        icon: favicon
+        url: https://docs.google.com/spreadsheets/d/1nwIj4Jt-LvN-RLqtY2O9Jbe-XsMyVs-04DWGLUPwzEM/edit#gid=0
+
+  - name: devices
+    items:
+      - title: i3mega
+        icon: favicon
+        url: http://i3mega.local/
