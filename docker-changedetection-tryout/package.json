@@ -7,7 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker_rebuild": "docker compose up -d --build",
     "gitUpdate": "git add . && git commit -m\"update docker-changedetection-tryout,\" && git pull && git push",
-    "gitSync": "git fetch --all && git pull"
+    "gitSync": "git fetch --all && git pull",
+    "docker_stop_private_change":"docker compose kill private-changedetect",
+    "docker_start_private_change":"docker compose up -d private-changedetect",
+    "docker_stop_carousell_change":"docker compose kill carousell-changedetect",
+    "docker_start_carousell_change":"docker compose up -d carousell-changedetect"
   },
   "keywords": [],
   "author": "",
