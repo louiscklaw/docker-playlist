@@ -13,8 +13,13 @@ Object.keys(raw_json.watching).forEach(k => {
 document.querySelectorAll('main > div > div')[0].remove()
 document.querySelectorAll('.D_ahP.D_aRz').forEach(el => el.remove())
 document.querySelectorAll('#bannerB')[0]?.remove()
-document.querySelectorAll('div[data-google-query-id]').forEach(el => el.parentElement.remove())
 document.querySelectorAll('section > div > div > div > div > p')[4].remove()
+
+// remove google ads
+document.querySelectorAll('div[data-google-query-id]').forEach(el => {
+  el.parentElement.remove()
+})
+
 `
   }
 
@@ -66,7 +71,10 @@ document.querySelectorAll('svg[fill]').forEach(el => {
     raw_json.watching[k]["webdriver_js_execute_code"]= `
 
 // remove google ads
-document.querySelectorAll('div[data-google-query-id]').forEach(el => el.remove())
+document.querySelectorAll('div[data-google-query-id]').forEach(el => {
+  el.parentElement.remove()
+})
+    
 
 // clear favourite count
 document.querySelectorAll('button[data-testid]')?.forEach(el => 
@@ -119,7 +127,10 @@ document.querySelectorAll('button[data-testid]')?.forEach(el =>
 )
 
 // remove google ads
-document.querySelectorAll('div[data-google-query-id]').forEach(el => el.remove())
+document.querySelectorAll('div[data-google-query-id]').forEach(el => {
+  el.parentElement.remove()
+})
+
 
 `
 }
@@ -130,7 +141,10 @@ if ( raw_json.watching[k].tag.search(/carousell.com.hk\/service/) != -1){
   raw_json.watching[k]["webdriver_js_execute_code"]= `
 
 // remove google ads
-document.querySelectorAll('div[data-google-query-id]').forEach(el => el.remove())
+document.querySelectorAll('div[data-google-query-id]').forEach(el => {
+  el.parentElement.remove()
+})
+  
 
 // clear favourite count
 document.querySelectorAll('button[data-testid]')?.forEach(el => 
@@ -166,7 +180,10 @@ document.querySelectorAll('button[data-testid]')?.forEach(el =>
 )
   
 // remove google ads
-document.querySelectorAll('div[data-google-query-id]').forEach(el => el.remove())
+document.querySelectorAll('div[data-google-query-id]').forEach(el => {
+  el.parentElement.remove()
+})
+
 
 `
 }
