@@ -17,3 +17,4 @@ services:
       - PGID=1000
       - TZ=Asia/Hong_Kong
       - VERSION=docker
+      - WATCHTOWER_ROLLING_RESTART=1
