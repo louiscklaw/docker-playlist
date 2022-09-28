@@ -11,7 +11,8 @@
     "docker_stop_private_change":"docker compose kill private-changedetect",
     "docker_start_private_change":"docker compose up -d private-changedetect",
     "docker_stop_carousell_change":"docker compose kill carousell-changedetect",
-    "docker_start_carousell_change":"docker compose up -d carousell-changedetect"
+    "docker_start_carousell_change":"docker compose up -d carousell-changedetect",
+    "apply_carousell":"npm run docker_stop_carousell_change && node ./utils/carousell_update_script.js && npm run docker_start_carousell_change"
   },
   "keywords": [],
   "author": "",
