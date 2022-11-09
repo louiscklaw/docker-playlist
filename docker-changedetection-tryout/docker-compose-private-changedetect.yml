@@ -13,7 +13,6 @@ services:
       - ENABLE_CORS=true
       - PREBOOT_CHROME=true
       - KEEP_ALIVE=true
-      - FUNCTION_ENABLE_INCOGNITO_MODE=true
       - ENABLE_API_GET=true
       - CHROME_REFRESH_TIME=3600000
       - MAX_CONCURRENT_SESSIONS=10
