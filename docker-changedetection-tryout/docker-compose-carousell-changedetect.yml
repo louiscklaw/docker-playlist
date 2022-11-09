@@ -29,7 +29,7 @@ services:
       - PORT=5000
       - PUID=1000
       - PGID=1000
-      - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/
+      - PLAYWRIGHT_DRIVER_URL=ws://carousell-changedetect-playwright-chrome:3000/
     ports:
       - 5003:5000
     restart: unless-stopped

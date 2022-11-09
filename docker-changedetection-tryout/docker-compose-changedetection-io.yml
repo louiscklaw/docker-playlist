@@ -29,7 +29,7 @@ services:
       - PORT=5000
       - PUID=1000
       - PGID=1000
-      - WEBDRIVER_URL=http://browser-chrome:4444/wd/hub
+      - WEBDRIVER_URL=http://changedetection-io-browser-chrome:4444/wd/hub
       # - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/
     ports:
       - 5000:5000
