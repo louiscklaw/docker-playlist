@@ -1,7 +1,7 @@
 # https://docs.browserless.io/docs/docker.html#function-incognito-mode
 
 services:
-  browser-chrome:
+  changedetection-io-browser-chrome:
     image: selenium/standalone-chrome-debug:3.141.59
     restart: always
     environment:
@@ -15,7 +15,7 @@ services:
       - SE_NODE_MAX_SESSIONS=2
     shm_size: 2gb
     volumes:
-      - /dev/shm/changedetection-io:/dev/shm
+      - /dev/shm/changedetection-io-browser-chrome:/dev/shm
     #ports:
     #  - 4444:4444
 

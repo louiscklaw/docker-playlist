@@ -1,12 +1,12 @@
 # https://docs.browserless.io/docs/docker.html#function-incognito-mode
 
 services:
-  playwright-chrome:
+  private-changedetect-playwright-chrome:
     image: browserless/chrome
     restart: always
     shm_size: 2gb
     volumes:
-      - /dev/shm/private-changedetect:/dev/shm
+      - /dev/shm/private-changedetect-playwright-chrome:/dev/shm
     environment:
       - EXIT_ON_HEALTH_FAILURE=true
       - MAX_CONCURRENT_SESSIONS=2
