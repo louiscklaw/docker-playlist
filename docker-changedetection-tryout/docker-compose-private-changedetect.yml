@@ -9,12 +9,17 @@ services:
       - /dev/shm/private-changedetect-playwright-chrome:/dev/shm
     environment:
       - EXIT_ON_HEALTH_FAILURE=true
-      - MAX_CONCURRENT_SESSIONS=2
       - DEFAULT_IGNORE_HTTPS_ERRORS=true
       - ENABLE_CORS=true
       - PREBOOT_CHROME=true
       - KEEP_ALIVE=true
+      - FUNCTION_ENABLE_INCOGNITO_MODE=true
       - ENABLE_API_GET=true
+      - CHROME_REFRESH_TIME=3600000
+      - MAX_CONCURRENT_SESSIONS=10
+      - MAX_QUEUE_LENGTH=999
+      - WORKSPACE_DELETE_EXPIRED=true
+      - WORKSPACE_EXPIRE_DAYS=7
       - DEFAULT_LAUNCH_ARGS=["--window-size=1920,5080"]
 
   private-changedetect:
