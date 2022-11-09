@@ -1,3 +1,5 @@
+# https://docs.browserless.io/docs/docker.html#function-incognito-mode
+
 services:
   playwright-chrome:
     image: browserless/chrome
@@ -32,7 +34,7 @@ services:
       - /dev/shm:/dev/shm
     #ports:
     #  - 4444:4444
-  
+
   changedetection.io:
     image: ghcr.io/dgtlmoon/changedetection.io
     user: 1000:1000
