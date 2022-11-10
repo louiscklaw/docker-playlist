@@ -22,6 +22,8 @@ services:
       # - WORKSPACE_DELETE_EXPIRED=true
       # - WORKSPACE_EXPIRE_DAYS=7
       - FUNCTION_ENABLE_INCOGNITO_MODE=true
+    ports:
+      - 3001:3000
 
   private-changedetect:
     image: ghcr.io/dgtlmoon/changedetection.io
