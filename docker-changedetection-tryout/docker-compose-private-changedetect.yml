@@ -16,7 +16,7 @@ services:
       - EXIT_ON_HEALTH_FAILURE=true
       - KEEP_ALIVE=true
       # - MAX_CONCURRENT_SESSIONS=10
-      - MAX_CONCURRENT_SESSIONS=10
+      - MAX_CONCURRENT_SESSIONS=6
       # - MAX_QUEUE_LENGTH=999
       - PREBOOT_CHROME=true
       # - WORKSPACE_DELETE_EXPIRED=true
@@ -31,7 +31,7 @@ services:
     volumes:
       - ./volumes/private-changedetect/datastore:/datastore
     environment:
-      - FETCH_WORKERS=3
+      - FETCH_WORKERS=5
       - PORT=5000
       - PUID=1000
       - PGID=1000
