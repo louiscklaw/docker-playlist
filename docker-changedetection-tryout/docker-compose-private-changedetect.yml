@@ -2,6 +2,8 @@
 
 services:
   private-changedetect-playwright-chrome:
+    container_name: private-changedetect-playwright-chrome
+    hostname: private-changedetect-playwright-chrome
     image: browserless/chrome
     restart: always
     shm_size: 2gb
@@ -27,8 +29,8 @@ services:
 
   private-changedetect:
     image: ghcr.io/dgtlmoon/changedetection.io
-    # container_name: changedetection.io
-    # hostname: changedetection.io
+    container_name: private-changedetect
+    hostname: private-changedetect
     user: 1000:1000
     volumes:
       - ./volumes/private-changedetect/datastore:/datastore
