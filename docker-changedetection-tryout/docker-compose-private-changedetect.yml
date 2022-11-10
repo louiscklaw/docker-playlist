@@ -21,6 +21,7 @@ services:
       - PREBOOT_CHROME=true
       # - WORKSPACE_DELETE_EXPIRED=true
       # - WORKSPACE_EXPIRE_DAYS=7
+      - FUNCTION_ENABLE_INCOGNITO_MODE=true
 
   private-changedetect:
     image: ghcr.io/dgtlmoon/changedetection.io
