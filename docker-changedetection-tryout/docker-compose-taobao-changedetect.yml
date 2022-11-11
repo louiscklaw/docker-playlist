@@ -2,6 +2,8 @@
 
 services:
   taobao-changedetect-playwright-chrome:
+    container_name: taobao-changedetect-playwright-chrome
+    hostname: taobao-changedetect-playwright-chrome
     image: browserless/chrome
     restart: always
     shm_size: 2gb
@@ -9,7 +11,7 @@ services:
       - /dev/shm/taobao-changedetect-playwright-chrome:/dev/shm
     environment:
       - EXIT_ON_HEALTH_FAILURE=true
-      - MAX_CONCURRENT_SESSIONS=6
+      - MAX_CONCURRENT_SESSIONS=2
       - DEFAULT_IGNORE_HTTPS_ERRORS=true
       - ENABLE_CORS=true
       - PREBOOT_CHROME=true
@@ -26,7 +28,7 @@ services:
     volumes:
       - ./volumes/taobao-changedetect/datastore:/datastore
     environment:
-      - FETCH_WORKERS=5
+      - FETCH_WORKERS=2
       - PORT=5000
       - PUID=1000
       - PGID=1000

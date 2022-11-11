@@ -2,6 +2,8 @@
 
 services:
   changedetection-io-browser-chrome:
+    container_name: changedetection-io-browser-chrome
+    hostname: changedetection-io-browser-chrome
     image: selenium/standalone-chrome-debug:3.141.59
     restart: always
     environment:
@@ -12,7 +14,7 @@ services:
       - SE_SCREEN_HEIGHT=5080
       - SCREEN_DEPTH=24
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-      - SE_NODE_MAX_SESSIONS=3
+      - SE_NODE_MAX_SESSIONS=2
     shm_size: 2gb
     volumes:
       - /dev/shm/changedetection-io-browser-chrome:/dev/shm
