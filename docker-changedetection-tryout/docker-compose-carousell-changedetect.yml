@@ -16,6 +16,7 @@ services:
       - KEEP_ALIVE=true
       - ENABLE_API_GET=true
       - DEFAULT_LAUNCH_ARGS=["--window-size=1920,5080"]
+      - FUNCTION_ENABLE_INCOGNITO_MODE=true
 
   carousell-changedetect:
     image: ghcr.io/dgtlmoon/changedetection.io
