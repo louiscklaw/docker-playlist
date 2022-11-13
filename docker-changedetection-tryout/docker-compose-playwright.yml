@@ -34,7 +34,7 @@ services:
       - PGID=1000
       - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/
     ports:
-      - 5002:5000
+      - 5005:5000
     restart: unless-stopped
     labels:
       - 'traefik.enable=true'
