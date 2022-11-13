@@ -47,7 +47,7 @@ services:
     #   - 'traefik.http.routers.playwright.tls.certresolver=myresolver'
     #   - 'traefik.http.services.playwright.loadbalancer.server.port=5000'
 
-networks:
-  default:
-    external:
-      name: traefik-proxy-network
+# networks:
+#   default:
+#     external:
+#       name: traefik-proxy-network
