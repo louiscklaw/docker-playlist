@@ -1,25 +1,25 @@
 # https://docs.browserless.io/docs/docker.html#function-incognito-mode
 
 services:
-  changedetection-io-browser-chrome:
-    container_name: changedetection-io-browser-chrome
-    hostname: changedetection-io-browser-chrome
-    image: selenium/standalone-chrome-debug:3.141.59
-    restart: always
-    environment:
-      - VNC_NO_PASSWORD=1
-      - SCREEN_WIDTH=1920
-      - SCREEN_HEIGHT=5080
-      - SE_SCREEN_WIDTH=1920
-      - SE_SCREEN_HEIGHT=5080
-      - SCREEN_DEPTH=24
-      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-      - SE_NODE_MAX_SESSIONS=2
-    shm_size: 2gb
-    volumes:
-      - /dev/shm/changedetection-io-browser-chrome:/dev/shm
-    #ports:
-    #  - 4444:4444
+  # changedetection-io-browser-chrome:
+  #   container_name: changedetection-io-browser-chrome
+  #   hostname: changedetection-io-browser-chrome
+  #   image: selenium/standalone-chrome-debug:3.141.59
+  #   restart: always
+  #   environment:
+  #     - VNC_NO_PASSWORD=1
+  #     - SCREEN_WIDTH=1920
+  #     - SCREEN_HEIGHT=5080
+  #     - SE_SCREEN_WIDTH=1920
+  #     - SE_SCREEN_HEIGHT=5080
+  #     - SCREEN_DEPTH=24
+  #     - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+  #     - SE_NODE_MAX_SESSIONS=2
+  #   shm_size: 2gb
+  #   volumes:
+  #     - /dev/shm/changedetection-io-browser-chrome:/dev/shm
+  #   #ports:
+  #   #  - 4444:4444
 
   changedetection.io:
     image: ghcr.io/dgtlmoon/changedetection.io
@@ -27,12 +27,12 @@ services:
     volumes:
       - ./volumes/changedetect/datastore:/datastore
     environment:
-      - FETCH_WORKERS=2
+      - FETCH_WORKERS=1
       - PORT=5000
       - PUID=1000
       - PGID=1000
-      - WEBDRIVER_URL=http://changedetection-io-browser-chrome:4444/wd/hub
-      # - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/
+      # - WEBDRIVER_URL=http://changedetection-io-browser-chrome:4444/wd/hub
+      - PLAYWRIGHT_DRIVER_URL=ws://changedetect-playwright-chrome:3000/
     ports:
       - 5000:5000
     restart: unless-stopped

@@ -1,0 +1,34 @@
+# https://docs.browserless.io/docs/docker.html#function-incognito-mode
+
+services:
+  private-changedetect:
+    image: ghcr.io/dgtlmoon/changedetection.io
+    container_name: private-changedetect
+    hostname: private-changedetect
+    user: 1000:1000
+    volumes:
+      - ./volumes/private-changedetect/datastore:/datastore
+    environment:
+      - FETCH_WORKERS=1
+      - PORT=5000
+      - PUID=1000
+      - PGID=1000
+      - PLAYWRIGHT_DRIVER_URL=ws://changedetect-playwright-chrome:3000/
+    ports:
+      - 5001:5000
+    restart: always
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.private-changedetect-http.rule=Host(`private-changedetect.iamon99.com`)'
+      - 'traefik.http.routers.private-changedetect-http.entrypoints=web'
+      - 'traefik.http.routers.private-changedetect-http.middlewares=private-changedetect-https'
+      - 'traefik.http.middlewares.private-changedetect-https.redirectscheme.scheme=https'
+      - 'traefik.http.routers.private-changedetect.rule=Host(`private-changedetect.iamon99.com`)'
+      - 'traefik.http.routers.private-changedetect.entrypoints=websecure'
+      - 'traefik.http.routers.private-changedetect.tls.certresolver=myresolver'
+      - 'traefik.http.services.private-changedetect.loadbalancer.server.port=5000'
+
+networks:
+  default:
+    external:
+      name: traefik-proxy-network

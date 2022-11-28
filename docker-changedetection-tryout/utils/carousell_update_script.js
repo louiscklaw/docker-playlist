@@ -10,10 +10,10 @@ Object.keys(raw_json.watching).forEach(k => {
   if ( raw_json.watching[k].tag.search(/categories\/products/) != -1){
     console.log('hit',k)
     raw_json.watching[k]["webdriver_js_execute_code"]= `
-document.querySelectorAll('main > div > div')[0].remove()
-document.querySelectorAll('.D_ahP.D_aRz').forEach(el => el.remove())
+document.querySelectorAll('main > div > div')[0]?.remove()
+document.querySelectorAll('.D_ahP.D_aRz').forEach(el => el?.remove())
 document.querySelectorAll('#bannerB')[0]?.remove()
-document.querySelectorAll('section > div > div > div > div > p')[4].remove()
+document.querySelectorAll('section > div > div > div > div > p')[4]?.remove()
 
 // remove google ads
 document.querySelectorAll('div[data-google-query-id]').forEach(el => {
@@ -39,11 +39,11 @@ document.querySelectorAll('main > div > div > div > div > div > button > span').
 // clear time
 document.querySelectorAll('main > div > div > div > div > div > a > div > div > p').forEach(el => el.remove())
 
-// document.querySelectorAll('.D_ahP.D_aRz').forEach(el => el.remove())
+// document.querySelectorAll('.D_ahP.D_aRz').forEach(el => el?.remove())
 
 // document.querySelectorAll('#bannerB')[0]?.remove()
 
-// document.querySelectorAll('section > div > div > div > div > p')[4].remove()
+// document.querySelectorAll('section > div > div > div > div > p')[4]?.remove()
 `.trim()
   }
 
