@@ -1,0 +1,28 @@
+# https://docs.browserless.io/docs/docker.html#function-incognito-mode
+
+services:
+  changedetect-playwright-chrome:
+    container_name: changedetect-playwright-chrome
+    hostname: changedetect-playwright-chrome
+    image: browserless/chrome
+    restart: always
+    shm_size: 2gb
+    volumes:
+      - /dev/shm/changedetect-playwright-chrome:/dev/shm
+    environment:
+      - EXIT_ON_HEALTH_FAILURE=true
+      - MAX_CONCURRENT_SESSIONS=4
+      - MAX_QUEUE_LENGTH=9999
+      # - CONNECTION_TIMEOUT=15000
+      - DEFAULT_IGNORE_HTTPS_ERRORS=true
+      - ENABLE_CORS=true
+      - PREBOOT_CHROME=true
+      - KEEP_ALIVE=true
+      - ENABLE_API_GET=true
+      - DEFAULT_LAUNCH_ARGS=["--window-size=1920,5080"]
+      - FUNCTION_ENABLE_INCOGNITO_MODE=true
+
+networks:
+  default:
+    external:
+      name: traefik-proxy-network
