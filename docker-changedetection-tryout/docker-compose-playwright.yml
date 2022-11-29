@@ -11,7 +11,9 @@ services:
       - /dev/shm/changedetect-playwright-chrome:/dev/shm
     environment:
       - EXIT_ON_HEALTH_FAILURE=true
-      - MAX_CONCURRENT_SESSIONS=3
+      - MAX_CONCURRENT_SESSIONS=4
+      - MAX_QUEUE_LENGTH=9999
+      # - CONNECTION_TIMEOUT=15000
       - DEFAULT_IGNORE_HTTPS_ERRORS=true
       - ENABLE_CORS=true
       - PREBOOT_CHROME=true
