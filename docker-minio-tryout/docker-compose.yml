@@ -9,7 +9,7 @@ services:
     volumes:
       - /mnt/sdb1/docker_volumes/minio/data:/data
     ports:
-      - 9003:9003
+      - 9003:9000
       - 9004:9004
     command: server /data --console-address ":9004"
     labels:
