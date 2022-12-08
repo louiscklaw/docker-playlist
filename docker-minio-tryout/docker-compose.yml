@@ -12,3 +12,18 @@ services:
       - 9000:9000
       - 9001:9001
     command: server /data --console-address ":9001"
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.minio-http.rule=Host(`minio.iamon99.com`)'
+      - 'traefik.http.routers.minio-http.entrypoints=web'
+      - 'traefik.http.routers.minio-http.middlewares=minio-https'
+      - 'traefik.http.middlewares.minio-https.redirectscheme.scheme=https'
+      - 'traefik.http.routers.minio.rule=Host(`minio.iamon99.com`)'
+      - 'traefik.http.routers.minio.entrypoints=websecure'
+      - 'traefik.http.routers.minio.tls.certresolver=myresolver'
+      - 'traefik.http.services.minio.loadbalancer.server.port=5000'
+
+networks:
+  default:
+    external:
+      name: traefik-proxy-network
