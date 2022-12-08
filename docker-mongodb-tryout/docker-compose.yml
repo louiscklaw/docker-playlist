@@ -1,0 +1,43 @@
+version: '3.4'
+
+services:
+  whoami1:
+    image: 'traefik/whoami'
+    restart: unless-stopped
+    container_name: 'whoami_helloworld1'
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.whoami_root.rule=Host(`whoami_react_test.iamon99.com`)"
+    #   - "traefik.http.routers.whoami_root.entrypoints=websecure"
+    #   - "traefik.http.routers.whoami_root.tls.certresolver=myresolver"
+
+  mongo:
+    image: bitnami/mongodb:latest
+    container_name: db
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=desturctor
+      - MONGO_INITDB_ROOT_PASSWORD=destructor
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./db_data:/data/db
+
+  mongoGUI:
+    image: mongo-express:latest
+    container_name: db_gui
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./db_data:/data/db
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_BASICAUTH_USERNAME=user
+      - ME_CONFIG_BASICAUTH_PASSWORD=password
+
+volumes:
+  db_data: {}
