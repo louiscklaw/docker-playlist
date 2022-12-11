@@ -1,7 +1,5 @@
 services:
   changedetect-playwright-chrome:
-    container_name: changedetect-playwright-chrome
-    hostname: changedetect-playwright-chrome
     image: browserless/chrome
     restart: always
     shm_size: 2gb
