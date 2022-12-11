@@ -1,5 +1,3 @@
-version: '3.4'
-
 services:
   whoami1:
     image: 'traefik/whoami'
@@ -40,4 +38,4 @@ services:
       - ME_CONFIG_BASICAUTH_PASSWORD=password
 
 volumes:
-  db_data: {}
+  db_data:
