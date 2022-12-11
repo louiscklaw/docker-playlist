@@ -7,5 +7,5 @@ services:
       - "5566:5566"
       - "4445:4444"
     environment:
-      tors: 50
+      tors: 25
     restart: unless-stopped
