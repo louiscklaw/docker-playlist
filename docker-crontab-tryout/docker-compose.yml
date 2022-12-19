@@ -1,5 +1,3 @@
-version: "2.1"
-
 services:
   crontab-ui:
     image: alseambusher/crontab-ui:latest
