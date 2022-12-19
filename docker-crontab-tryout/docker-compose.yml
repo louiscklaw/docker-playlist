@@ -13,4 +13,4 @@ services:
     volumes:
       - ./volumes/crontab-ui:/home/crontab-ui
       # - /home:/home
-    restart: unless-stopped
+    restart: always
