@@ -1,0 +1,43 @@
+{
+  "name": "crontab-ui",
+  "version": "0.3.16",
+  "description": "Easy and safe way to manage your crontab file",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node tests/test.js",
+    "docker_rebuild": "docker compose kill && docker compose down && docker compose up -d --build && docker compose logs -f",
+    "gitSync": "git fetch --all && git stash && git pull && git stash pop",
+    "gitUpdate": "git add . && git commit -m\"update docker-crontab-tryout,\" && git pull && git push"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "connect-busboy": "latest",
+    "cron-parser": "latest",
+    "cronstrue": "latest",
+    "ejs": "latest",
+    "express": "latest",
+    "express-basic-auth": "^1.2.0",
+    "mime-types": "latest",
+    "moment": "latest",
+    "nedb": "latest",
+    "nodemailer": "^6.7.3"
+  },
+  "engines": {
+    "node": ">=15.0.0"
+  },
+  "bin": {
+    "crontab-ui": "bin/crontab-ui.js",
+    "crontab-ui-mailer": "bin/crontab-ui-mailer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alseambusher/crontab-ui"
+  },
+  "keywords": [
+    "Crontab",
+    "node"
+  ],
+  "author": "Suresh Alse",
+  "license": "MIT"
+}
