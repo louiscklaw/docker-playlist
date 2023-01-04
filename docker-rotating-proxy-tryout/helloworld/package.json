@@ -1,0 +1,15 @@
+{
+  "name": "docker-rotating-proxy-tryout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker_rebuild": "docker-compose build && docker-compose rm -s -v -f && docker-compose up -d && docker-compose logs -f ",
+    "gitUpdate": "git add . && git commit -m\"update docker-rotating-proxy-tryout,\" && git pull && git push",
+    "gitSync": "git fetch --all && git pull"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

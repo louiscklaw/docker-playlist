@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "test": "node tests/test.js",
-    "docker_rebuild": "docker compose kill && docker compose down && docker compose up -d --build && docker compose logs -f",
+    "docker_rebuild": "docker compose kill && docker compose down && docker compose up -d --build ",
+    "into_docker":"docker compose exec -it crontab-ui sh",
     "gitSync": "git fetch --all && git stash && git pull && git stash pop",
     "gitUpdate": "git add . && git commit -m\"update docker-crontab-tryout,\" && git pull && git push"
   },

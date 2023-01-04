@@ -6,8 +6,9 @@ set -ex
 
 # docker pull bluet/proxybroker2
 
-# # docker run -it --rm bluet/proxybroker2 find --types HTTP HTTPS
-docker run -it --rm bluet/proxybroker2 grab > out_proxy.txt
+docker run -it --rm bluet/proxybroker2 find --types HTTP HTTPS |tee http_proxy.txt
+# docker run -it --rm bluet/proxybroker2 grab > out_proxy.txt
+# docker run -it --rm bluet/proxybroker2 grab  --types HTTP HTTPS > http_proxy.txt
 # docker run -it --rm -p 8888:8888 bluet/proxybroker2 serve --host 127.0.0.1 --port 8888 --types HTTP HTTPS --min-queue 5
 
 
