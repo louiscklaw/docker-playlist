@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "gitSync": "git fetch --all && git pull",
     "gitUpdate": "yarn gitSync && git add . && git commit -m\"update docker-matomo-tryout\" && git push",
-    "docker_rebuild": "docker-compose build && docker-compose up -d && docker-compose logs -f"
+    "docker_rebuild": "docker compose build && docker compose up -d && docker compose logs -f"
   },
   "keywords": [],
   "author": "",

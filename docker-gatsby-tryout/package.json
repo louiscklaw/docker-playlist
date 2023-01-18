@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker_compose": "docker-compose -f docker-compose.test.yml ",
+    "docker_compose": "docker compose -f docker compose.test.yml ",
     "docker_compose_down": "npm run docker_compose kill && npm run docker_compose down --remove-orphans",
     "docker_compose_up": "npm run docker_compose up",
     "test_docker_compose": "npx nodemon --watch **/*.yml --exec \"npm run docker_compose_down && npm run docker_compose_up\"",
