@@ -1,14 +1,21 @@
 services:
-  crontab-ui:
-    image: alseambusher/crontab-ui:latest
-    container_name: crontab-ui
+  test:
+    # image: ubuntu:latest
+    build: .
+    restart: always
     environment:
-      - CRON_DB_PATH=/home/crontab-ui
+      - CRON_DB_PATH=/home/crontab-ui/data
       - BASIC_AUTH_USER=${CONFIG_USER_NAME}
       - BASIC_AUTH_PWD=${CONFIG_USER_PASS}
+      - HOST=0.0.0.0
+      - PORT=8000
     ports:
       - 8889:8000
     volumes:
-      - ./volumes/crontab-ui:/home/crontab-ui
-      # - /home:/home
-    restart: always
+      # - ./volumes/crontab-ui:/home/crontab-ui
+      - ./volumes/crontab-ui/data:/home/crontab-ui/data
+      - ./volumes/crontab-ui/data/logs:/home/crontab-ui/data/logs
+      - ${PWD}:/home/crontab-ui
+    working_dir: /home/crontab-ui
+    command: "bash -c crontab-ui"
+    # command: sleep infinity
