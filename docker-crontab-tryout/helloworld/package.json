@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker_rebuild": "docker-compose pull && docker-compose build && docker-compose kill || true && docker-compose down || true && docker-compose up -d && docker-compose logs -f ",
+    "docker_rebuild": "docker compose kill && docker compose down && docker compose up -d --build && docker logs -f",
     "gitSync": "git fetch --all && git stash && git pull && git stash pop",
-    "gitUpdate": "git add . && git commit -m\"update docker-crontab-tryout,\" && yarn gitSync && git push"
+    "gitUpdate": "git add . && git commit -m\"update docker-crontab-tryout,\" && git pull && git push"
   },
   "keywords": [],
   "author": "",

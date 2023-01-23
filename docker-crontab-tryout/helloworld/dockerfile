@@ -1,0 +1,17 @@
+FROM ubuntu:latest
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt update
+RUN apt install -y curl
+RUN apt install -y cron
+
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt update
+RUN apt install -y nodejs
+
+RUN node -v
+RUN npm -v
+RUN npm install -g crontab-ui
+
+CMD sleep infinity
