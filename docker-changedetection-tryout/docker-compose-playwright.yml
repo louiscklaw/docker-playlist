@@ -9,11 +9,16 @@ services:
     shm_size: 2gb
     volumes:
       - /dev/shm/changedetect-playwright-chrome:/dev/shm
+    ports:
+      - 15999:3000
+
+      
     environment:
       - EXIT_ON_HEALTH_FAILURE=true
-      - MAX_CONCURRENT_SESSIONS=4
-      - MAX_QUEUE_LENGTH=9999
-      # - CONNECTION_TIMEOUT=15000
+      # means how many client can connect to this browserless machine
+      - MAX_CONCURRENT_SESSIONS=10
+      - MAX_QUEUE_LENGTH=99999
+      - CONNECTION_TIMEOUT=300000
       - DEFAULT_IGNORE_HTTPS_ERRORS=true
       - ENABLE_CORS=true
       - PREBOOT_CHROME=true
@@ -21,6 +26,9 @@ services:
       - ENABLE_API_GET=true
       - DEFAULT_LAUNCH_ARGS=["--window-size=1920,5080"]
       - FUNCTION_ENABLE_INCOGNITO_MODE=true
+      - METRICS_JSON_PATH=/root/metrics.json
+      # This will have browserless delete files older than 30 days in the workspace, checking once a day
+      - WORKSPACE_DELETE_EXPIRED=true
 
 networks:
   default:
