@@ -18,7 +18,7 @@ services:
       # means how many client can connect to this browserless machine
       - MAX_CONCURRENT_SESSIONS=10
       - MAX_QUEUE_LENGTH=99999
-      - CONNECTION_TIMEOUT=300000
+      - CONNECTION_TIMEOUT=30000
       - DEFAULT_IGNORE_HTTPS_ERRORS=true
       - ENABLE_CORS=true
       - PREBOOT_CHROME=true
