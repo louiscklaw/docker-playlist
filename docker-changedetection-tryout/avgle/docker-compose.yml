@@ -14,7 +14,7 @@ services:
       - EXIT_ON_HEALTH_FAILURE=true
       # means how many client can connect to this browserless machine
       - MAX_CONCURRENT_SESSIONS=10
-      - MAX_QUEUE_LENGTH=99999
+      - MAX_QUEUE_LENGTH=99
       - CONNECTION_TIMEOUT=30000
       - DEFAULT_IGNORE_HTTPS_ERRORS=true
       - ENABLE_CORS=true
@@ -26,7 +26,6 @@ services:
       - METRICS_JSON_PATH=/root/metrics.json
       # This will have browserless delete files older than 30 days in the workspace, checking once a day
       - WORKSPACE_DELETE_EXPIRED=true
-
 
   avgle-changedetect:
     image: ghcr.io/dgtlmoon/changedetection.io
@@ -42,7 +41,7 @@ services:
       - PGID=1000
       - PLAYWRIGHT_DRIVER_URL=ws://avgle-changedetect-playwright:3000/
     ports:
-      - 5002:5000
+      - 5102:5000
     restart: always
     labels:
       - 'traefik.enable=true'
