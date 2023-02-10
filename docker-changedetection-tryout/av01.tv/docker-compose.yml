@@ -42,7 +42,7 @@ services:
       - PGID=1000
       - PLAYWRIGHT_DRIVER_URL=ws://avgle-changedetect-playwright:3000/
     ports:
-      - 5102:5000
+      - 5103:5000
     restart: always
     labels:
       - 'traefik.enable=true'
