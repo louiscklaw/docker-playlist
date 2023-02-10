@@ -5,38 +5,40 @@ set -ex
 pushd avgle
   docker compose kill
   docker compose down
-  docker compose up -d --build
+  docker compose up -d --build &
   # docker compose logs -f
 popd
 
 pushd av01.tv
   docker compose kill
   docker compose down
-  docker compose up -d --build
+  docker compose up -d --build &
   # docker compose logs -f
 popd
 
 pushd jable.tv
   docker compose kill
   docker compose down
-  docker compose up -d --build
+  docker compose up -d --build &
   # docker compose logs -f
 popd
 
 pushd kissjav
   docker compose kill
   docker compose down
-  docker compose up -d --build
+  docker compose up -d --build &
   # docker compose logs -f
 popd
 
 pushd missav
   docker compose kill
   docker compose down
-  docker compose up -d --build
+  docker compose up -d --build &
   # docker compose logs -f
 popd
 
+
+wait 
 
 # docker compose -f ./docker-compose-debug-browserless-chrome.yml kill
 # docker compose -f ./docker-compose-debug-browserless-chrome.yml down
