@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  whoami1:
+    image: 'traefik/whoami'
+    restart: unless-stopped
+    container_name: 'whoami_helloworld1'
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.whoami_root.rule=Host(`whoami_react_test.iamon99.com`)"
+    #   - "traefik.http.routers.whoami_root.entrypoints=websecure"
+    #   - "traefik.http.routers.whoami_root.tls.certresolver=myresolver"
+
+  db:
+    image: mysql
+    restart: unless-stopped
+    # container_name: Monica-DB
+    user: '1000'
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+      - MYSQL_DATABASE=monica
+      - MYSQL_USER=usermonica
+      - MYSQL_PASSWORD=secret
+    # volumes:
+    # - mysql:/var/lib/mysql
