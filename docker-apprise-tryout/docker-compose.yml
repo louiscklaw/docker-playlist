@@ -11,7 +11,7 @@ services:
       - TZ=Asia/Hong_Kong
       - VERSION=docker
     image: lscr.io/linuxserver/apprise-api
-    restart: unless-stopped
+    restart: always
     volumes:
       - "./volumes/config/:/config"
 
