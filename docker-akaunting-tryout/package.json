@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker_setup": "AKAUNTING_SETUP=true docker-compose up -d",
-    "docker_rebuild": "docker-compose rm -s -v -f && docker-compose up -d && docker-compose logs -f ",
+    "docker_setup": "AKAUNTING_SETUP=true docker compose up -d",
+    "docker_rebuild": "docker compose rm -s -v -f && docker compose up -d && docker compose logs -f ",
     "gitSync": "git fetch --all && git stash && git pull && git stash pop",
     "gitUpdate": "git add . && git commit -m\"update docker-helloworld-tryout\" && yarn gitSync && git push"
   },

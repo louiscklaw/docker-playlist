@@ -2,8 +2,6 @@
 
 set -ex
 
-
-
 # curl --proxy 127.0.0.1:5566 https://api.my-ip.io/ip
 
 for ((i = 0 ; i < 100 ; i++)); do

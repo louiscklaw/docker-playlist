@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gitUpdate": "git add . && git commit -m\"update docker-strapi-postgresql-tryout\"",
-    "docker_rebuild": "docker-compose build && docker-compose up -d && docker-compose logs -f"
+    "docker_rebuild": "docker compose build && docker compose up -d && docker compose logs -f"
   },
   "keywords": [],
   "author": "",

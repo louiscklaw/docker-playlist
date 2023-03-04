@@ -1,17 +1,17 @@
 # CREDIT: https://github.com/shepherdjerred/servers/blob/main/zeus/docker-compose.yml
 
-version: "3"
-
 services:
   apprise:
     # container_name: apprise
+    ports:
+      - 8000:8000
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Asia/Hong_Kong
       - VERSION=docker
     image: lscr.io/linuxserver/apprise-api
-    restart: unless-stopped
+    restart: always
     volumes:
       - "./volumes/config/:/config"
 
