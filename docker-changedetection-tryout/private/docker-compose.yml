@@ -34,15 +34,15 @@ services:
     hostname: private-changedetect
     user: 1000:1000
     volumes:
-      - ./volumes/private-changedetect/datastore:/datastore
+      - ../volumes/private-changedetect/datastore:/datastore
     environment:
       - FETCH_WORKERS=10
       - PORT=5000
       - PUID=1000
       - PGID=1000
       - PLAYWRIGHT_DRIVER_URL=ws://private-changedetect-playwright:3000/
-    ports:
-      - 5001:5000
+    # ports:
+    #   - 5001:5000
     restart: always
     labels:
       - 'traefik.enable=true'

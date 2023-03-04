@@ -42,8 +42,8 @@ services:
       - PUID=1000
       - PGID=1000
       - PLAYWRIGHT_DRIVER_URL=ws://taobao-playwright-chrome:3000/
-    ports:
-      - 5002:5000
+    # ports:
+    #   - 5002:5000
     restart: unless-stopped
     labels:
       - 'traefik.enable=true'
