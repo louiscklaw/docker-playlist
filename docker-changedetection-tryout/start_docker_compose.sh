@@ -2,40 +2,54 @@
 
 set -ex
 
-pushd debug
-  docker compose kill
-  docker compose down
-  docker compose up -d --build 
+# pushd taobao
+#   docker compose kill
+#   docker compose down
+#   docker compose up -d --build &
 #   # docker compose logs -f
-popd
+# # popd
 
-pushd carousell
+# pushd carousell
+#   docker compose kill
+#   docker compose down
+#   docker compose up -d --build &
+#   # docker compose logs -f
+# popd
+
+# pushd avgle
+#   docker compose kill
+#   docker compose down
+#   docker compose up -d --build &
+#   # docker compose logs -f
+# popd
+
+# pushd av01.tv
+#   docker compose kill
+#   docker compose down
+#   docker compose up -d --build &
+#   # docker compose logs -f
+# popd
+
+pushd jable.tv
   docker compose kill
   docker compose down
-  docker compose up -d --build 
+  docker compose up -d --build &
   # docker compose logs -f
 popd
 
-pushd taobao
-  docker compose kill
-  docker compose down 
-  docker compose up -d --build 
+# pushd kissjav
+#   docker compose kill
+#   docker compose down
+#   docker compose up -d --build &
 #   # docker compose logs -f
-popd
+# popd
 
-pushd changedetect
-  docker compose kill
-  docker compose down
-  docker compose up -d --build 
-  # docker compose logs -f
-popd
-
-pushd private
-  docker compose kill
-  docker compose down
-  docker compose up -d --build 
+# pushd missav
+#   docker compose kill
+#   docker compose down
+#   docker compose up -d --build &
 #   # docker compose logs -f
-popd
+# popd
 
 
 wait 

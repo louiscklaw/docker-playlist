@@ -41,8 +41,8 @@ services:
       - PUID=1000
       - PGID=1000
       - PLAYWRIGHT_DRIVER_URL=ws://changedetect-playwright-chrome:3000/
-    # ports:
-    #   - 5003:5000
+    ports:
+      - 5003:5000
     restart: unless-stopped
     labels:
       - 'traefik.enable=true'
