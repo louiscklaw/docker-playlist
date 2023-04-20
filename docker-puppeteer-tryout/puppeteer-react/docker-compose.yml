@@ -1,5 +1,15 @@
 version: "3"
 services:
+  react_host:
+    build:
+      context: ./react_host
+      dockerfile: dockerfile
+    volumes:
+      - "./react_host/App:/App"
+    ports:
+      - "3002:3000"
+    command: "/App/scripts/build.sh"
+
   tests_host:
     build:
       context: ./tests_host
@@ -10,13 +20,3 @@ services:
     command: "wait-for-it.sh react_host:3000 -- mocha --recursive /integration-tests"
     depends_on:
       - react_host
-
-  react_host:
-    build:
-      context: ./react_host
-      dockerfile: dockerfile
-    volumes:
-      - "./react_host/App:/App"
-    ports:
-      - "3000:3000"
-    command: "/App/scripts/build.sh"
