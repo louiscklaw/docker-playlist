@@ -1,0 +1,36 @@
+# Please read https://github.com/holtwick/briefing/blob/master/docs/docker.md for proper use of Docker
+
+services:
+  briefing:
+    image: holtwick/briefing
+    restart: always
+    volumes:
+      - ./data:/app/data
+    ports:
+      - 8999:8080
+
+    environment:
+      - MUTE_VIDEO=1
+      - MUTE_AUDIO=0
+      - SHOW_FULLSCREEN=1
+      - SHOW_INVITATION=1
+      - SHOW_INVITATION_HINT=1
+      - SHOW_SETTINGS=1
+      - SHOW_SHARE=1
+      - SHOW_CHAT=1
+
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.meeting-http.rule=Host(`meeting.iamon99.com`)'
+      - 'traefik.http.routers.meeting-http.entrypoints=web'
+      - 'traefik.http.routers.meeting-http.middlewares=meeting-https'
+      - 'traefik.http.middlewares.meeting-https.redirectscheme.scheme=https'
+      - 'traefik.http.routers.meeting.rule=Host(`meeting.iamon99.com`)'
+      - 'traefik.http.routers.meeting.entrypoints=websecure'
+      - 'traefik.http.routers.meeting.tls.certresolver=myresolver'
+      - 'traefik.http.services.meeting.loadbalancer.server.port=8080'
+
+networks:
+  default:
+    external:
+      name: traefik-proxy-network
