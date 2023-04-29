@@ -9,17 +9,14 @@ services:
       - BASIC_AUTH_PWD=${CONFIG_USER_PASS}
       - HOST=0.0.0.0
       - PORT=8000
-
     ports:
-      - 8889:8000
-
+      - 18889:8000
     volumes:
       # - ./volumes/crontab-ui:/home/crontab-ui
       - ./volumes/crontab-ui/data:/home/crontab-ui/data
       - ./volumes/crontab-ui/data/logs:/home/crontab-ui/data/logs
       - ${PWD}:/home/crontab-ui
-    
     working_dir: /home/crontab-ui
-    
+    env_file: ./.env
     command: "bash -c crontab-ui"
     # command: sleep infinity
