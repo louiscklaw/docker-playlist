@@ -1,0 +1,15 @@
+{
+  "name": "docker-crontab-tryout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker_rebuild": "docker compose kill && docker compose down && docker compose up -d --build && docker logs -f",
+    "gitSync": "git fetch --all && git stash && git pull && git stash pop",
+    "gitUpdate": "git add . && git commit -m\"update docker-crontab-tryout production,\" && git pull && git push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -21,14 +21,14 @@ services:
 
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.meeting-http.rule=Host(`meeting.iamon99.com`)'
-      - 'traefik.http.routers.meeting-http.entrypoints=web'
-      - 'traefik.http.routers.meeting-http.middlewares=meeting-https'
-      - 'traefik.http.middlewares.meeting-https.redirectscheme.scheme=https'
-      - 'traefik.http.routers.meeting.rule=Host(`meeting.iamon99.com`)'
-      - 'traefik.http.routers.meeting.entrypoints=websecure'
-      - 'traefik.http.routers.meeting.tls.certresolver=myresolver'
-      - 'traefik.http.services.meeting.loadbalancer.server.port=8080'
+      - 'traefik.http.routers.meeting-iamon99-http.rule=Host(`meeting.iamon99.com`)'
+      - 'traefik.http.routers.meeting-iamon99-http.entrypoints=web'
+      - 'traefik.http.routers.meeting-iamon99-http.middlewares=meeting-https'
+      - 'traefik.http.middlewares.meeting-iamon99-https.redirectscheme.scheme=https'
+      - 'traefik.http.routers.meeting-iamon99-https.rule=Host(`meeting.iamon99.com`)'
+      - 'traefik.http.routers.meeting-iamon99-https.entrypoints=websecure'
+      - 'traefik.http.routers.meeting-iamon99-https.tls.certresolver=myresolver'
+      - 'traefik.http.services.meeting-iamon99-https.loadbalancer.server.port=8080'
 
 networks:
   default:
