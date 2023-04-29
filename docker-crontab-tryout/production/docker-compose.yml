@@ -2,7 +2,7 @@ services:
   test:
     # image: ubuntu:latest
     build: .
-    restart: always
+    restart: unless-stopped
     environment:
       - CRON_DB_PATH=/home/crontab-ui/data
       - BASIC_AUTH_USER=${CONFIG_USER_NAME}
