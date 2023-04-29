@@ -1,4 +1,3 @@
-version: "3"
 services:
   healthchecks:
     image: lscr.io/linuxserver/healthchecks:latest
@@ -9,19 +8,24 @@ services:
       - SITE_ROOT=http://healthcheck.iamon99.com
       - SITE_NAME=louislabs
       - DEFAULT_FROM_EMAIL=healthcheck@louislabs.com
+
+      - ALLOWED_HOSTS=["*"]
+      - SUPERUSER_EMAIL=${SUPERUSER_EMAIL}
+      - SUPERUSER_PASSWORD=${SUPERUSER_PASSWORD}
       # - EMAIL_HOST=localhost
       # - EMAIL_PORT=25
       # - EMAIL_HOST_USER=redacted
       # - EMAIL_HOST_PASSWORD=redacted
       # - EMAIL_USE_TLS=True
-      - ALLOWED_HOSTS=["*"]
-      - SUPERUSER_EMAIL=${SUPERUSER_EMAIL}
-      - SUPERUSER_PASSWORD=${SUPERUSER_PASSWORD}
+
     volumes:
       - ./volumes/data:/config
+    
     ports:
       - 8097:8000
+    
     restart: unless-stopped
+
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.healthcheck-http.rule=Host(`healthcheck.iamon99.com`)"
