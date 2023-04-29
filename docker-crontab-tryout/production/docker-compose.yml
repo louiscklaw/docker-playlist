@@ -16,6 +16,9 @@ services:
       - ./volumes/crontab-ui/data:/home/crontab-ui/data
       - ./volumes/crontab-ui/data/logs:/home/crontab-ui/data/logs
       - ${PWD}:/home/crontab-ui
+    
     working_dir: /home/crontab-ui
+    
     command: "bash -c crontab-ui"
+
     # command: sleep infinity
