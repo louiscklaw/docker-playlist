@@ -9,8 +9,10 @@ services:
       - BASIC_AUTH_PWD=${CONFIG_USER_PASS}
       - HOST=0.0.0.0
       - PORT=8000
+
     ports:
       - 8889:8000
+
     volumes:
       # - ./volumes/crontab-ui:/home/crontab-ui
       - ./volumes/crontab-ui/data:/home/crontab-ui/data
@@ -20,5 +22,4 @@ services:
     working_dir: /home/crontab-ui
     
     command: "bash -c crontab-ui"
-
     # command: sleep infinity
