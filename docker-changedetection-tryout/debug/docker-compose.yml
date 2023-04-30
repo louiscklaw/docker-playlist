@@ -30,7 +30,7 @@ services:
 
   debug-changedetect:
     image: ghcr.io/dgtlmoon/changedetection.io
-    container_name: debug-changedetect
+    # container_name: debug-changedetect
     # hostname: changedetection.io
     user: 1000:1000
     volumes:
