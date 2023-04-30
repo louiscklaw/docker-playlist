@@ -2,7 +2,8 @@
 
 services:
   apprise:
-    # container_name: apprise
+    image: lscr.io/linuxserver/apprise-api
+    restart: always
     ports:
       - 8000:8000
     environment:
@@ -10,8 +11,6 @@ services:
       - PGID=1000
       - TZ=Asia/Hong_Kong
       - VERSION=docker
-    image: lscr.io/linuxserver/apprise-api
-    restart: always
     volumes:
       - "./volumes/config/:/config"
 
