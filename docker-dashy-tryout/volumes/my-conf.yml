@@ -1,18 +1,30 @@
 pageInfo:
-  title: Home Lab
+  title: Louislabs
 
 sections: # An array of sections
+  - name: Profile
+    icon: far fa-rocket
+    items:
+      - title: GitHub
+        description: Dashy source code and docs
+        icon: fab fa-github
+        url: //louiscklaw.github.io
+      - title: Issues
+        description: View open issues, or raise a new one
+        icon: fas fa-bug
+        url: //github.com/Lissy93/dashy/issues
+
   - name: Example Section
     icon: far fa-rocket
     items:
       - title: GitHub
         description: Dashy source code and docs
         icon: fab fa-github
-        url: https://github.com/Lissy93/dashy
+        url: //github.com/Lissy93/dashy
       - title: Issues
         description: View open issues, or raise a new one
         icon: fas fa-bug
-        url: https://github.com/Lissy93/dashy/issues
+        url: //github.com/Lissy93/dashy/issues
 
   - name: Local Services
     items:
@@ -20,7 +32,7 @@ sections: # An array of sections
         icon: favicon
         url: http://192.168.1.1/
       - title: Game Server
-        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        icon: //i.ibb.co/710B3Yc/space-invader-x256.png
         url: http://192.168.130.1/
 
   - name: MyDashboards
@@ -29,13 +41,13 @@ sections: # An array of sections
         icon: favicon
         url: http://192.168.1.1/
       - title: traefik
-        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        icon: //i.ibb.co/710B3Yc/space-invader-x256.png
         url: http://192.168.130.1/
       - title: torrent
         icon: favicon
         url: http://192.168.1.1/
       - title: luigi dashbaord
-        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        icon: //i.ibb.co/710B3Yc/space-invader-x256.png
         url: http://192.168.130.1/
 
   - name: Status
@@ -44,13 +56,13 @@ sections: # An array of sections
         icon: favicon
         url: http://192.168.1.1/
       - title: traefik
-        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        icon: //i.ibb.co/710B3Yc/space-invader-x256.png
         url: http://192.168.130.1/
       - title: torrent
         icon: favicon
         url: http://192.168.1.1/
       - title: luigi dashbaord
-        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        icon: //i.ibb.co/710B3Yc/space-invader-x256.png
         url: http://192.168.130.1/
 
   - name: containers
@@ -59,13 +71,13 @@ sections: # An array of sections
         icon: favicon
         url: http://192.168.1.1/
       - title: traefik
-        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        icon: //i.ibb.co/710B3Yc/space-invader-x256.png
         url: http://192.168.130.1/
       - title: torrent
         icon: favicon
         url: http://192.168.1.1/
       - title: luigi dashbaord
-        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        icon: //i.ibb.co/710B3Yc/space-invader-x256.png
         url: http://192.168.130.1/
 
   - name: tools
@@ -74,20 +86,20 @@ sections: # An array of sections
         icon: favicon
         url: http://192.168.10.61:5010/
       - title: traefik
-        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        icon: //i.ibb.co/710B3Yc/space-invader-x256.png
         url: http://192.168.130.1/
       - title: torrent
         icon: favicon
         url: http://192.168.1.1/
       - title: luigi dashbaord
-        icon: https://i.ibb.co/710B3Yc/space-invader-x256.png
+        icon: //i.ibb.co/710B3Yc/space-invader-x256.png
         url: http://192.168.130.1/
 
   - name: notes
     items:
       - title: port schedule
         icon: favicon
-        url: https://docs.google.com/spreadsheets/d/1nwIj4Jt-LvN-RLqtY2O9Jbe-XsMyVs-04DWGLUPwzEM/edit#gid=0
+        url: //docs.google.com/spreadsheets/d/1nwIj4Jt-LvN-RLqtY2O9Jbe-XsMyVs-04DWGLUPwzEM/edit#gid=0
 
   - name: devices
     items:
