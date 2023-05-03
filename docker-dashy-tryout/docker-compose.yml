@@ -1,6 +1,6 @@
 services:
   dashy:
-    container_name: Dashy
+    # container_name: Dashy
     image: lissy93/dashy
     volumes:
       - ./volumes/my-conf.yml:/app/public/conf.yml
