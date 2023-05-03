@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker_rebuild": "docker compose rm -v -f && docker compose up -d && docker compose logs -f",
-    "gitSync": "git fetch --all && git pull",
     "gitUpdate": "git add . && git commit -m\"update docker-rethinkdb-tryout\" && git pull --rebase && git push"
   },
   "keywords": [],
