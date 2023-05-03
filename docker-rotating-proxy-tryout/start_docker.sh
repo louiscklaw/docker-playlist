@@ -4,7 +4,12 @@ set -ex
 
 # sudo rm -rf data
 
-docker-compose build
-docker-compose kill
-docker-compose up -d
-docker-compose logs -f
+docker compose pull
+docker compose build
+
+docker compose down
+docker compose kill
+
+docker compose up -d
+
+docker compose logs -f
