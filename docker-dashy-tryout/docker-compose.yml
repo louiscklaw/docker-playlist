@@ -6,9 +6,11 @@ services:
       - ./volumes/my-conf.yml:/app/public/conf.yml
     ports:
       - 8099:80
+    
     # environment:
     #   - BASE_URL=/my-dashboard
-    restart: unless-stopped
+
+    restart: always
     healthcheck:
       test: ['CMD', 'node', '/app/services/healthcheck']
       interval: 1m30s
