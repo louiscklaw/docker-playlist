@@ -37,7 +37,7 @@ services:
     volumes:
       - ../volumes/private-changedetect/datastore:/datastore
     environment:
-      - FETCH_WORKERS=2
+      - FETCH_WORKERS=10
       - PORT=5000
       - PUID=1000
       - PGID=1000
