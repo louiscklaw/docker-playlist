@@ -1,6 +1,4 @@
 # CREDIT: https://github.com/louislam/uptime-kuma
-version: "3"
-
 services:
   uptime-kuma:
     container_name: uptime-kuma
@@ -10,8 +8,6 @@ services:
       UPTIME_KUMA_DISABLE_FRAME_SAMEORIGIN: 1
     volumes:
       - "./volumes/app/data:/app/data"
-    # ports:
-    #   - 50102:3001
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
