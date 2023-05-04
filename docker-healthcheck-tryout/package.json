@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gitSync": "git fetch --all && git pull",
     "gitUpdate": "git add . && git commit -m\"update docker-healthcheck-tryout\" && git push",
-    "docker_rebuild": "docker compose rm -s -f -v && docker compose up --build -d "
+    "docker_stop":"docker compose down",
+    "docker_rebuild": "docker compose up -d --build"
   },
   "keywords": [],
   "author": "",

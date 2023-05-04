@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker_rebuild": "docker compose pull && docker compose build && docker compose kill || true && docker compose down || true && docker compose up -d && docker compose logs -f ",
+    "docker_stop":"docker compose down",
+    "docker_rebuild": "docker compose up -d --build",
     "gitUpdate": "git add . && git commit -m\"update docker-uptime-kuma-tryout,\" && git pull && git push"
   },
   "keywords": [],

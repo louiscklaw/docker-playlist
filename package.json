@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",
     "gitSync": "git fetch --all && git pull && git stash pop || true",
-    "gitUpdate": "yarn gitSync && git add . && git commit -m\"update docker-playlist,\" && git push"
+    "gitUpdate": "git add . && git commit -m\"update docker-playlist,\" && git push"
   },
   "repository": {
     "type": "git",

@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker_rebuild": "docker compose rm -s -v -f && docker compose up -d && docker compose logs -f ",
-    "gitSync": "git fetch --all && git stash && git pull && git stash pop",
-    "gitUpdate": "git add . && git commit -m\"update docker-portainer-tryout,\" && yarn gitSync && git push"
+    "docker_stop": "docker compose down",
+    "docker_rebuild": "docker compose up -d --build",
+    "gitUpdate": "git add . && git commit -m\"update docker-portainer-tryout,\" && git push"
   },
   "keywords": [],
   "author": "",
