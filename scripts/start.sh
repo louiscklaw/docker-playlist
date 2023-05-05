@@ -13,13 +13,7 @@ pushd ~/_workspace/docker-playlist/docker-portainer-tryout
   npm run docker_rebuild
 popd
 
-pushd ~/_workspace/docker-playlist/docker-uptime-kuma-tryout
-  npm run docker_rebuild
-popd
-
-pushd ~/_workspace/docker-playlist/docker-healthcheck-tryout
-  npm run docker_rebuild
-popd
+# start services
 
 # carousell related
 # upload file,
@@ -34,5 +28,25 @@ pushd ~/_workspace/briefing-playlist/meet.louislabs.com
 popd
 
 pushd ~/_workspace/docker-playlist/docker-n8n-tryout
+  npm run docker_rebuild
+popd
+
+pushd ~/_workspace/docker-playlist/docker-changedetection-tryout
+  npm run docker_rebuild
+popd
+
+
+pushd ~/_workspace/docker-playlist/docker-crontab-tryout/production
+  npm run docker_rebuild
+popd
+
+
+# start monitoring after start services
+
+pushd ~/_workspace/docker-playlist/docker-uptime-kuma-tryout
+  npm run docker_rebuild
+popd
+
+pushd ~/_workspace/docker-playlist/docker-healthcheck-tryout
   npm run docker_rebuild
 popd

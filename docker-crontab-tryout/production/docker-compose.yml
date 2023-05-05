@@ -1,6 +1,5 @@
 services:
   test:
-    # image: ubuntu:latest
     build: .
     restart: unless-stopped
     environment:
@@ -11,12 +10,12 @@ services:
       - PORT=8000
     ports:
       - 18889:8000
+
     volumes:
-      # - ./volumes/crontab-ui:/home/crontab-ui
+      - ./volumes/crontab-ui:/home/crontab-ui
       - ./volumes/crontab-ui/data:/home/crontab-ui/data
       - ./volumes/crontab-ui/data/logs:/home/crontab-ui/data/logs
-      - ${PWD}:/home/crontab-ui
     working_dir: /home/crontab-ui
     env_file: ./.env
+    
     command: "bash -c crontab-ui"
-    # command: sleep infinity
