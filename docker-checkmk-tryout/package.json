@@ -1,12 +1,13 @@
 {
-  "name": "docker-pgadmin-tryout",
+  "name": "docker-checkmk-tryout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gitUpdate": "git add . && git commit -m\"update docker-pgadmin-tryout\"",
-    "docker_rebuild": "docker compose build && docker compose up -d && docker compose logs -f"
+    "gitUpdate": "git add . && git commit -m\"update docker-checkmk-tryout\"",
+    "docker_rebuild": "docker compose up -d --build",
+    "docker_stop":"docker compose down"
   },
   "keywords": [],
   "author": "",
