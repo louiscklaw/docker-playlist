@@ -46,14 +46,14 @@ services:
     restart: always
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.private-changedetect-http.rule=Host(`private-changedetect.iamon99.com`)'
-      - 'traefik.http.routers.private-changedetect-http.entrypoints=web'
-      - 'traefik.http.routers.private-changedetect-http.middlewares=private-changedetect-https'
-      - 'traefik.http.middlewares.private-changedetect-https.redirectscheme.scheme=https'
-      - 'traefik.http.routers.private-changedetect.rule=Host(`private-changedetect.iamon99.com`)'
-      - 'traefik.http.routers.private-changedetect.entrypoints=websecure'
-      - 'traefik.http.routers.private-changedetect.tls.certresolver=myresolver'
-      - 'traefik.http.services.private-changedetect.loadbalancer.server.port=5000'
+      - 'traefik.http.routers.changedetect-http.rule=Host(`changedetect.iamon99.com`)'
+      - 'traefik.http.routers.changedetect-http.entrypoints=web'
+      - 'traefik.http.routers.changedetect-http.middlewares=changedetect-https'
+      - 'traefik.http.middlewares.changedetect-https.redirectscheme.scheme=https'
+      - 'traefik.http.routers.changedetect.rule=Host(`changedetect.iamon99.com`)'
+      - 'traefik.http.routers.changedetect.entrypoints=websecure'
+      - 'traefik.http.routers.changedetect.tls.certresolver=myresolver'
+      - 'traefik.http.services.changedetect.loadbalancer.server.port=5000'
 
 networks:
   default:
