@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker_stop":"docker compose down",
     "docker_rebuild": "docker compose up -d --build",
-    "gitUpdate": "git add . && git commit -m\"update docker-uptime-kuma-tryout,\" && git pull && git push"
+    "gitUpdate": "git add . && git commit -m\"update docker-uptime-kuma-tryout,\" && git push"
   },
   "keywords": [],
   "author": "",
