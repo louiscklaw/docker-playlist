@@ -1,0 +1,13 @@
+services:
+  gnome-vnc:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 6911:6901
+    environment:
+      - VNC_PW=my-pw
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.whoami_root.rule=Host(`whoami_react_test.iamon99.com`)"
+    #   - "traefik.http.routers.whoami_root.entrypoints=websecure"
+    #   - "traefik.http.routers.whoami_root.tls.certresolver=myresolver"
