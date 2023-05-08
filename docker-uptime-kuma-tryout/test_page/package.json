@@ -1,0 +1,13 @@
+{
+  "name": "test_page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx http-serve ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
