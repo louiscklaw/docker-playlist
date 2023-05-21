@@ -11,6 +11,12 @@ pushd ~/_workspace/docker-playlist/docker-healthcheck-tryout
   npm run docker_stop
 popd
 
+# stop api router
+
+pushd ~/_workspace/traefik-playlist/production
+  npm run docker_stop
+popd
+
 
 # stop services
 pushd ~/_workspace/docker-playlist/docker-changedetection-tryout
@@ -33,10 +39,20 @@ pushd ~/_workspace/docker-playlist/docker-n8n-tryout
   npm run docker_stop
 popd
 
-pushd ~/_workspace/traefik-playlist/production
+pushd ~/_workspace/docker-playlist/docker-crontab-tryout/production
   npm run docker_stop
 popd
 
-pushd ~/_workspace/docker-crontab-tryout/production
+pushd ~/_workspace/docker-playlist/docker-watchtower-tryout
   npm run docker_stop
+popd
+
+pushd ~/_workspace/docker-playlist/docker-checkmk-tryout
+  npm run docker_stop
+popd
+
+pushd ~/_workspace/docker-playlist
+  pushd docker-traefik-cloudflare-companion-tryout
+    npm run docker_stop
+  popd
 popd
