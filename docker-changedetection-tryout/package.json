@@ -6,6 +6,7 @@
   "scripts": {
     "docker_rebuild": "docker compose up -d --build",
     "docker_stop":"docker compose kill",
+    "docker_pull":"docker compose pull",
     "docker_restart": "npm run docker_stop && sleep 1 && npm run docker_rebuild",
     "gitUpdate": "git add . && git commit -m\"update docker-changedetection-tryout,\" && git push"
   },
