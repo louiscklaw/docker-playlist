@@ -4,6 +4,7 @@ services:
   private-changedetect-playwright:
     image: browserless/chrome
     restart: always
+    
     shm_size: 2gb
     volumes:
       - /dev/shm/private-changedetect-playwright:/dev/shm
@@ -29,7 +30,7 @@ services:
 
 
   private-changedetect:
-    image: ghcr.io/dgtlmoon/changedetection.io
+    image: logickee/changedetect
     container_name: private-changedetect
     hostname: private-changedetect
     user: 1000:1000

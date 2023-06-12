@@ -4,7 +4,12 @@ set -ex
 
 pushd ~/_workspace/traefik-playlist/production
   docker compose up -d
+popd
 
+pushd ~/_workspace/docker-playlist
+  pushd docker-traefik-cloudflare-companion-tryout
+    npm run docker_rebuild
+  popd
 popd
 
 sleep 3
@@ -40,7 +45,6 @@ pushd ~/_workspace/docker-playlist/docker-crontab-tryout/production
   npm run docker_rebuild
 popd
 
-
 # start monitoring after start services
 
 pushd ~/_workspace/docker-playlist/docker-uptime-kuma-tryout
@@ -48,5 +52,13 @@ pushd ~/_workspace/docker-playlist/docker-uptime-kuma-tryout
 popd
 
 pushd ~/_workspace/docker-playlist/docker-healthcheck-tryout
+  npm run docker_rebuild
+popd
+
+pushd ~/_workspace/docker-playlist/docker-watchtower-tryout
+  npm run docker_rebuild
+popd
+
+pushd ~/_workspace/docker-playlist/docker-checkmk-tryout
   npm run docker_rebuild
 popd
