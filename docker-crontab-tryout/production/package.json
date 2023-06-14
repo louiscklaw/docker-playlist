@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docker_rebuild": "docker compose up -d --build",
+    "docker_rebuild": "docker compose up -d --build --remove-orphans",
     "docker_stop": "docker compose down",
     "gitUpdate": "git add . && git commit -m\"update docker-crontab-tryout production,\" && git push"
   },
