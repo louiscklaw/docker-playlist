@@ -1,5 +1,5 @@
 services:
-  test:
+  crontab-devel:
     # image: ubuntu:latest
     build: .
     restart: always

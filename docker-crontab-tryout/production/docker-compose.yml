@@ -1,5 +1,5 @@
 services:
-  test:
+  crontab-production:
     build: .
     restart: unless-stopped
     environment:
@@ -17,5 +17,5 @@ services:
       - ./volumes/crontab-ui/data/logs:/home/crontab-ui/data/logs
     working_dir: /home/crontab-ui
     env_file: ./.env
-    
+
     command: "bash -c crontab-ui"
