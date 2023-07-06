@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:22.04
 
 # Set default user and workdir
 USER root
@@ -11,6 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 #   sed -i 's/http:\/\/security\.ubuntu\.com/http:\/\/ftp\.cuhk\.edu\.hk\/pub\/Linux/g' /etc/apt/sources.list
 
 RUN apt update && \
+  apt install -qy apt-fast && \
   apt install -qy zsh git && \
   apt clean cache
 

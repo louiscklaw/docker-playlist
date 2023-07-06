@@ -6,9 +6,9 @@ services:
       - 5005:5005
     volumes:
       - ./volumes/rasa:/app
-    command: 
+    command:
       - run
-    
+
   action-server:
     image: rasa/rasa-sdk:2.8.4
     volumes:

@@ -2,34 +2,30 @@ services:
   mongo:
     image: bitnami/mongodb:latest
     # container_name: db
-    # restart: unless-stopped
+    restart: unless-stopped
     environment:
       - MONGO_INITDB_ROOT_USERNAME=user
       - MONGO_INITDB_ROOT_PASSWORD=password
     ports:
-      - "27017:27017"
+      - 27017:27017
     volumes:
-      - ./volumes/mongo:/data/db
+      - ./volumes/mongo/db_data:/data/db
 
-  mongo-express:
+  mongoGUI:
     image: mongo-express:latest
     # container_name: db_gui
-    # restart: unless-stopped
-    # depends_on:
-      # - mongo
+    restart: unless-stopped
+    depends_on:
+      - mongo
     ports:
-      - "8081:8081"
+      - 8081:8081
     volumes:
-      - ./volumes/mongo-express:/app
-      - ./volumes/mongo-express/docker-entrypoint.sh:/docker-entrypoint.sh
-    links:
-        - mongo
+      - ./volumes/mongoGUI/db_data:/data/db
     environment:
       - ME_CONFIG_MONGODB_SERVER=mongo
       - ME_CONFIG_MONGODB_PORT=27017
       - ME_CONFIG_BASICAUTH_USERNAME=user
       - ME_CONFIG_BASICAUTH_PASSWORD=password
-      # - ME_CONFIG_OPTIONS_EDITORTHEME=ambiance
 
 volumes:
   db_data:
