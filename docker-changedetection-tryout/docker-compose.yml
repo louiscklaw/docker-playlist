@@ -14,7 +14,7 @@ services:
     environment:
       - EXIT_ON_HEALTH_FAILURE=true
       # means how many client can connect to this browserless machine
-      - MAX_CONCURRENT_SESSIONS=10
+      - MAX_CONCURRENT_SESSIONS=5
       - MAX_QUEUE_LENGTH=99999
       - CONNECTION_TIMEOUT=30000
       - DEFAULT_IGNORE_HTTPS_ERRORS=true
@@ -37,7 +37,7 @@ services:
     volumes:
       - ./volumes/private-changedetect/datastore:/datastore
     environment:
-      - FETCH_WORKERS=10
+      - FETCH_WORKERS=5
       - PORT=5000
       - PUID=1000
       - PGID=1000
