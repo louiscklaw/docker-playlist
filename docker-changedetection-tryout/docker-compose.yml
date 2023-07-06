@@ -20,14 +20,13 @@ services:
       - DEFAULT_IGNORE_HTTPS_ERRORS=true
       - ENABLE_CORS=true
       - PREBOOT_CHROME=true
-      - KEEP_ALIVE=true
+      - KEEP_ALIVE=false
       - ENABLE_API_GET=true
       - DEFAULT_LAUNCH_ARGS=["--window-size=1920,5080"]
       - FUNCTION_ENABLE_INCOGNITO_MODE=true
       - METRICS_JSON_PATH=/root/metrics.json
       # This will have browserless delete files older than 30 days in the workspace, checking once a day
       - WORKSPACE_DELETE_EXPIRED=true
-
 
   private-changedetect:
     image: logickee/changedetect
