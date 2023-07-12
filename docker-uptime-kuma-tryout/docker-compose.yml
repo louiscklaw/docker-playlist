@@ -21,11 +21,11 @@ services:
 
       - "traefik.enable=true"
 
-      - "traefik.http.routers.status-louislabs-http.rule=Host(`status.louislabs.com`)"
-      - "traefik.http.routers.status-louislabs-http.entrypoints=web"
+      - "traefik.http.routers.status-iamon99-http.rule=Host(`status.iamon99.com`)"
+      - "traefik.http.routers.status-iamon99-http.entrypoints=web"
 
       # NOTE: container serving 3001 port
-      - "traefik.http.services.status-louislabs-http.loadbalancer.server.port=3001"
+      - "traefik.http.services.status-iamon99-http.loadbalancer.server.port=3001"
 
 networks:
   default:
