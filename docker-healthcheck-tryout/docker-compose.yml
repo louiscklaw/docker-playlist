@@ -27,16 +27,28 @@ services:
     restart: unless-stopped
 
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.healthcheck-http.rule=Host(`healthcheck.iamon99.com`)"
-      - "traefik.http.routers.healthcheck-http.entrypoints=web"
-      - "traefik.http.routers.healthcheck-http.middlewares=healthcheck-https"
+      # # TODO: 2023-Jul-12, remove me as no encrypted traffic between cloudflare and my server anymore.
+      # - "traefik.enable=true"
+      # - "traefik.http.routers.healthcheck-http.rule=Host(`healthcheck.iamon99.com`)"
+      # - "traefik.http.routers.healthcheck-http.entrypoints=web"
+      # - "traefik.http.routers.healthcheck-http.middlewares=healthcheck-https"
       
-      - "traefik.http.middlewares.healthcheck-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.healthcheck.rule=Host(`healthcheck.iamon99.com`)"
-      - "traefik.http.routers.healthcheck.entrypoints=websecure"
-      - "traefik.http.routers.healthcheck.tls.certresolver=myresolver"
-      - "traefik.http.services.healthcheck.loadbalancer.server.port=8000"
+      # - "traefik.http.middlewares.healthcheck-https.redirectscheme.scheme=https"
+      # - "traefik.http.routers.healthcheck.rule=Host(`healthcheck.iamon99.com`)"
+      # - "traefik.http.routers.healthcheck.entrypoints=websecure"
+      # - "traefik.http.routers.healthcheck.tls.certresolver=myresolver"
+      # - "traefik.http.services.healthcheck.loadbalancer.server.port=8000"
+
+
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.healthcheck-iamon99-http.rule=Host(`healthcheck.iamon99.com`)"
+      - "traefik.http.routers.healthcheck-iamon99-http.entrypoints=web"
+
+      # NOTE: container serving 3001 port
+      - "traefik.http.services.healthcheck-iamon99-http.loadbalancer.server.port=8000"
+
+
 
 networks:
   default:
