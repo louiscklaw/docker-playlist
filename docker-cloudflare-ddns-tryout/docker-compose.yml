@@ -1,13 +1,14 @@
-version: "2"
 services:
-  cloudflare:
+  cloudflare-louislabs:
     image: oznu/cloudflare-ddns:latest
     restart: unless-stopped
     labels:
       - traefik.enable=false
-    environment:
-      - "API_KEY=${CF_TOKEN}"
-      - "ZONE=${DNS_DOMAIN}"
-      # - "SUBDOMAIN=${SUBDOMAIN}"
-      - "DNS_SERVER=1.0.0.1"
-    dns: 1.1.1.1
+    env_file: ./.louislabs.env
+
+  cloudflare-iamon99:
+    image: oznu/cloudflare-ddns:latest
+    restart: unless-stopped
+    labels:
+      - traefik.enable=false
+    env_file: ./.iamon99.env
