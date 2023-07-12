@@ -21,10 +21,19 @@ services:
       - 9443:9443 # https
     restart: unless-stopped
     labels:
+      # TODO: 2023-Jul-12, remove me as no encrypted traffic between cloudflare and my server anymore.
+      # - "traefik.enable=true"
+      # - "traefik.http.routers.portainer.rule=Host(`portainer.iamon99.com`)"
+      # - "traefik.http.routers.portainer.entrypoints=websecure"
+      # - "traefik.http.routers.portainer.tls.certresolver=myresolver"
+      # - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+
       - "traefik.enable=true"
+
       - "traefik.http.routers.portainer.rule=Host(`portainer.iamon99.com`)"
-      - "traefik.http.routers.portainer.entrypoints=websecure"
-      - "traefik.http.routers.portainer.tls.certresolver=myresolver"
+      - "traefik.http.routers.portainer.entrypoints=web"
+
+      # NOTE: container serving 8080 port
       - "traefik.http.services.portainer.loadbalancer.server.port=9000"
 
 networks:

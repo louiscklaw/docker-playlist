@@ -45,15 +45,25 @@ services:
       - 5001:5000
     restart: always
     labels:
-      - 'traefik.enable=true'
-      - 'traefik.http.routers.changedetect-http.rule=Host(`changedetect.iamon99.com`)'
-      - 'traefik.http.routers.changedetect-http.entrypoints=web'
-      - 'traefik.http.routers.changedetect-http.middlewares=changedetect-https'
-      - 'traefik.http.middlewares.changedetect-https.redirectscheme.scheme=https'
-      - 'traefik.http.routers.changedetect.rule=Host(`changedetect.iamon99.com`)'
-      - 'traefik.http.routers.changedetect.entrypoints=websecure'
-      - 'traefik.http.routers.changedetect.tls.certresolver=myresolver'
-      - 'traefik.http.services.changedetect.loadbalancer.server.port=5000'
+      # TODO: 2023-Jul-12, remove me as no encrypted traffic between cloudflare and my server anymore.
+      # - 'traefik.enable=true'
+      # - 'traefik.http.routers.changedetect-http.rule=Host(`changedetect.iamon99.com`)'
+      # - 'traefik.http.routers.changedetect-http.entrypoints=web'
+      # - 'traefik.http.routers.changedetect-http.middlewares=changedetect-https'
+      # - 'traefik.http.middlewares.changedetect-https.redirectscheme.scheme=https'
+      # - 'traefik.http.routers.changedetect.rule=Host(`changedetect.iamon99.com`)'
+      # - 'traefik.http.routers.changedetect.entrypoints=websecure'
+      # - 'traefik.http.routers.changedetect.tls.certresolver=myresolver'
+      # - 'traefik.http.services.changedetect.loadbalancer.server.port=5000'
+
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.changedetect-iamon99-http.rule=Host(`changedetect.iamon99.com`)"
+      - "traefik.http.routers.changedetect-iamon99-http.entrypoints=web"
+
+      # NOTE: container serving 8080 port
+      - "traefik.http.services.changedetect-iamon99-http.loadbalancer.server.port=5000"
+
 
 networks:
   default:

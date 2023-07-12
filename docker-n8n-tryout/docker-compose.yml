@@ -12,20 +12,29 @@ services:
     command: /bin/sh -c "sleep 5; n8n start"
 
     labels:
-      - traefik.enable=true
-      - traefik.http.routers.n8n.rule=Host(`${SUBDOMAIN}.${DOMAIN_NAME}`)
-      - traefik.http.routers.n8n.tls=true
-      - traefik.http.routers.n8n.entrypoints=web,websecure
-      - traefik.http.routers.n8n.tls.certresolver=mytlschallenge
-      - traefik.http.middlewares.n8n.headers.SSLRedirect=true
-      - traefik.http.middlewares.n8n.headers.STSSeconds=315360000
-      - traefik.http.middlewares.n8n.headers.browserXSSFilter=true
-      - traefik.http.middlewares.n8n.headers.contentTypeNosniff=true
-      - traefik.http.middlewares.n8n.headers.forceSTSHeader=true
-      - traefik.http.middlewares.n8n.headers.SSLHost=${DOMAIN_NAME}
-      - traefik.http.middlewares.n8n.headers.STSIncludeSubdomains=true
-      - traefik.http.middlewares.n8n.headers.STSPreload=true
-      - traefik.http.routers.n8n.middlewares=n8n@docker
+      # TODO: 2023-Jul-12, remove me as no encrypted traffic between cloudflare and my server anymore.
+      # - traefik.enable=true
+      # - traefik.http.routers.n8n.rule=Host(`${SUBDOMAIN}.${DOMAIN_NAME}`)
+      # - traefik.http.routers.n8n.tls=true
+      # - traefik.http.routers.n8n.entrypoints=web,websecure
+      # - traefik.http.routers.n8n.tls.certresolver=mytlschallenge
+      # - traefik.http.middlewares.n8n.headers.SSLRedirect=true
+      # - traefik.http.middlewares.n8n.headers.STSSeconds=315360000
+      # - traefik.http.middlewares.n8n.headers.browserXSSFilter=true
+      # - traefik.http.middlewares.n8n.headers.contentTypeNosniff=true
+      # - traefik.http.middlewares.n8n.headers.forceSTSHeader=true
+      # - traefik.http.middlewares.n8n.headers.SSLHost=${DOMAIN_NAME}
+      # - traefik.http.middlewares.n8n.headers.STSIncludeSubdomains=true
+      # - traefik.http.middlewares.n8n.headers.STSPreload=true
+      # - traefik.http.routers.n8n.middlewares=n8n@docker
+
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.n8n-iamon99.rule=Host(`n8n.iamon99.com`)"
+      - "traefik.http.routers.n8n-iamon99.entrypoints=web"
+
+      # NOTE: container serving 8080 port
+      - "traefik.http.services.n8n-iamon99.loadbalancer.server.port=5678"
 
     environment:
       - N8N_BASIC_AUTH_ACTIVE=true
