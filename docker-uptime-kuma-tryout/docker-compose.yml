@@ -12,11 +12,20 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
     restart: unless-stopped
     labels:
+      # # TODO: 2023-Jul-12, remove me as no encrypted traffic between cloudflare and my server anymore.
+      # - "traefik.enable=true"
+      # - "traefik.http.routers.uptime_kuma.rule=Host(`status.iamon99.com`)"
+      # - "traefik.http.routers.uptime_kuma.entrypoints=websecure"
+      # - "traefik.http.routers.uptime_kuma.tls.certresolver=myresolver"
+      # - "traefik.http.services.uptime_kuma.loadbalancer.server.port=3001"
+
       - "traefik.enable=true"
-      - "traefik.http.routers.uptime_kuma.rule=Host(`status.iamon99.com`)"
-      - "traefik.http.routers.uptime_kuma.entrypoints=websecure"
-      - "traefik.http.routers.uptime_kuma.tls.certresolver=myresolver"
-      - "traefik.http.services.uptime_kuma.loadbalancer.server.port=3001"
+
+      - "traefik.http.routers.status-louislabs-http.rule=Host(`status.louislabs.com`)"
+      - "traefik.http.routers.status-louislabs-http.entrypoints=web"
+
+      # NOTE: container serving 3001 port
+      - "traefik.http.services.status-louislabs-http.loadbalancer.server.port=3001"
 
 networks:
   default:
