@@ -2,14 +2,20 @@
 
 set -ex
 
-pushd ~/_workspace/traefik-playlist/production
-  docker compose up -d
+pushd ~/_workspace/docker-playlist
+  pushd docker-cloudflare-ddns-tryout
+    npm run docker_rebuild
+  popd
 popd
 
 pushd ~/_workspace/docker-playlist
   pushd docker-traefik-cloudflare-companion-tryout
     npm run docker_rebuild
   popd
+popd
+
+pushd ~/_workspace/traefik-playlist/production
+  docker compose up -d
 popd
 
 # start proxy before applications
