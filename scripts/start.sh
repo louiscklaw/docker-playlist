@@ -12,6 +12,13 @@ pushd ~/_workspace/docker-playlist
   popd
 popd
 
+# start proxy before applications
+pushd ~/_workspace/docker-playlist
+  pushd v2raya-tryout
+    npm run docker_rebuild
+  popd
+popd
+
 sleep 1
 
 pushd ~/_workspace/docker-playlist/docker-portainer-tryout

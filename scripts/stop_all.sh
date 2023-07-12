@@ -47,6 +47,10 @@ pushd ~/_workspace/docker-playlist/docker-watchtower-tryout
   npm run docker_stop
 popd
 
+pushd ~/_workspace/docker-playlist/v2raya-tryout
+  npm run docker_stop
+popd
+
 pushd ~/_workspace/docker-playlist/docker-checkmk-tryout
   npm run docker_stop
 popd
