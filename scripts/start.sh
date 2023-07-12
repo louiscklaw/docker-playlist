@@ -12,7 +12,7 @@ pushd ~/_workspace/docker-playlist
   popd
 popd
 
-sleep 3
+sleep 1
 
 pushd ~/_workspace/docker-playlist/docker-portainer-tryout
   npm run docker_rebuild
@@ -39,7 +39,6 @@ popd
 pushd ~/_workspace/docker-playlist/docker-changedetection-tryout
   npm run docker_rebuild
 popd
-
 
 pushd ~/_workspace/docker-playlist/docker-crontab-tryout/production
   npm run docker_rebuild
