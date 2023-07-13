@@ -53,7 +53,7 @@ pushd ~/_workspace/nodejs-airdrop
   sleep 10
 popd
 
-# https://meet.louislaba.com
+# https://meet.louislabs.com
 pushd ~/_workspace/briefing-playlist/meet.louislabs.com
   npm run docker_rebuild
   sleep 10
