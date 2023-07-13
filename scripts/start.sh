@@ -11,14 +11,16 @@ else
     exit 1
 fi
 
+pushd ~/_workspace/docker-playlist/docker-registry-tryout
+  npm run docker_rebuild
+popd
+
 pushd ~/_workspace/docker-playlist/docker-cloudflare-ddns-tryout
-    npm run docker_rebuild
-  popd
+  npm run docker_rebuild
 popd
 
 pushd ~/_workspace/docker-playlist/docker-traefik-cloudflare-companion-tryout
-    npm run docker_rebuild
-  popd
+  npm run docker_rebuild
 popd
 
 pushd ~/_workspace/traefik-playlist/production
@@ -28,7 +30,6 @@ popd
 # start proxy before applications
 pushd ~/_workspace/docker-playlist/v2raya-tryout
     npm run docker_rebuild
-  popd
 popd
 
 sleep 1
