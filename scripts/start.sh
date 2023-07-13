@@ -2,13 +2,13 @@
 
 set -ex
 
-directory="/mnt/sda/_docker/volumes"
+directory="/mnt/sda/not_mounted"
 
-if [ -d "$directory" ]; then
+if [ -f "$directory" ]; then
     echo "Directory exists"
+    exit 1
 else
     echo "Directory does not exist"
-    exit 1
 fi
 
 pushd ~/_workspace/docker-playlist/docker-registry-tryout
