@@ -55,8 +55,16 @@ pushd ~/_workspace/docker-playlist/docker-checkmk-tryout
   npm run docker_stop
 popd
 
-pushd ~/_workspace/docker-playlist
-  pushd docker-traefik-cloudflare-companion-tryout
-    npm run docker_stop
-  popd
+pushd ~/_workspace/docker-playlist/docker-registry-tryout
+  npm run docker_stop
+popd
+
+# stop routing related stuff
+
+pushd ~/_workspace/docker-playlist/docker-traefik-cloudflare-companion-tryout
+  npm run docker_stop
+popd
+
+pushd ~/_workspace/docker-playlist/docker-cloudflare-ddns-tryout
+  npm run docker_stop
 popd
