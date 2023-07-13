@@ -1,12 +1,12 @@
 {
-  "name": "portainer-ce-tryout",
+  "name": "uptime-kuma-tryout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker_stop":"docker compose down",
-    "docker_rebuild": "docker compose up -d --build",
+    "docker_rebuild": "docker compose up -d",
     "gitUpdate": "git add . && git commit -m\"update docker-uptime-kuma-tryout,\""
   },
   "keywords": [],
