@@ -2,7 +2,7 @@
 
 set -ex
 
-directory="/mnt/sda/_docker"
+directory="/mnt/sda/_docker/volumes"
 
 if [ -d "$directory" ]; then
     echo "Directory exists"
