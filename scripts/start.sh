@@ -2,14 +2,21 @@
 
 set -ex
 
-pushd ~/_workspace/docker-playlist
-  pushd docker-cloudflare-ddns-tryout
+directory="/mnt/sda/_docker1"
+
+if [ -d "$directory" ]; then
+    echo "Directory exists"
+else
+    echo "Directory does not exist"
+    exit 1
+fi
+
+pushd ~/_workspace/docker-playlist/docker-cloudflare-ddns-tryout
     npm run docker_rebuild
   popd
 popd
 
-pushd ~/_workspace/docker-playlist
-  pushd docker-traefik-cloudflare-companion-tryout
+pushd ~/_workspace/docker-playlist/docker-traefik-cloudflare-companion-tryout
     npm run docker_rebuild
   popd
 popd
@@ -19,8 +26,7 @@ pushd ~/_workspace/traefik-playlist/production
 popd
 
 # start proxy before applications
-pushd ~/_workspace/docker-playlist
-  pushd v2raya-tryout
+pushd ~/_workspace/docker-playlist/v2raya-tryout
     npm run docker_rebuild
   popd
 popd
