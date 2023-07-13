@@ -1,5 +1,5 @@
 {
-  "name": "uptime-kuma-tryout",
+  "name": "docker-uptime-kuma-tryout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
