@@ -8,6 +8,7 @@
     "start": "http-server --cors ./public",
     "gitUpdate": "git add . && git commit -m \"update defects page,\" && git push",
     "docker_rebuild": "docker compose up -d --build",
+    "docker_rebuild_local": "docker compose -f docker-compose.local.yml up -d --build",
     "docker_stop": "docker compose kill"
   },
   "keywords": [],
