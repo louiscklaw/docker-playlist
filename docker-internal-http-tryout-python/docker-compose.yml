@@ -1,0 +1,9 @@
+services:
+  static_html_tryout:
+    build: .
+    restart: always
+    volumes:
+      - /mnt/sda/_docker/volumes/docker-internal-http-tryout/public:/usr/src/app/public
+    # command: sleep infinity
+    ports:
+      - 8181:8000

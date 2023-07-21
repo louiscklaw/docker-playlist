@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server --cors ./public",
+    "gitUpdate": "git add . && git commit -m \"update defects page,\" && git push",
+    "docker_rebuild": "docker compose up -d --build",
+    "docker_stop": "docker compose kill"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "markdown-to-html": "^0.0.13",
+    "serve": "^14.2.0",
+    "staticrypt": "^3.3.0"
+  }
+}
