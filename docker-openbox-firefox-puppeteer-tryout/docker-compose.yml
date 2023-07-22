@@ -1,0 +1,7 @@
+services:
+  openbox-firefox:
+    image: openbox-firefox-ubuntu
+    ports:
+      - 6080:6080
+    volumes:
+      - ./share:/share
