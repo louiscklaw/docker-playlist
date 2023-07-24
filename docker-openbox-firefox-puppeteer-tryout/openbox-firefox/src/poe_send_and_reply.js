@@ -100,15 +100,16 @@ async function questionAndAnswer(page, question, answer_idx) {
 
   answer_idx++;
   var reply = await questionAndAnswer(page, "say 'hello 1' to me", answer_idx);
-  assert(reply.toLowerCase().indexOf('hello 1') >= 0, 'reply failed');
+  assert(reply.toLowerCase().indexOf('hello 1') >= 0, `reply failed :${reply.toLowerCase().indexOf('hello 1')}`);
 
   answer_idx++;
   var reply = await questionAndAnswer(page, "say 'hello 2' to me", answer_idx);
-  assert(reply.toLowerCase().indexOf('hello 2') >= 0, 'reply failed');
+  assert(reply.toLowerCase().indexOf('hello 2') >= 0, `reply failed :${reply.toLowerCase().indexOf('hello 2')}`);
+
 
   answer_idx++;
   var reply = await questionAndAnswer(page, "say 'hello 3' to me", answer_idx);
-  assert(reply.toLowerCase().indexOf('hello 3') >= 0, 'reply failed');
+  assert(reply.toLowerCase().indexOf('hello 3') >= 0, `reply failed :${reply.toLowerCase().indexOf('hello 3')}`);
 
   await page.waitForTimeout(9999 * 1000);
 
