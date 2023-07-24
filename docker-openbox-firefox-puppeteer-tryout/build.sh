@@ -29,14 +29,14 @@ cd dockerfiles/final
     -t openbox-firefox-ubuntu
 cd -
 
-docker run --rm -it \
-  --privileged \
-  --device /dev/kvm \
-  -v ./share:/share \
-  -p 6080:6080 \
-  -p 4723:4723 \
-  --name logickee_docker_android openbox-firefox-ubuntu
-  # bash
+# docker run --rm -it \
+#   --privileged \
+#   --device /dev/kvm \
+#   -v ./share:/share \
+#   -p 6080:6080 \
+#   -p 4723:4723 \
+#   --name logickee_docker_android openbox-firefox-ubuntu
+#   # bash
 
   # -v /root/.config:/share/.config:ro \
   # -p 15900:5900 \
@@ -44,3 +44,4 @@ docker run --rm -it \
 #   # bash
 
 # docker run -d -p 127.0.0.1:5901:5901 fullaxx/ubuntu-desktop
+docker compose up -d

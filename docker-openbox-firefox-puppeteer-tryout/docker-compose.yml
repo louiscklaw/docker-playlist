@@ -3,8 +3,10 @@ services:
     image: openbox-firefox-ubuntu
     ports:
       - 6080:6080
+    privileged: true
     volumes:
       - ./share:/share
+      - ./openbox-firefox/src:/app
 
   bait:
     build: bait
