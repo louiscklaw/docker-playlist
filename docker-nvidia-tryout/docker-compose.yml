@@ -1,0 +1,14 @@
+services:
+  test:
+    image: nvidia/cuda:12.2.0-devel-ubuntu20.04
+    command: sleep infinity
+    volumes:
+      - /dev:/dev
+    privileged: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
