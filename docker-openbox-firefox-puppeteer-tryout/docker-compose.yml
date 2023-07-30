@@ -5,7 +5,7 @@ services:
       - 6080:6080
     privileged: true
     volumes:
-      - ./share:/share
+      - ./share/firefox-user-data:/share/firefox-user-data
       - ./openbox-firefox/src:/app
 
   bait:

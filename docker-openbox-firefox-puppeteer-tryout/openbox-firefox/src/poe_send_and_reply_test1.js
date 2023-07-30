@@ -92,7 +92,7 @@ async function questionAndAnswer(page, question, answer_idx) {
     product: 'firefox',
     headless: false,
     executablePath: '/usr/bin/firefox',
-    userDataDir: '/share/firefox',
+    userDataDir: '/share/firefox-user-data',
     slowMo: 1,
     // NOTE: https://wiki.mozilla.org/Firefox/CommandLineOptions
     defaultViewport: { width: 1024, height: 768 },
