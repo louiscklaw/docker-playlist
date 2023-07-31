@@ -1,6 +1,12 @@
 const puppeteer = require('puppeteer-core');
-// const chalk = require('chalk');
+const chalk = require('chalk');
 var assert = require('chai').assert
+
+require('dotenv').config();
+
+const { FIREFOX_DATA_DIR } = process.env;
+
+
 
 // NOTE: init answer_idx,
 
@@ -24,6 +30,23 @@ async function clearChatHistory(page) {
     document.querySelector('[class*="ChatBreakButton_button__"]').click();
     document.querySelectorAll('[class*="Message_botMessageBubble__"]').forEach(item => item.remove())
   });
+
+}
+
+async function clearModalBox(page) {
+  // NOTE: clear modal box if any
+  console.log('clear modal box');
+
+  await page.waitForTimeout(1 * 1000);
+  await page.evaluate(() => {
+    try {
+      document.querySelector('.ReactModal__Content').style.display = 'none'
+      document.querySelector('.ReactModal__Overlay').style.display = 'none'
+    } catch (error) {
+      console.log(error)
+    }
+  });
+  await page.waitForTimeout(1 * 1000);
 
 }
 
@@ -87,7 +110,7 @@ async function questionAndAnswer(page, question, answer_idx) {
     product: 'firefox',
     headless: false,
     executablePath: '/usr/bin/firefox',
-    userDataDir: '/share/firefox',
+    userDataDir: FIREFOX_DATA_DIR,
     slowMo: 1,
     // NOTE: https://wiki.mozilla.org/Firefox/CommandLineOptions
     defaultViewport: { width: 1024, height: 768 },
@@ -97,6 +120,7 @@ async function questionAndAnswer(page, question, answer_idx) {
 
   await initChatGptPage(page);
   await clearChatHistory(page);
+  await clearModalBox(page);
 
   answer_idx++;
   var reply = await questionAndAnswer(page, "say 'hello 1' to me", answer_idx);
@@ -113,7 +137,7 @@ async function questionAndAnswer(page, question, answer_idx) {
 
   await page.waitForTimeout(9999 * 1000);
 
-  console.log('test done');
+  console.log('test done'); z
 
   await page.close();
   await browser.close();
