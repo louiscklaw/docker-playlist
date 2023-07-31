@@ -29,6 +29,9 @@ cd dockerfiles/final
     -t openbox-firefox-ubuntu
 cd -
 
+# docker image tag openbox-firefox-ubuntu logickee/openbox-firefox-ubuntu
+# docker push logickee/openbox-firefox-ubuntu
+
 # docker run --rm -it \
 #   --privileged \
 #   --device /dev/kvm \

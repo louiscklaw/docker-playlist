@@ -5,8 +5,13 @@ services:
       - 6080:6080
     privileged: true
     volumes:
+      - /usr/share/zoneinfo/Asia/Hong_Kong:/etc/localtime:ro
       - ./share/firefox-user-data:/share/firefox-user-data
       - ./openbox-firefox/src:/app
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Hong_Kong
 
   bait:
     build: bait
