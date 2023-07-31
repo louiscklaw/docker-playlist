@@ -2,7 +2,7 @@
 
 set -x
 
-rm -rf node_modules
+# rm -rf node_modules
 
 export PUPPETEER_PRODUCT=firefox 
 
@@ -10,7 +10,6 @@ npm i puppeteer-core
 
 # https://expressjs.com/en/starter/installing.html
 npm i express
-npm i dotenv
 npm i dotenv
 
 # node index.js
