@@ -29,11 +29,8 @@ services:
       # - traefik.http.routers.n8n.middlewares=n8n@docker
 
       - "traefik.enable=true"
-
       - "traefik.http.routers.n8n-iamon99.rule=Host(`n8n.iamon99.com`)"
       - "traefik.http.routers.n8n-iamon99.entrypoints=web"
-
-      # NOTE: container serving 8080 port
       - "traefik.http.services.n8n-iamon99.loadbalancer.server.port=5678"
 
     environment:
@@ -50,8 +47,3 @@ services:
     volumes:
       - ./volumes/.n8n:/home/node/.n8n
       - ./volumes/n8n-local-files:/files
-
-networks:
-  default:
-    name: traefik-proxy-network
-    external: true
