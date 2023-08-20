@@ -1,31 +1,48 @@
-version: '3.8'
+volumes:
+  redis_data:
+  redisinsight_store:
+
 services:
   redis:
-    image: redis:6.0.7
-    container_name: redis
-    hostname: redis
+    image: ubuntu/redis:6.0-21.04_beta
+    # hostname: redis
+    # expose:
+    #   - 6379
     ports:
-      - "6379:6379"
-    volumes:
-      - ./volumes/redis/conf:/etc/redis
-      - ./volumes/redis/data:/data
-    command: redis-server /etc/redis/redis.conf
+      - 16379:6379
+    volumes: 
+      - /usr/share/zoneinfo/Asia/Hong_Kong:/etc/localtime:ro
+      - redis_data:/data
+    command: redis-server --save 5 1 --loglevel debug --dir /data
     restart: always
-    networks:
-      - devops
+    environment:
+      - TZ=Asia/Hong_Kong
+      - ALLOW_EMPTY_PASSWORD=yes
 
   redisinsight:
     image: redislabs/redisinsight:latest
-    container_name: redisinsight
-    hostname: redisinsight
+    # expose:
+    #   - 8001
     ports:
-      - "8001:8001"
+      - 18001:8001
     volumes:
-      - ./volumes/redisinsight:/db
-    restart: always
-    networks:
-      - devops
+      - /usr/share/zoneinfo/Asia/Hong_Kong:/etc/localtime:ro
+      - redisinsight_store:/db
+    depends_on:
+      - redis
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Hong_Kong
 
-networks:
-  devops:
-    external: true
+  test:
+    image: node:latest
+    command: sleep infinity
+    working_dir: /src
+    # env_file: ./.env
+    volumes:
+      - /usr/share/zoneinfo/Asia/Hong_Kong:/etc/localtime:ro
+      - ./src:/src
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Hong_Kong
+    
