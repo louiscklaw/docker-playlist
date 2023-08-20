@@ -9,9 +9,9 @@ const client = redis.createClient({
 client.on('connect', () => {
     console.log('connected to redis');
     console.log('write test start')
-    Array(99).fill(0).forEach((_,j) => {
+    Array(3).fill(0).forEach((_,j) => {
 
-        Array(9999).fill(0).forEach((_, i) => {
+        Array(99).fill(0).forEach((_, i) => {
             var name = i.toString()
             var value = (i + i).toString()
             client.set(name, value).then((res) => {
@@ -24,7 +24,7 @@ client.on('connect', () => {
 
         console.log('write test done')
 
-        Array(9999).fill(0).forEach((_, i) => {
+        Array(99).fill(0).forEach((_, i) => {
             var name = i.toString()
             client.get(name)
         })
@@ -35,11 +35,11 @@ client.on('connect', () => {
     })
 
 });
+
 client.on('error', (err) => {
     console.log('error: ', err);
 });
 
 client.connect();
-
 
 console.log('done')
