@@ -1,0 +1,14 @@
+FROM ubuntu:20.04
+
+# Set DEBIAN_FRONTEND to noninteractive
+ENV DEBIAN_FRONTEND noninteractive
+
+# Set default user and workdir
+USER root
+WORKDIR /root
+
+ADD install_node.sh /root/install_node.sh
+RUN /root/install_node.sh
+
+
+CMD ["/bin/bash"]
