@@ -22,7 +22,7 @@ echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.co
 # Run Update and Install
 apt-get update
 apt-get install nodejs -y
-apt-get install yarn -y
+npm install -g yarn
 
 # Uninstall nodejs Ubuntu & Debian packages
 # apt-get purge nodejs &&\
@@ -30,3 +30,5 @@ apt-get install yarn -y
 # rm -r /etc/apt/keyrings/nodesource.gpg
 
 node -v
+npm -v
+yarn -v
