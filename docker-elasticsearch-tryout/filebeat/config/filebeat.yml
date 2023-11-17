@@ -1,0 +1,76 @@
+## Filebeat configuration
+## https://github.com/elastic/beats/blob/7.17/deploy/docker/filebeat.docker.yml
+#
+
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+filebeat.modules:
+ - module: nginx
+   access:
+     enabled: true
+     var.paths: ["/usr/share/filebeat/nginx/access.log"]
+   error:
+     enabled: true
+     var.paths: ["/usr/share/filebeat/nginx/error.log"]
+
+filebeat.autodiscover:
+  providers:
+    # The Docker autodiscover provider automatically retrieves logs from Docker
+    # containers as they start and stop.
+    - type: docker
+      hints.enabled: true
+      # templates:
+      #   - condition:
+      #       contains:
+      #         docker.container.image: jwilder/nginx-proxy:alpine
+      #     config:
+      #       - type: container
+      #         paths:
+      #           - /var/lib/docker/containers/${data.docker.container.id}/*.log
+      #         exclude_lines: ["^\\s+[\\-`('.|_]"]  # drop asciiart lines
+      #         multiline.pattern: '^[[:space:]]'
+      #         multiline.negate: false
+      #         multiline.match: after
+
+      #   - condition:
+      #       contains:
+      #         docker.container.name: odoo_docker_deploy_web_1
+      #     config:
+      #       - type: container
+      #         paths:
+      #           - /var/lib/docker/containers/${data.docker.container.id}/*.log
+      #          ## snap install docker
+      #           - /var/snap/docker/common/var-lib-docker/containers/${data.docker.container.id}/*.log
+      #         exclude_lines: ["^\\s+[\\-`('.|_]"]  # drop asciiart lines
+      #         multiline.pattern: '^[[:space:]]'
+      #         multiline.negate: false
+      #         multiline.match: after
+
+
+processors:
+  - add_cloud_metadata: ~
+
+output.elasticsearch:
+  #hosts: ['http://elasticsearch:9200']
+  hosts: ['YOUR_IP:9200']
+  username: elastic
+  password: changeme
+  # create index by daily
+  index: "filebeat1-%{[agent.version]}-%{+yyyy.MM.dd}"
+  # create index by weekly
+  # index: "filebeat1-%{[agent.version]}-%{+xxxx.ww}"
+
+setup.template.name: "filebeat1"
+setup.template.pattern: "filebeat1-*"
+# setup.ilm.pattern: "{now/d}-000001"        # by daily
+setup.ilm.pattern: "{now/w{yyyy.ww}}-000001" # by weekly
+setup.ilm.enabled: true
+
+## HTTP endpoint for health checking
+## https://www.elastic.co/guide/en/beats/filebeat/7.17/http-endpoint.html
+
+http.enabled: true
+http.host: 0.0.0.0
