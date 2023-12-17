@@ -1,0 +1,14 @@
+services:
+  dashbord-demo.louislabs.com:
+    image: 192.168.10.61:5000/node-src-20-helloworld
+    # build: ./node-helloworld
+    ports:
+      - 8080:8080
+    user: 1000:1000
+    environment:
+      - HELLO=world
+      - NODE_PATH=/src/node_modules
+    entrypoint: ./entry.sh
+    volumes:
+      - ./src:/src
+    working_dir: /src
