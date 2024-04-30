@@ -1,0 +1,93 @@
+version: "3.2"
+
+services:
+  elasticsearch:
+    build:
+      context: elasticsearch/
+      args:
+        ELASTIC_VERSION: $ELASTIC_VERSION
+    volumes:
+      # z: the volume content will be shared between containers
+      # ro : container read-only
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,z
+      - ./volumes/elasticsearch/data:/usr/share/elasticsearch/data:z
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
+      ELASTIC_PASSWORD: changeme
+      # Use single node discovery in order to disable production mode and avoid bootstrap checks
+      # see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+      discovery.type: single-node
+    networks:
+      - elk
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "1"
+        max-size: "200m"
+    deploy:
+      resources:
+        reservations:
+          cpus: "0.0001"
+
+  logstash:
+    build:
+      context: logstash/
+      args:
+        ELASTIC_VERSION: $ELASTIC_VERSION
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,z
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro,z
+      - ./mydata:/usr/mydata
+    ports:
+      - "5044:5044"
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "1"
+        max-size: "200m"
+    deploy:
+      resources:
+        reservations:
+          cpus: "0.0001"
+
+  kibana:
+    build:
+      context: kibana/
+      args:
+        ELASTIC_VERSION: $ELASTIC_VERSION
+    volumes:
+      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,z
+    ports:
+      - "5601:5601"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "1"
+        max-size: "200m"
+    deploy:
+      resources:
+        reservations:
+          cpus: "0.0001"
+
+networks:
+  elk:
+    driver: bridge
+
+volumes:
+  elasticsearch:
